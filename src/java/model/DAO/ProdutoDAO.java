@@ -38,6 +38,7 @@ public class ProdutoDAO {
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setEstoque(rs.getInt("estoque"));
+                produto.setImg(rs.getBytes("img"));
                 prod.add(produto);
             }
             rs.close();
@@ -57,12 +58,13 @@ public class ProdutoDAO {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
 
-            stmt = conexao.prepareStatement("INSERT INTO produto (nome,categoria,descricao,preco,estoque) VALUES (?,?,?,?,?)");
+            stmt = conexao.prepareStatement("INSERT INTO produto (nome,categoria,descricao,preco,estoque,img) VALUES (?,?,?,?,?,?)");
             stmt.setString(1, createProduto.getNome());
             stmt.setString(2, createProduto.getCategoria());
             stmt.setString(3, createProduto.getDescricao());
             stmt.setFloat(4, createProduto.getPreco());
             stmt.setInt(5, createProduto.getEstoque());
+            stmt.setBytes(6, createProduto.getImg());
             stmt.executeUpdate();
 
             stmt.close();
