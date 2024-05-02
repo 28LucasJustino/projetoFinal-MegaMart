@@ -1,5 +1,6 @@
 package model.DAO;
 
+import com.sun.org.apache.bcel.internal.generic.RETURN;
 import conexao.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -88,5 +89,26 @@ public class UsuarioDAO {
             e.printStackTrace();
         }
         return validar;
+    }
+    public UsuarioDTO buscarLogin(UsuarioDTO user){    
+
+        try{
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+
+            stmt = conexao.prepareStatement("SELECT * FROM usuario WHERE email = ? AND senha = ?");
+            stmt.setString(1, user.getEmail());
+            stmt.setString(2, user.getSenha());
+            
+            rs = stmt.executeQuery();
+            if(rs.next()){
+                user.setIdUsuario(rs.getInt("idUsuario"));
+               
+            }
+        }catch(SQLException e){
+          e.printStackTrace();
+        }
+        return user;
     }
 }

@@ -4,14 +4,13 @@ use bd_projetoFinal;
 
 CREATE TABLE usuario (
     idUsuario INT AUTO_INCREMENT PRIMARY KEY,
-    admin INT NOT NULL,
     nome VARCHAR(100) NOT NULL,
     senha VARCHAR(40) NOT NULL,
     email VARCHAR(130) NOT NULL,
     cpf CHAR(14) NOT NULL,
     telefone CHAR(14) NOT NULL,
-    nascimento DATE NOT NULL
-);
+    nascimento DATE NOT NULL,
+	status INT);
 
 CREATE TABLE produto (
     idProduto INT AUTO_INCREMENT PRIMARY KEY,
@@ -20,15 +19,13 @@ CREATE TABLE produto (
     descricao TINYTEXT NOT NULL,
     preco FLOAT NOT NULL,
     estoque INT NOT NULL,
-    img LONGBLOB
-);
+    img LONGBLOB);
 
 CREATE TABLE pedidos (
     idPedidos INT AUTO_INCREMENT PRIMARY KEY,
     idUsuario INT NOT NULL,
     data_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario)
-);
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario));
 
 CREATE TABLE carrinho (
     idCarrinho INT AUTO_INCREMENT PRIMARY KEY,
@@ -39,8 +36,7 @@ CREATE TABLE carrinho (
     data_compra TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
     FOREIGN KEY (idProduto) REFERENCES produto(idProduto),
-    FOREIGN KEY (idPedidos) REFERENCES pedidos(idPedidos)
-);
+    FOREIGN KEY (idPedidos) REFERENCES pedidos(idPedidos));
 
 CREATE TABLE checkout (
     idCheckout INT AUTO_INCREMENT PRIMARY KEY,
@@ -48,8 +44,7 @@ CREATE TABLE checkout (
     idProduto INT NOT NULL,
     quantidade INT NOT NULL,
     FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
-    FOREIGN KEY (idProduto) REFERENCES produto(idProduto)
-);
+    FOREIGN KEY (idProduto) REFERENCES produto(idProduto));
 
 DELIMITER //
 

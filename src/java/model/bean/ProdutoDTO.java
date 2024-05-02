@@ -7,16 +7,17 @@ public class ProdutoDTO {
     private String descricao;
     private float preco;
     private int estoque;
-
+    private byte img;
     public ProdutoDTO() {
     }
 
-    public ProdutoDTO(String nome, String categoria, String descricao, float preco, int estoque) {
+    public ProdutoDTO(String nome, String categoria, String descricao, float preco, int estoque, byte img) {
         this.nome = nome;
         this.categoria = categoria;
         this.descricao = descricao;
         this.preco = preco;
         this.estoque = estoque;
+        this.img = img;
     }
 
     public static int getIdProduto() {
@@ -66,5 +67,14 @@ public class ProdutoDTO {
     public void setEstoque(int estoque) {
         this.estoque = estoque;
     }
+
+    public byte getImg() {
+        return img;
+    }
+
+    public void setImg(byte img) {
+        this.img = img;
+    }
+
     
 }

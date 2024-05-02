@@ -10,17 +10,19 @@ public class UsuarioDTO {
    private String cpf;
    private String telefone;
    private Date nascimento;
+   private int stats;
 
     public UsuarioDTO() {
     }
 
-    public UsuarioDTO(String nome, String senha, String email, String cpf, String telefone, Date nascimento) {
+    public UsuarioDTO(String nome, String senha, String email, String cpf, String telefone, Date nascimento, int stats) {
         this.nome = nome;
         this.senha = senha;
         this.email = email;
         this.cpf = cpf;
         this.telefone = telefone;
         this.nascimento = nascimento;
+        this.stats = stats;
     }
 
     public static int getIdUsuario() {
@@ -78,4 +80,12 @@ public class UsuarioDTO {
     public void setNascimento(Date nascimento) {
         this.nascimento = nascimento;
     }
+
+    public int getStats() {
+        return stats;
+    }
+
+    public void setStats(int stats) {
+        this.stats = stats;
+    }    
 }

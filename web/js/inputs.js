@@ -36,16 +36,3 @@ let hoje = new Date();
 let maxDate = new Date(hoje.getFullYear() - 18, hoje.getMonth(), hoje.getDate());
 let maxDateString = maxDate.toISOString().substr(0, 10);
 document.getElementById('#nascimento').setAttribute('max', maxDateString);
-
-function verificarEspace() {
-    let nome = document.getElementById('#nome').value.trim();
-    let email = document.getElementById('#email').value.trim();
-    let senha = document.getElementById('#senha').value.trim();
-
-    if (nome === '' || email === '' || senha === '') {
-        alert('Por favor, preencha todos os campos.');
-        return false;
-    }
-
-    return true;
-}

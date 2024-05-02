@@ -45,7 +45,6 @@
                             <div class="inputs">
                                 <label for="nome"><i class="fa-brands fa-product-hunt"></i> Nome do Produto</label>
                                 <input type="text" id="nome" name="nome" placeholder="  Nome do Produto" required>
-
                             </div>
                             <div class="inputs">
                                 <label for="categoria"><i class="fa-solid fa-list"></i>Categoria do Produto</label>
@@ -62,6 +61,9 @@
                             <div class="inputs">
                                 <label for="estoque"><i class="fa-solid fa-box"></i>Estoque</label>
                                 <input id="estoque" type="number" name="estoque"  placeholder="   Quantidade em Estoque" required>
+                            </div>
+                            <div class="inputs">
+                                <input type="file" id="image" name="iamge" placeholder="  Nome do Produto" required>
                             </div>
                         </div>
 

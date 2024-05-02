@@ -180,9 +180,11 @@ body main {
 .login-button #btnL {
     border: none;
     background-color:red;
-    padding: 0.4rem 1rem;
+    padding: 0.6rem 1.5rem;
     border-radius: 5px;
     cursor: pointer;
+    position: relative;
+    left: 32vh;
 }
 
 .login-button :hover {

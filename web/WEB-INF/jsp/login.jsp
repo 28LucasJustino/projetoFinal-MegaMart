@@ -16,7 +16,7 @@
 
     <body>
         <main>
-            <form action="log" class="login" method="get">
+            <form action="log" id="logar" class="login" method="post">
                 <div class="card-login">
                     <h1>Login</h1>
                     <div class="inputsL">
@@ -31,7 +31,7 @@
                     </div>
                     <button class="btnLogin">Confirmar</button>
                     <div class="login-button">
-                        <button id="btnL"><a id="aL" href="./Cadastro">Não tem Conta Ainda?</a></button>
+                        <button type="submit" id="btnL"><a id="aL" href="./Cadastro">Não tem Conta Ainda?</a></button>
                     </div>
                 </div>
             </form>
