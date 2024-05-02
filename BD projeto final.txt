@@ -8,9 +8,9 @@ CREATE TABLE usuario (
     senha VARCHAR(40) NOT NULL,
     email VARCHAR(130) NOT NULL,
     cpf CHAR(14) NOT NULL,
-    telefone CHAR(14) NOT NULL,
+    telefone CHAR(15) NOT NULL,
     nascimento DATE NOT NULL,
-	status INT);
+	stats INT NOT NULL DEFAULT 1);
 
 CREATE TABLE produto (
     idProduto INT AUTO_INCREMENT PRIMARY KEY,
@@ -45,7 +45,7 @@ CREATE TABLE checkout (
     quantidade INT NOT NULL,
     FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
     FOREIGN KEY (idProduto) REFERENCES produto(idProduto));
-
+    
 DELIMITER //
 
 CREATE TRIGGER insert_pedidos

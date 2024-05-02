@@ -7,11 +7,11 @@ public class ProdutoDTO {
     private String descricao;
     private float preco;
     private int estoque;
-    private byte img;
+    private byte[] img;
     public ProdutoDTO() {
     }
 
-    public ProdutoDTO(String nome, String categoria, String descricao, float preco, int estoque, byte img) {
+    public ProdutoDTO(String nome, String categoria, String descricao, float preco, int estoque, byte[] img) {
         this.nome = nome;
         this.categoria = categoria;
         this.descricao = descricao;
@@ -68,13 +68,13 @@ public class ProdutoDTO {
         this.estoque = estoque;
     }
 
-    public byte getImg() {
+    public byte[] getImg() {
         return img;
     }
 
-    public void setImg(byte img) {
+    public void setImg(byte[] img) {
         this.img = img;
     }
 
-    
+   
 }
