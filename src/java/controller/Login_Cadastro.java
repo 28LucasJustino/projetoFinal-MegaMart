@@ -35,7 +35,7 @@ public class Login_Cadastro extends HttpServlet {
             throws ServletException, IOException {
         String url = request.getServletPath();
         if (url.equals("/cad")) {
-            String nextPage = "/WEB-INF/jsp/cadastrarUsuario.jsp";
+            String nextPage = "/WEB-INF/jsp/cadastrar.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else if (url.equals("/log")) {

@@ -24,7 +24,7 @@ public class ProdutoDAO {
                 ProdutoDTO produto = new ProdutoDTO();
                 produto.setIdProduto(rs.getInt("idProduto"));
                 produto.setNome(rs.getString("nome"));
-                produto.setCategoria(rs.getString("categoria"));
+                produto.setFkIdCategoria(rs.getInt("FkIdcategoria"));
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setEstoque(rs.getInt("estoque"));
@@ -48,9 +48,9 @@ public class ProdutoDAO {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
 
-            stmt = conexao.prepareStatement("INSERT INTO produto (nome,categoria,descricao,preco,estoque,img) VALUES (?,?,?,?,?,?)");
+            stmt = conexao.prepareStatement("INSERT INTO produto (FkIdcategoria,nome,categoria,descricao,preco,estoque,img) VALUES (?,?,?,?,?,?)");
             stmt.setString(1, createProduto.getNome());
-            stmt.setString(2, createProduto.getCategoria());
+            stmt.setInt(2, createProduto.getFkIdCategoria());
             stmt.setString(3, createProduto.getDescricao());
             stmt.setFloat(4, createProduto.getPreco());
             stmt.setInt(5, createProduto.getEstoque());
@@ -81,7 +81,7 @@ public class ProdutoDAO {
                 ProdutoDTO produto = new ProdutoDTO();
                 produto.setIdProduto(rs.getInt("idProduto"));
                 produto.setNome(rs.getString("nome"));
-                produto.setCategoria(rs.getString("categoria"));
+                produto.setFkIdCategoria(rs.getInt("FkIdcategoria"));
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setEstoque(rs.getInt("estoque"));
@@ -134,14 +134,14 @@ public class ProdutoDAO {
 
         try {
             conexao = Conexao.conectar();
-            stmt = conexao.prepareStatement("SELECT * FROM produtos LIMIT 10");
+            stmt = conexao.prepareStatement("SELECT * FROM produto LIMIT 10");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
                 ProdutoDTO produto = new ProdutoDTO();
                 produto.setIdProduto(rs.getInt("idProduto"));
                 produto.setNome(rs.getString("nome"));
-                produto.setCategoria(rs.getString("categoria"));
+                produto.setFkIdCategoria(rs.getInt("FkIdcategoria"));
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setEstoque(rs.getInt("estoque"));

@@ -15,31 +15,11 @@
     </head>
     <body>
         <header>
-        <nav class="Header-site">
-            <a href="./Home"><img src="assets/Design_sem_nome-removebg-preview.png" id="imageL" alt="" /></a> 
-            <div class="cate">
-                <input type="text" placeholder="Busca" class="inB"><i class="fa-solid fa-magnifying-glass"
-                    id="iconB"></i>
-                <ul>
-                    <li class="item"><a href="./Home" class="link"><i class="fa-solid fa-house"
-                                id="iconC"></i>Home</a></li>
-                    <li class="item"><a href="#" class="link"><i class="fa-solid fa-c"
-                                id="iconC"></i>ategorias</a></li>
-                    <li class="item"><a href="./Admin" class="link"><i class="fa-solid fa-p"
-                                id="iconC"></i>rodutos</a></li>
-                                <li class="item"><a href="#" class="link"><i class="fa-solid fa-cart-shopping" id="iconC">  
-                                </i></i></a></li>
-                </ul>
-            </div>
-            <div class="btnCad">
-                <button><a href="./Cadastro">Entrar</a></button>
-            </div>
-            <br>
-        </nav>
+            <jsp:include page="header.jsp"></jsp:include>
     </header>
         <main>
             <div class="form">
-                <form action="cad" method="post">
+                <form action="cadastrarProduto" method="post" enctype="multipart/form-data">
                         <div class="cards">
                             <div class="inputs">
                                 <label for="nome"><i class="fa-brands fa-product-hunt"></i> Nome do Produto</label>
@@ -47,11 +27,15 @@
                             </div>
                             <div class="inputs">
                                 <label for="categoria"><i class="fa-solid fa-list"></i>Categoria do Produto</label>
-                                <input type="text" id="categoria" name="categoria" placeholder="  Categoria do Produto" required>
+                                <select  id="categoria" name="categoria">
+                                    <c:forEach items="${categorias}" var="categoria" >
+                                        <option value="${categoria.idCategoria}">${categoria.nome}</option>
+                                    </c:forEach>
+                                </select>
                             </div>
                             <div class="inputs">
                                 <label for="descricao"><i class="fa-solid fa-message"></i>Descrição</label>
-                                <input type="text" id="descricao" name="descricao" placeholder="   Descrição do Produto" required>
+                                <textarea  id="descricao" name="descricao" rows="3"></textarea>
                             </div>
                             <div class="inputs">
                                 <label for="Preco"><i class="fa-solid fa-money-bill"></i>Preço do Produto</label>
@@ -62,12 +46,12 @@
                                 <input id="estoque" type="number" name="estoque"  placeholder="   Quantidade em Estoque" required>
                             </div>
                             <div class="inputs">
-                                <input type="file" id="image" name="iamge" placeholder="  Nome do Produto" required>
+                                <input type="file" id="image" name="iamge" placeholder="  Nome do Produto">
                             </div>
                         </div>
 
                         <div class="continue-button">
-                            <button class="btnLogin">Confirmar</button>
+                            <button type="submit" class="btnLogin">Confirmar</button>
                         </div>
                     </form>
                 </div>

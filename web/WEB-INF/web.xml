@@ -24,17 +24,29 @@
         <servlet-name>CadastroController</servlet-name>
         <servlet-class>controller.CadastroController</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>AdminController</servlet-name>
-        <servlet-class>controller.AdminController</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
     </servlet-mapping>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/Home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/buscar-produtos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/cadastrar-produto</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/cadastrarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/Produtos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -52,10 +64,7 @@
         <servlet-name>CadastroController</servlet-name>
         <url-pattern>/cad</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AdminController</servlet-name>
-        <url-pattern>/Admin</url-pattern>
-    </servlet-mapping>
+   
     <session-config>
         <session-timeout>
             30

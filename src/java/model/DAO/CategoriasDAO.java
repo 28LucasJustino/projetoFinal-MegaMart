@@ -19,12 +19,12 @@ public class CategoriasDAO {
             PreparedStatement stmt = null;
             ResultSet rs = null;
             
-            stmt = conexao.prepareStatement("SELECT * FROM categorias");
+            stmt = conexao.prepareStatement("SELECT * FROM categoria");
             rs = stmt.executeQuery();
             
             while(rs.next()) {
                 CategoriasDTO categoriaAtual = new CategoriasDTO();
-                categoriaAtual.setIdCategoria(rs.getInt("id_categoria"));
+                categoriaAtual.setIdCategoria(rs.getInt("idCategoria"));
                 categoriaAtual.setNome(rs.getString("nome"));
                 
                 categorias.add(categoriaAtual);
