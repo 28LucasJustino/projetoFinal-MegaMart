@@ -52,7 +52,36 @@ CREATE TABLE checkout (
     quantidade INT NOT NULL,
     FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
     FOREIGN KEY (idProduto) REFERENCES produto(idProduto));
-    
+ 
+ 
+ INSERT INTO categoria (nome) VALUES
+('Celular'),('PC'),('Console'),('TV');
+
+INSERT INTO produto (idCategoria, nome, descricao, preco, estoque) VALUES
+(1, 'Celular 1', 'Smartphone moderno com tela de alta resolução e câmera de alta qualidade.', 1500.00, 10),
+(1, 'Celular 2', 'Smartphone com design elegante e desempenho rápido.', 1200.00, 8),
+(2, 'PC 1', 'Computador desktop potente para jogos e trabalho.', 2500.00, 5),
+(2, 'PC 2', 'Computador com processador de última geração e placa de vídeo dedicada.', 3000.00, 3),
+(3, 'Console 1', 'Console de videogame de última geração com gráficos incríveis.', 1200.00, 8),
+(3, 'Console 2', 'Console portátil para jogar em qualquer lugar.', 800.00, 12),
+(4, 'TV 1', 'Smart TV com resolução 4K e acesso a aplicativos de streaming.', 2000.00, 3),
+(4, 'TV 2', 'TV LED Full HD com tela grande para uma experiência de cinema em casa.', 1500.00, 5),
+(1, 'Celular 3', 'Smartphone com câmera tripla e bateria de longa duração.', 1800.00, 6),
+(2, 'PC 3', 'Computador all-in-one com tela touch screen e design compacto.', 2200.00, 4),
+(3, 'Console 3', 'Console retro com uma coleção de jogos clássicos.', 500.00, 15),
+(4, 'TV 3', 'Smart TV com tecnologia de imagem HDR para cores mais vibrantes.', 2300.00, 2),
+(1, 'Celular 4', 'Smartphone com tela dobrável e tecnologia 5G.', 2500.00, 7),
+(2, 'PC 4', 'Computador com sistema de refrigeração líquida para máximo desempenho.', 3500.00, 3),
+(3, 'Console 4', 'Console com controle sem fio e suporte a jogos multiplayer online.', 1400.00, 9),
+(4, 'TV 4', 'TV 8K com tecnologia de upscaling para imagens mais nítidas.', 5000.00, 1),
+(1, 'Celular 5', 'Smartphone com reconhecimento facial e sensor de impressão digital.', 1600.00, 10),
+(2, 'PC 5', 'Computador com SSD de alta capacidade para armazenamento rápido.', 2800.00, 6),
+(3, 'Console 5', 'Console com biblioteca de jogos exclusivos.', 1100.00, 11),
+(4, 'TV 5', 'Smart TV curva com áudio Dolby Atmos para uma experiência imersiva.', 2700.00, 4);
+
+ 
+ 
+ 
 DELIMITER //
 
 CREATE TRIGGER insert_pedidos

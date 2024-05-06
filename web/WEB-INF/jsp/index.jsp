@@ -11,37 +11,8 @@
     </head>
 
     <header>
-        
+         <jsp:include page="header.jsp"></jsp:include>
     </header>
     
-    <nav class="Header-site">
-            <a href="./Home"><img src="assets/Design_sem_nome-removebg-preview.png" id="imageL" alt="" /></a> 
-            <div class="cate">
-                <input type="text" placeholder="Busca" class="inB"><i class="fa-solid fa-magnifying-glass"
-                    id="iconB"></i>
-                <ul>
-                    <li class="item"><a href="./Home" class="link"><i class="fa-solid fa-house"id="iconC"></i>Home</a></li>
-                    <li class="item"><a href="#" class="link"><i class="fa-solid fa-c"id="iconC"></i>ategorias</a></li>
-                    <li class="item"><a href="./Admin" class="link"><i class="fa-solid fa-p"id="iconC"></i>rodutos</a></li>
-                    <li class="item"><a href="#" class="link"><i class="fa-solid fa-cart-shopping" id="iconC"></i></a></li>
-                </ul>
-            </div>
-            <div class="btnCad">
-                <button><a href="./Cadastro">Entrar</a></button>
-            </div>
-            <div class="mobile-menu-icon">
-                <button onclick="menuShow()"><i class="fa-solid fa-list"></i></button>
-            </div>
-        </nav>
-        <div class="mobile-menu">
-            <ul>
-                <li class="nav-item"><a href="#" class="nav-link">Início</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Projetos</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Sobre</a></li>
-            </ul>
 
-            <div class="login-button">
-                <button><a href="#">Entrar</a></button>
-            </div>
-        </div>
 </html>
