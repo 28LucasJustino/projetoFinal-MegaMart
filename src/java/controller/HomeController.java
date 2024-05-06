@@ -8,12 +8,15 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.DAO.CategoriasDAO;
 import model.DAO.ProdutoDAO;
+import model.bean.CategoriasDTO;
 import model.bean.ProdutoDTO;
 
 
@@ -34,10 +37,37 @@ public class HomeController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nextPage = "/WEB-INF/jsp/index.jsp";
-       
-       RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-       dispatcher.forward(request, response);
+     ProdutoDAO produtosDAO = new ProdutoDAO();
+        CategoriasDAO categoriasDAO = new CategoriasDAO();
+        List<CategoriasDTO> categorias = categoriasDAO.listarCategorias();
+        request.setAttribute("categorias", categorias);
+        String url = request.getServletPath();
+        System.out.println(url);
+        if(url.equals("/cadastrar-produto")) {
+            String nextPage = "/WEB-INF/jsp/cadastrarProduto.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        } else if(url.equals("/Home")){
+            List<ProdutoDTO> produtos = produtosDAO.listarProduto();
+            request.setAttribute("produtos", produtos);
+            String nextPage = "/WEB-INF/jsp/index.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        } else if (url.equals("/buscar-produtos")) {
+            String busca = request.getParameter("busca") != null ? request.getParameter("busca") : "";
+            if(busca.equals("")) {
+                String categoria = request.getParameter("cat");
+                List<ProdutoDTO> produtos = produtosDAO.buscarCategoria(Integer.parseInt(categoria));
+                request.setAttribute("produtos", produtos);
+            } else {
+                busca = "%"+busca+"%";
+                List<ProdutoDTO> produtos = produtosDAO.buscarProduto(busca);
+                request.setAttribute("produtos", produtos);
+            }
+            String nextPage = "/WEB-INF/jsp/produtos.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -52,42 +82,7 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      String url = request.getServletPath();
-        if (url.equals("/prod")) {
-            String nextPage = "/WEB-INF/jsp/index.jsp";
-            ProdutoDTO produto = new ProdutoDTO();
-            ProdutoDAO valida = new ProdutoDAO();
-
-        produto.setNome(request.getParameter("nome"));
-        produto.setCategoria(request.getParameter("categoria"));
-        produto.setDescricao(request.getParameter("descricao"));
-        produto.setPreco(Float.parseFloat(request.getParameter("preco")));
-        produto.setEstoque(Integer.parseInt(request.getParameter("estoque")));
-
-        
-        try {              
-          
-            if(produto.getNome().trim().equals("") || (produto.getCategoria().trim().equals("")) || (produto.getDescricao().trim().equals(""))){
-                nextPage = "/WEB-INF/jsp/cadastro.jsp";
-                    request.setAttribute("errorMessage", "ERRO");
-                    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
-            } else{
-                valida.create(produto); 
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
-            }
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-            nextPage = "/WEB-INF/jsp/cadastro.jsp";
-            request.setAttribute("errorMessage", "Usuário inválido");
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
-        }
-    } else {
         processRequest(request, response);
-    }
     }
 
     /**

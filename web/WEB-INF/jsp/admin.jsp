@@ -16,7 +16,7 @@
     <body>
         <header>
         <nav class="Header-site">
-            <img src="assets/Design_sem_nome-removebg-preview.png" id="imageL" alt=""/>
+            <a href="./Home"><img src="assets/Design_sem_nome-removebg-preview.png" id="imageL" alt="" /></a> 
             <div class="cate">
                 <input type="text" placeholder="Busca" class="inB"><i class="fa-solid fa-magnifying-glass"
                     id="iconB"></i>
@@ -38,7 +38,6 @@
         </nav>
     </header>
         <main>
-          
             <div class="form">
                 <form action="cad" method="post">
                         <div class="cards">
@@ -74,7 +73,6 @@
                 </div>
         </main>
         <footer>
-
         </footer>
     </body>
     </html>

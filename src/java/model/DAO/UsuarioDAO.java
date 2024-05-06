@@ -90,25 +90,28 @@ public class UsuarioDAO {
         }
         return validar;
     }
-    public UsuarioDTO buscarLogin(UsuarioDTO user){    
-
-        try{
+    public UsuarioDTO buscarLogin(UsuarioDTO user) {
+        try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
             ResultSet rs = null;
-
-            stmt = conexao.prepareStatement("SELECT * FROM usuario WHERE email = ? AND senha = ?");
+            
+            stmt = conexao.prepareStatement("SELECT idUsuario, stats FROM usuarios WHERE email = ? AND senha = ?");
             stmt.setString(1, user.getEmail());
             stmt.setString(2, user.getSenha());
             
             rs = stmt.executeQuery();
             if(rs.next()){
                 user.setIdUsuario(rs.getInt("idUsuario"));
-               
+                user.setStats(rs.getInt("stats"));
             }
-        }catch(SQLException e){
-          e.printStackTrace();
+            rs.close();
+            stmt.close();
+            conexao.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+        
         return user;
-    }
+    }   
 }

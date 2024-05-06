@@ -7,11 +7,14 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.DAO.UsuarioDAO;
+import model.bean.UsuarioDTO;
 
 /**
  *
@@ -30,10 +33,16 @@ public class Login_Cadastro extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String nextPage = "/WEB-INF/jsp/login_cadastro.jsp";
-        
-         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-         dispatcher.forward(request, response);
+        String url = request.getServletPath();
+        if (url.equals("/cad")) {
+            String nextPage = "/WEB-INF/jsp/cadastrarUsuario.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        } else if (url.equals("/log")) {
+            String nextPage = "/WEB-INF/jsp/login.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        }
    
     }
 
@@ -63,7 +72,42 @@ public class Login_Cadastro extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+          String url = request.getServletPath();
+    if (url.equals("/cad")) {
+            UsuarioDTO user = new UsuarioDTO();
+            user.setNome(request.getParameter("nome").equals("") ? "" : request.getParameter("nome"));
+            user.setSenha(request.getParameter("senha"));
+            user.setEmail(request.getParameter("email"));
+            user.setTelefone(request.getParameter("telefone"));
+            user.setNascimento(Date.valueOf(request.getParameter("nascimento")));
+            user.setCpf(request.getParameter("cpf"));
+
+            UsuarioDAO userD = new UsuarioDAO();
+            userD.create(user);
+
+            response.sendRedirect("./Login");
+        } else if (url.equals("/log")) {
+            UsuarioDTO user = new UsuarioDTO();
+            user.setEmail(request.getParameter("email"));
+            user.setSenha(request.getParameter("senha"));
+
+            UsuarioDAO userD = new UsuarioDAO();
+            user = userD.buscarLogin(user);
+            if (user.getIdUsuario() > 0) {
+                if (user.getStats() == 2) {
+                    // redirecionar para página de admin
+                    response.sendRedirect("./cadastrar-produto");
+                } else {
+                    // redirecionar para página de usuario
+                    response.sendRedirect("./home");
+                }
+            } else {
+                request.setAttribute("erroMensagem", "Erro ao realizar Login");
+                String nextPage = "/WEB-INF/jsp/erroLogin.jsp";
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+                dispatcher.forward(request, response);
+            }
+        }
     }
 
     /**

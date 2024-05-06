@@ -11,8 +11,11 @@
     </head>
 
     <header>
-        <nav class="Header-site">
-            <img src="assets/Design_sem_nome-removebg-preview.png" id="imageL" alt=""/>
+        
+    </header>
+    
+    <nav class="Header-site">
+            <a href="./Home"><img src="assets/Design_sem_nome-removebg-preview.png" id="imageL" alt="" /></a> 
             <div class="cate">
                 <input type="text" placeholder="Busca" class="inB"><i class="fa-solid fa-magnifying-glass"
                     id="iconB"></i>
@@ -26,6 +29,19 @@
             <div class="btnCad">
                 <button><a href="./Cadastro">Entrar</a></button>
             </div>
+            <div class="mobile-menu-icon">
+                <button onclick="menuShow()"><i class="fa-solid fa-list"></i></button>
+            </div>
         </nav>
-    </header>
+        <div class="mobile-menu">
+            <ul>
+                <li class="nav-item"><a href="#" class="nav-link">Início</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Projetos</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Sobre</a></li>
+            </ul>
+
+            <div class="login-button">
+                <button><a href="#">Entrar</a></button>
+            </div>
+        </div>
 </html>

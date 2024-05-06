@@ -5,21 +5,13 @@
     padding: 0;
     font-family: "Roboto Condensed", sans-serif;
 }
-header{
-    width: 20vw;
-    position: relative;
-    left: 40vw;
-    top: 4vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-main{
+body main{
     width: 100vw;
     height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color:  rgb(100, 99, 99);;
 }
 
 .login{
@@ -36,7 +28,7 @@ main{
     align-items: center;
     flex-direction: column;
     padding: 30px 35px;
-    background-color: rgb(141, 145, 148) ;
+    background-color: rgb(255, 255, 255) ;
     border-radius: 20px;
     box-shadow: 0px 10px 40px rgb(73, 72, 72) ;
 }
@@ -75,7 +67,7 @@ main{
     right: 28px;
 }
 .inputsL #inputL:hover{
-    border: 1px solid rgb(216, 148, 2);
+    border: 1px solid red;
 }
 
 .inputsL #labelL{
@@ -97,19 +89,19 @@ main{
     text-transform: uppercase;
     font-weight: 800;
     letter-spacing: 3px;
-    color: rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
     cursor: pointer;
-    box-shadow: 0 10px 40px -12px rgb(216, 148, 2);
+    box-shadow: 0 10px 40px -12px red;
 }
 .btnLogin:hover{
     transform: scale(1.05);
-    background-color:rgb(216, 148, 2);
+    background-color:red;
 
 }
 .login-button #btnL {
     border: none;
-    background-color:rgb(216, 148, 2);
+    background-color:red;
     padding: 0.4rem 1rem;
     border-radius: 5px;
     cursor: pointer;
@@ -117,7 +109,7 @@ main{
 
 .login-button :hover {
     transform: scale(1.0);
-    background-color:rgb(216, 148, 2);
+    background-color:red;
 }
 
 .login-button #btnL #aL {

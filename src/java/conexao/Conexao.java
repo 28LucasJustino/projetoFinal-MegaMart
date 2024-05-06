@@ -14,6 +14,7 @@ public class Conexao {
             Class.forName(DRIVER);
             conn = DriverManager.getConnection(URL, USUARIO, SENHA);
         } catch (Exception e) {
+           e.printStackTrace();
         }
         return conn;
     }

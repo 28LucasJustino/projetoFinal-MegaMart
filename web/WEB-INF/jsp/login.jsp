@@ -13,7 +13,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>MegaMart- Login</title>
     </head>
-
     <body>
         <main>
             <form action="log" id="logar" class="login" method="post">
@@ -37,5 +36,4 @@
             </form>
         </main>
     </body>
-
     </html>

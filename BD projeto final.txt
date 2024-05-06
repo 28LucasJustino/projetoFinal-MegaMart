@@ -12,14 +12,21 @@ CREATE TABLE usuario (
     nascimento DATE NOT NULL,
 	stats INT NOT NULL DEFAULT 1);
 
+CREATE TABLE categoria (
+    idCategoria INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(45) NOT NULL
+);
+
 CREATE TABLE produto (
     idProduto INT AUTO_INCREMENT PRIMARY KEY,
+    idCategoria INT NOT NULL,
     nome VARCHAR(45) NOT NULL,
-    categoria VARCHAR(40) NOT NULL,
+    categoria INT NOT NULL,
     descricao TINYTEXT NOT NULL,
     preco FLOAT NOT NULL,
     estoque INT NOT NULL,
-    img LONGBLOB);
+    img LONGBLOB,
+    FOREIGN KEY (idCategoria) REFERENCES categoria(idCategoria));
 
 CREATE TABLE pedidos (
     idPedidos INT AUTO_INCREMENT PRIMARY KEY,
