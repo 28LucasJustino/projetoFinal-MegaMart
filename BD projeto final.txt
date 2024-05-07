@@ -19,15 +19,15 @@ CREATE TABLE categoria (
 
 CREATE TABLE produto (
     idProduto INT AUTO_INCREMENT PRIMARY KEY,
-    idCategoria INT NOT NULL,
+    categoria INT DEFAULT NULL,
     nome VARCHAR(45) NOT NULL,
-    categoria INT NOT NULL,
     descricao TINYTEXT NOT NULL,
     preco FLOAT NOT NULL,
     estoque INT NOT NULL,
     img LONGBLOB,
-    FOREIGN KEY (idCategoria) REFERENCES categoria(idCategoria));
-
+	KEY categoria_produtos (categoria),
+	CONSTRAINT categoria_produtos FOREIGN KEY (categoria) REFERENCES categoria (idCategoria));
+    
 CREATE TABLE pedidos (
     idPedidos INT AUTO_INCREMENT PRIMARY KEY,
     idUsuario INT NOT NULL,
@@ -54,10 +54,10 @@ CREATE TABLE checkout (
     FOREIGN KEY (idProduto) REFERENCES produto(idProduto));
  
  
- INSERT INTO categoria (nome) VALUES
-('Celular'),('PC'),('Console'),('TV');
+ INSERT INTO categoria (idCategoria,nome) VALUES
+(1,'Celular'),(2,'PC'),(3,'Console'),(4,'TV');
 
-INSERT INTO produto (idCategoria, nome, descricao, preco, estoque) VALUES
+INSERT INTO produto (categoria, nome, descricao, preco, estoque) VALUES
 (1, 'Celular 1', 'Smartphone moderno com tela de alta resolução e câmera de alta qualidade.', 1500.00, 10),
 (1, 'Celular 2', 'Smartphone com design elegante e desempenho rápido.', 1200.00, 8),
 (2, 'PC 1', 'Computador desktop potente para jogos e trabalho.', 2500.00, 5),

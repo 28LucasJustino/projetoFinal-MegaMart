@@ -13,28 +13,26 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     </head>
     <body>
-        <nav class="Header-site">
-            <a href="./Home"><img src="assets/Design_sem_nome-removebg-preview.png" id="imageL" alt="" /></a> 
-            <div class="cate">
-                <c:forEach items="${categorias}" var="categoria" >
-                <input type="text" placeholder="Busca" class="inB"><a href="./buscar-produtos?cat=${categoria.idCategoria}&busca=">${categoria.nome}</a><i class="fa-solid fa-magnifying-glass"
-                    id="iconB"></i>
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="./home"><i class="fa-solid fa-house"></i></a>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                </c:forEach>
-                <ul>
-                    <li class="item"><a href="./Home" class="link"><i class="fa-solid fa-house"
-                                id="iconC"></i>Home</a></li>
-                    <li class="item"><a href="#" class="link"><i class="fa-solid fa-c"
-                                id="iconC"></i>ategorias</a></li>
-                    <li class="item"><a href="./Produtos" class="link"><i class="fa-solid fa-p"
-                                id="iconC"></i>rodutos</a></li>
-                                <li class="item"><a href="#" class="link"><i class="fa-solid fa-cart-shopping" id="iconC"> </i></a></li>
-                                <li class="item"><a href="./cadastrar-produto" class="link"></i>teste</a></li>
-                </ul>
+                <form class="d-flex" action="buscar-produtos" method="get">
+                    <input class="form-control me-2" name="busca" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+              </div>
             </div>
-            <div class="btnCad">
-                <button><a href="./Cadastro">Entrar</a></button>
-            </div>  
+            <div class="container container-categorias">
+                <c:forEach items="${categorias}" var="categoria" >
+                    <div class="categoria">
+                        <a href="./buscar-produtos?cat=${categoria.idCategoria}&busca=">${categoria.nome}</a>
+                    </div>
+                </c:forEach>
+            </div>
           </nav>
     </body>
     <script src="https://kit.fontawesome.com/ffe7fbbd06.js" crossorigin="anonymous"></script>

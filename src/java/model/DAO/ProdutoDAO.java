@@ -107,14 +107,21 @@ public class ProdutoDAO {
             PreparedStatement stmt = null;
             ResultSet rs = null;
 
-            stmt = conexao.prepareStatement("SELECT * FROM categoria");
+            stmt = conexao.prepareStatement("SELECT * FROM produto WHERE categoria = ?");
             rs = stmt.executeQuery();
 
             stmt.setInt(1, categoria);
             
             while (rs.next()) {
-        
-            
+                ProdutoDTO produto = new ProdutoDTO();
+                produto.setIdProduto(rs.getInt("idProduto"));
+                produto.setNome(rs.getString("nome"));
+                produto.setCategoria(rs.getInt("categoria"));
+                produto.setDescricao(rs.getString("descricao"));
+                produto.setPreco(rs.getFloat("preco"));
+                produto.setEstoque(rs.getInt("estoque"));
+                produto.setImg(rs.getBytes("img"));
+                resultadoBusca.add(produto);
             }
             rs.close();
             stmt.close();
