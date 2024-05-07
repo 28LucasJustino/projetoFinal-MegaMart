@@ -16,8 +16,11 @@
         <nav class="Header-site">
             <a href="./Home"><img src="assets/Design_sem_nome-removebg-preview.png" id="imageL" alt="" /></a> 
             <div class="cate">
-                <input type="text" placeholder="Busca" class="inB"><i class="fa-solid fa-magnifying-glass"
+                <c:forEach items="${categorias}" var="categoria" >
+                <input type="text" placeholder="Busca" class="inB"><a href="./buscar-produtos?cat=${categoria.idCategoria}&busca=">${categoria.nome}</a><i class="fa-solid fa-magnifying-glass"
                     id="iconB"></i>
+
+                </c:forEach>
                 <ul>
                     <li class="item"><a href="./Home" class="link"><i class="fa-solid fa-house"
                                 id="iconC"></i>Home</a></li>

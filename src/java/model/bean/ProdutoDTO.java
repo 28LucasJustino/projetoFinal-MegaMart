@@ -1,9 +1,9 @@
 package model.bean;
 
 public class ProdutoDTO {
-    private static int idProduto;
+    private int idProduto;
     private String nome;
-    private int fkIdCategoria;
+    private int categoria;
     private String descricao;
     private float preco;
     private int estoque;
@@ -11,21 +11,22 @@ public class ProdutoDTO {
     public ProdutoDTO() {
     }
 
-    public ProdutoDTO(String nome, int fkIdCategoria, String descricao, float preco, int estoque, byte[] img) {
+    public ProdutoDTO(int idProduto, String nome, int categoria, String descricao, float preco, int estoque, byte[] img) {
+        this.idProduto = idProduto;
         this.nome = nome;
-        this.fkIdCategoria = fkIdCategoria;
+        this.categoria = categoria;
         this.descricao = descricao;
         this.preco = preco;
         this.estoque = estoque;
         this.img = img;
     }
 
-    public static int getIdProduto() {
+    public int getIdProduto() {
         return idProduto;
     }
 
-    public static void setIdProduto(int idProduto) {
-        ProdutoDTO.idProduto = idProduto;
+    public void setIdProduto(int idProduto) {
+        this.idProduto = idProduto;
     }
 
     public String getNome() {
@@ -36,12 +37,12 @@ public class ProdutoDTO {
         this.nome = nome;
     }
 
-    public int getFkIdCategoria() {
-        return fkIdCategoria;
+    public int getCategoria() {
+        return categoria;
     }
 
-    public void setFkIdCategoria(int fkIdCategoria) {
-        this.fkIdCategoria = fkIdCategoria;
+    public void setCategoria(int categoria) {
+        this.categoria = categoria;
     }
 
     public String getDescricao() {
@@ -76,5 +77,4 @@ public class ProdutoDTO {
         this.img = img;
     }
 
-   
 }

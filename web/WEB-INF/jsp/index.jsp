@@ -19,18 +19,21 @@
     </header>
     <main>
 <br>
-     <c:forEach var="produto" items="${produtos}">                           
+     <c:forEach var="produto" items="${produtos}">  
+                 
     <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">${produto.nome}</h5>
-          <p class="card-text">Categoria : ${produto.fkIdCategoria}</p>
-          <p class="card-text">Descrição : ${produto.descricao}</p>
-          <p class="card-text">Preço : ${produto.preco}</p>
+          <div class="cards">
+          <h5 >${produto.nome}</h5>
+          <p >Categoria : ${produto.categoria}</p>
+          <p >Descrição : ${produto.descricao}</p>
+          <p >Preço : ${produto.preco}</p>
           <a href="./Produtos" class="btn btn-primary">Comprar</a>
         </div>
       </div>
+      </div>
       </c:forEach>
-
+   
     </main>
       </body>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

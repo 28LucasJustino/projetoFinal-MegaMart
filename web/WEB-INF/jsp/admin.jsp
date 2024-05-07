@@ -28,9 +28,10 @@
                             <div class="inputs">
                                 <label for="categoria"><i class="fa-solid fa-list"></i>Categoria do Produto</label>
                                 <select  id="categoria" name="categoria">
-                                    <c:forEach items="${categorias}" var="categoria" >
-                                        <option value="${categoria.idCategoria}">${categoria.nome}</option>
-                                    </c:forEach>
+                                    <option value="1">Celular</option>
+                                    <option value="2">PC</option>
+                                    <option value="3">Console</option>
+                                    <option value="4">TV</option>
                                 </select>
                             </div>
                             <div class="inputs">

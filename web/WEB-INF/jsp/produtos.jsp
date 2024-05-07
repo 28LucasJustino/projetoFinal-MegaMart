@@ -15,7 +15,26 @@
     </head>
     <body>
        <header>
-        <jsp:include page="header.jsp"></jsp:include>
+       <nav class="Header-site">
+            <a href="./Home"><img src="assets/Design_sem_nome-removebg-preview.png" id="imageL" alt="" /></a> 
+            <div class="cate">
+                <input type="text" placeholder="Busca" class="inB"><i class="fa-solid fa-magnifying-glass"
+                    id="iconB"></i>
+                <ul>
+                    <li class="item"><a href="./Home" class="link"><i class="fa-solid fa-house"
+                                id="iconC"></i>Home</a></li>
+                    <li class="item"><a href="#" class="link"><i class="fa-solid fa-c"
+                                id="iconC"></i>ategorias</a></li>
+                    <li class="item"><a href="./Produtos" class="link"><i class="fa-solid fa-p"
+                                id="iconC"></i>rodutos</a></li>
+                                <li class="item"><a href="#" class="link"><i class="fa-solid fa-cart-shopping" id="iconC"> </i></a></li>
+                                <li class="item"><a href="./cadastrar-produto" class="link"></i>teste</a></li>
+                </ul>
+            </div>
+            <div class="btnCad">
+                <button><a href="./Cadastro">Entrar</a></button>
+            </div>  
+          </nav>
        </header>
 
        <main>
@@ -25,7 +44,7 @@
     <div class="card" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">${produto.nome}</h5>
-          <p class="card-text">Categoria : ${produto.fkIdCategoria}</p>
+          <p class="card-text">Categoria : ${produto.categoria}</p>
           <p class="card-text">Descrição : ${produto.descricao}</p>
           <p class="card-text">Preço : ${produto.preco}</p>
           <a href="./Produtos" class="btn btn-primary">Comprar</a>

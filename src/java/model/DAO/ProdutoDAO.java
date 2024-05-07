@@ -24,7 +24,7 @@ public class ProdutoDAO {
                 ProdutoDTO produto = new ProdutoDTO();
                 produto.setIdProduto(rs.getInt("idProduto"));
                 produto.setNome(rs.getString("nome"));
-                produto.setFkIdCategoria(rs.getInt("FkIdcategoria"));
+                produto.setCategoria(rs.getInt("categoria"));
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setEstoque(rs.getInt("estoque"));
@@ -48,9 +48,9 @@ public class ProdutoDAO {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
 
-            stmt = conexao.prepareStatement("INSERT INTO produto (FkIdcategoria,nome,categoria,descricao,preco,estoque,img) VALUES (?,?,?,?,?,?)");
+            stmt = conexao.prepareStatement("INSERT INTO produto (categoria,nome,categoria,descricao,preco,estoque,img) VALUES (?,?,?,?,?,?)");
             stmt.setString(1, createProduto.getNome());
-            stmt.setInt(2, createProduto.getFkIdCategoria());
+            stmt.setInt(2, createProduto.getCategoria());
             stmt.setString(3, createProduto.getDescricao());
             stmt.setFloat(4, createProduto.getPreco());
             stmt.setInt(5, createProduto.getEstoque());
@@ -81,7 +81,7 @@ public class ProdutoDAO {
                 ProdutoDTO produto = new ProdutoDTO();
                 produto.setIdProduto(rs.getInt("idProduto"));
                 produto.setNome(rs.getString("nome"));
-                produto.setFkIdCategoria(rs.getInt("FkIdcategoria"));
+                produto.setCategoria(rs.getInt("categoria"));
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setEstoque(rs.getInt("estoque"));
@@ -97,9 +97,9 @@ public class ProdutoDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return resultadoBusca;
     }
+     
      public List<ProdutoDTO> buscarCategoria(int categoria) {
        List<ProdutoDTO> resultadoBusca = new ArrayList();
         try {
@@ -141,7 +141,7 @@ public class ProdutoDAO {
                 ProdutoDTO produto = new ProdutoDTO();
                 produto.setIdProduto(rs.getInt("idProduto"));
                 produto.setNome(rs.getString("nome"));
-                produto.setFkIdCategoria(rs.getInt("FkIdcategoria"));
+                produto.setCategoria(rs.getInt("categoria"));
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setEstoque(rs.getInt("estoque"));
