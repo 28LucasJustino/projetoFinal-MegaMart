@@ -113,15 +113,12 @@ header {
     transform: scale(1.0);
 }
 
-.pord{
+.prod{
     display: flex;
     flex-wrap: wrap;
-    
-}
-
-.cards {
- flex-wrap: wrap;
- justify-content: space-between;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
 }
 
 /*

@@ -28,7 +28,7 @@ public class ProdutoDAO {
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setEstoque(rs.getInt("estoque"));
-                produto.setImg(rs.getBytes("img"));
+                produto.setImg(rs.getString("img"));
                 prod.add(produto);
             }
             rs.close();
@@ -48,13 +48,13 @@ public class ProdutoDAO {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
 
-            stmt = conexao.prepareStatement("INSERT INTO produto (categoria,nome,categoria,descricao,preco,estoque,img) VALUES (?,?,?,?,?,?)");
-            stmt.setString(1, createProduto.getNome());
-            stmt.setInt(2, createProduto.getCategoria());
+            stmt = conexao.prepareStatement("INSERT INTO produto (categoria,nome,descricao,preco,estoque,img) VALUES (?,?,?,?,?,?)");
+            stmt.setInt(1, createProduto.getCategoria());
+            stmt.setString(2, createProduto.getNome());
             stmt.setString(3, createProduto.getDescricao());
             stmt.setFloat(4, createProduto.getPreco());
             stmt.setInt(5, createProduto.getEstoque());
-            stmt.setBytes(6, createProduto.getImg());
+            stmt.setString(6, createProduto.getImg());
             stmt.executeUpdate();
 
             stmt.close();
@@ -72,11 +72,11 @@ public class ProdutoDAO {
             ResultSet rs = null;
 
             stmt = conexao.prepareStatement("SELECT * FROM produto WHERE nome LIKE ? OR descricao LIKE ?");
-            rs = stmt.executeQuery();
-
+     
             stmt.setString(1, Busca);
             stmt.setString(2, Busca);
             
+            rs = stmt.executeQuery(); 
             while (rs.next()) {
                 ProdutoDTO produto = new ProdutoDTO();
                 produto.setIdProduto(rs.getInt("idProduto"));
@@ -85,9 +85,8 @@ public class ProdutoDAO {
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setEstoque(rs.getInt("estoque"));
-                produto.setImg(rs.getBytes("img"));
-                
-               resultadoBusca.add(produto);
+                produto.setImg(rs.getString("img"));
+                resultadoBusca.add(produto);
             
             }
             rs.close();
@@ -108,10 +107,10 @@ public class ProdutoDAO {
             ResultSet rs = null;
 
             stmt = conexao.prepareStatement("SELECT * FROM produto WHERE categoria = ?");
-            rs = stmt.executeQuery();
-
             stmt.setInt(1, categoria);
             
+            rs = stmt.executeQuery();
+     
             while (rs.next()) {
                 ProdutoDTO produto = new ProdutoDTO();
                 produto.setIdProduto(rs.getInt("idProduto"));
@@ -120,7 +119,7 @@ public class ProdutoDAO {
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setEstoque(rs.getInt("estoque"));
-                produto.setImg(rs.getBytes("img"));
+                produto.setImg(rs.getString("img"));
                 resultadoBusca.add(produto);
             }
             rs.close();
@@ -133,8 +132,8 @@ public class ProdutoDAO {
 
         return resultadoBusca;
     }
-     public List<ProdutoDTO> listarProduto() {
-        List<ProdutoDTO> prod = new ArrayList<>();
+      public List<ProdutoDTO> listarProdutos() {
+        List<ProdutoDTO> produtos = new ArrayList<>();
         Connection conexao = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -145,24 +144,22 @@ public class ProdutoDAO {
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-                ProdutoDTO produto = new ProdutoDTO();
-                produto.setIdProduto(rs.getInt("idProduto"));
-                produto.setNome(rs.getString("nome"));
-                produto.setCategoria(rs.getInt("categoria"));
-                produto.setDescricao(rs.getString("descricao"));
-                produto.setPreco(rs.getFloat("preco"));
-                produto.setEstoque(rs.getInt("estoque"));
-                produto.setImg(rs.getBytes("img"));
-                prod.add(produto);
-            }
-            
+                ProdutoDTO prod = new ProdutoDTO();
+                prod.setIdProduto(rs.getInt("idProduto"));
+                prod.setNome(rs.getString("nome"));
+                prod.setCategoria(rs.getInt("categoria"));
+                prod.setDescricao(rs.getString("descricao"));
+                prod.setPreco(rs.getFloat("preco"));
+                prod.setEstoque(rs.getInt("estoque"));
+                prod.setImg(rs.getString("img"));
+                produtos.add(prod);
+            }           
             rs.close();
             stmt.close();
             conexao.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        return prod;
+        return produtos;
     }
 }

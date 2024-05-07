@@ -36,3 +36,14 @@ let hoje = new Date();
 let maxDate = new Date(hoje.getFullYear() - 18, hoje.getMonth(), hoje.getDate());
 let maxDateString = maxDate.toISOString().substr(0, 10);
 document.getElementById('#nascimento').setAttribute('max', maxDateString);
+
+function float(event) {
+    var keyCode = event.keyCode;
+
+    if ((keyCode >= 48 && keyCode <= 57) || keyCode == 46 || keyCode == 8 || keyCode == 9) {
+        return true;
+    } else {
+        event.preventDefault();
+        return false;
+    }
+}

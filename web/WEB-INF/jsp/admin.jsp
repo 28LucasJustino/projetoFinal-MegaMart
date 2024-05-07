@@ -60,14 +60,14 @@
                             </div>
                             <div class="inputs">
                                 <label for="Preco"><i class="fa-solid fa-money-bill"></i>Preço do Produto</label>
-                                <input  id="Preco" type="number" name="Preco"  placeholder="  Preço do Produto" required >
+                                <input  id="preco" type="text" name="preco"  placeholder="  Preço do Produto" onkeypress="float(event)" required>
                             </div>
                             <div class="inputs">
                                 <label for="estoque"><i class="fa-solid fa-box"></i>Estoque</label>
-                                <input id="estoque" type="number" name="estoque"  placeholder="   Quantidade em Estoque" required>
+                                <input id="estoque" type="text" name="estoque"  placeholder="   Quantidade em Estoque" onkeypress="float(event)" required>
                             </div>
                             <div class="inputs">
-                                <input type="file" id="image" name="iamge" placeholder="  Nome do Produto">
+                                <input type="file" id="image" name="img" placeholder="  Nome do Produto">
                             </div>
                         </div>
 
@@ -80,4 +80,5 @@
         <footer>
         </footer>
     </body>
+    <script src="js/inputs.js" type="text/javascript"></script>
     </html>

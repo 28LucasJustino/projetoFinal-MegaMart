@@ -49,7 +49,7 @@
           <p class="card-text">Categoria : ${produto.categoria}</p>
           <p class="card-text">Descrição : ${produto.descricao}</p>
           <p class="card-text">Preço : ${produto.preco}</p>
-          <a href="./Produtos" class="btn btn-primary">Comprar</a>
+          <a href="#" class="btn btn-primary">Comprar</a>
         </div>
       </div>
  
