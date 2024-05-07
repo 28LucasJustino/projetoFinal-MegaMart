@@ -2,7 +2,7 @@ package model.bean;
 
 
 public class CategoriasDTO {
-    private static int idCategoria;
+    private int idCategoria;
     private String nome;
 
     public CategoriasDTO() {
@@ -12,12 +12,12 @@ public class CategoriasDTO {
         this.nome = nome;
     }
 
-    public static int getIdCategoria() {
+    public int getIdCategoria() {
         return idCategoria;
     }
 
-    public static void setIdCategoria(int idCategoria) {
-        CategoriasDTO.idCategoria = idCategoria;
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
     public String getNome() {
@@ -26,5 +26,5 @@ public class CategoriasDTO {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }  
+    }
 }

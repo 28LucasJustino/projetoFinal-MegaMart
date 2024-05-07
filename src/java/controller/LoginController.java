@@ -67,28 +67,27 @@ public class LoginController extends HttpServlet {
         if (url.equals("/log")) {
             String nextPage = "/WEB-INF/jsp/index.jsp";
             UsuarioDTO user = new UsuarioDTO();
-            UsuarioDAO valida = new UsuarioDAO();
 
             user.setEmail(request.getParameter("email"));
             user.setSenha(request.getParameter("senha"));
 
-            try {              
+                UsuarioDAO userD = new UsuarioDAO();
+                user = userD.buscarLogin(user);
               
-                if (valida.login(user.getEmail().trim(),user.getSenha().trim())) {
-                    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-                    dispatcher.forward(request, response);
+                if (user.getIdUsuario() > 0) {
+                if (user.getStats() == 2) {
+                    // redirecionar para página de admin
+                    response.sendRedirect("./cadastrar-produto");
                 } else {
-                    nextPage = "/WEB-INF/jsp/login.jsp";
-                    request.setAttribute("errorMessage", "Usuário ou senha inválidos");
-                    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-                    dispatcher.forward(request, response);
+                    // redirecionar para página de usuario
+                    response.sendRedirect("./Home");
                 }
-            } catch (Exception e) {
-                nextPage = "/WEB-INF/jsp/login.jsp";
-                request.setAttribute("errorMessage", "Usuário ou senha inválidos");
+            } else {
+                request.setAttribute("erroMensagem", "Erro ao realizar Login");          
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                 dispatcher.forward(request, response);
             }
+           
         } else {
             processRequest(request, response);
         }

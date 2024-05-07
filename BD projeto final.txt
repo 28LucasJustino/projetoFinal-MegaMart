@@ -53,7 +53,6 @@ CREATE TABLE checkout (
     FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
     FOREIGN KEY (idProduto) REFERENCES produto(idProduto));
  
- 
  INSERT INTO categoria (idCategoria,nome) VALUES
 (1,'Celular'),(2,'PC'),(3,'Console'),(4,'TV');
 

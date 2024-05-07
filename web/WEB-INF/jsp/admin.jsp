@@ -3,7 +3,7 @@
     Created on : 02/05/2024, 10:01:23
     Author     : Marce
 --%>
-
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,7 +15,27 @@
     </head>
     <body>
         <header>
-            <jsp:include page="header.jsp"></jsp:include>
+            <nav class="Header-site">
+                <a href="./Home"><img src="assets/Design_sem_nome-removebg-preview.png" id="imageL" alt="" /></a> 
+                <div class="cate">
+                    <form action="buscar-produtos" method="get">
+                    <input type="text" name="busca" type="search" placeholder="Busca" aria-label="Busca" class="inB"><button><i class="fa-solid fa-magnifying-glass"
+                        id="iconB"></i></button>
+                    </form>
+                    <ul>
+                        <li class="item"><a href="#" class="link"><i class="fa-solid fa-c"
+                                    id="iconC"></i>ategorias</a></li>
+                        <li class="item"><a href="./Produtos" class="link"><i class="fa-solid fa-p"
+                                    id="iconC"></i>rodutos</a></li>
+                                    <li class="item"><a href="#" class="link"><i class="fa-solid fa-cart-shopping" id="iconC"> </i></a></li>
+                                    <li class="item"><a href="./cadastrar-produto" class="link"></i>teste</a></li>
+                    </ul>
+                </div>
+                
+                <div class="btnCad">
+                    <button><a href="./Cadastro">Entrar</a></button>
+                </div>  
+              </nav>
     </header>
         <main>
             <div class="form">
