@@ -9,22 +9,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link href="styles/header.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <nav class="Header-site">
             <a href="./Home"><img src="assets/Design_sem_nome-removebg-preview.png" id="imageL" alt="" /></a> 
             <div class="cate">
                 <form action="buscar-produtos" method="get">
-                    <input type="text" name="busca" type="search" placeholder="Busca" aria-label="Busca" class="inB"><i class="fa-solid fa-magnifying-glass"
-                        id="iconB"></i>
+                    <input type="text" name="busca" type="search" placeholder="Busca" aria-label="Busca" class="inB"><button class="btnB" ><i class="fa-solid fa-magnifying-glass"id="iconB"></i></button>
+                    
                     </form>
-                   
                 <ul>
-                    <li class="item"><a href="./Produtos" class="link"><i class="fa-solid fa-p"
-                                id="iconC"></i>rodutos</a></li>
-                                <li class="item"><a href="./cadastrar-produto" class="link"></i>teste</a></li>
+                    <li class="item"><a href="./Produtos" class="link">Produtos</a></li>
+                                <li class="item"><a href="./cadastrar-produto" class="link">teste</a></li>
                                 <c:forEach items="${categorias}" var="categoria" >  
                                 <li class="item"><a href="./buscar-produtos?cat=${categoria.idCategoria}&busca=" class="link">${categoria.nome}</a></li>  
                             </c:forEach> 

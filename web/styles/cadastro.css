@@ -177,26 +177,19 @@ body main {
     background-color:red;
 
 }
-.login-button #btnL {
-    border: none;
-    background-color:red;
-    padding: 0.6rem 1.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    position: relative;
-    left: 32vh;
+.register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.login-button :hover {
-    transform: scale(1.0);
-    background-color:red;
-}
-
-.login-button #btnL #aL {
+.register #aL {
     text-decoration: none;
     font-weight: 500;
-    color: #fff;
+    color: #000000;
+    cursor: pointer;   
 }
+
 @media screen and (max-width: 1330px) {
     .form-image {
         display: none;

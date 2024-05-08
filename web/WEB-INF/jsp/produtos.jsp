@@ -9,34 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="styles/index.css" rel="stylesheet" type="text/css" />
+        <link href="styles/produtos.css" rel="stylesheet" type="text/css" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <title>MegaMart- Produtos</title>
     </head>
     <body>
        <header>
-       <nav class="Header-site">
-            <a href="./Home"><img src="assets/Design_sem_nome-removebg-preview.png" id="imageL" alt="" /></a> 
-            <div class="cate">
-                <form action="buscar-produtos" method="get">
-                    <input type="text" name="busca" type="search" placeholder="Busca" aria-label="Busca" class="inB"><i class="fa-solid fa-magnifying-glass"
-                        id="iconB"></i>
-                    </form>
-                <ul>
-                    <li class="item"><a href="./Home" class="link"><i class="fa-solid fa-house"
-                                id="iconC"></i>Home</a></li>
-                    <li class="item"><a href="#" class="link"><i class="fa-solid fa-c"
-                                id="iconC"></i>ategorias</a></li>
-                    <li class="item"><a href="./Produtos" class="link"><i class="fa-solid fa-p"
-                                id="iconC"></i>rodutos</a></li>
-                                <li class="item"><a href="#" class="link"><i class="fa-solid fa-cart-shopping" id="iconC"> </i></a></li>
-                                <li class="item"><a href="./cadastrar-produto" class="link"></i>teste</a></li>
-                </ul>
-            </div>
-            <div class="btnCad">
-                <button><a href="./Cadastro">Entrar</a></button>
-            </div>  
-          </nav>
+        <jsp:include page="header.jsp"></jsp:include>
        </header>
 
        <main>

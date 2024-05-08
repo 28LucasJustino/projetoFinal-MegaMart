@@ -92,9 +92,9 @@
 
                         <div class="continue-button">
                             <button class="btnLogin">Confirmar</button>
-                            <div class="login-button">
-                                <button id="btnL"><a id="aL" href="./Login">Já tem Conta!</a></button>
-                            </div>
+                             <div class="register">
+                        <p>Já tem conta?<a id="aL" href="./Login">Login</a></p>
+                        </div>
                         </div>
                     </form>
                 </div>

@@ -15,29 +15,10 @@
     </head>
     <body>
         <header>
-            <nav class="Header-site">
-                <a href="./Home"><img src="assets/Design_sem_nome-removebg-preview.png" id="imageL" alt="" /></a> 
-                <div class="cate">
-                    <form action="buscar-produtos" method="get">
-                    <input type="text" name="busca" type="search" placeholder="Busca" aria-label="Busca" class="inB"><button><i class="fa-solid fa-magnifying-glass"
-                        id="iconB"></i></button>
-                    </form>
-                    <ul>
-                        <li class="item"><a href="#" class="link"><i class="fa-solid fa-c"
-                                    id="iconC"></i>ategorias</a></li>
-                        <li class="item"><a href="./Produtos" class="link"><i class="fa-solid fa-p"
-                                    id="iconC"></i>rodutos</a></li>
-                                    <li class="item"><a href="#" class="link"><i class="fa-solid fa-cart-shopping" id="iconC"> </i></a></li>
-                                    <li class="item"><a href="./cadastrar-produto" class="link"></i>teste</a></li>
-                    </ul>
-                </div>
-                
-                <div class="btnCad">
-                    <button><a href="./Cadastro">Entrar</a></button>
-                </div>  
-              </nav>
+            <jsp:include page="header.jsp"></jsp:include>
     </header>
         <main>
+            <br><br>
             <div class="form">
                 <form action="cadastrarProduto" method="post" enctype="multipart/form-data">
                         <div class="cards">

@@ -14,7 +14,7 @@
         <title>MegaMart- Login</title>
     </head>
     <body>
-        <main>
+
             <form action="log" id="logar" class="login" method="post">
                 <div class="card-login">
                     <h1>Login</h1>
@@ -28,12 +28,11 @@
                         <input id="inputL" type="password" name="senha" placeholder="Senha" required><i
                             class="fa-solid fa-lock" id="icon"></i>
                     </div>
-                    <button class="btnLogin">Confirmar</button>
-                    <div class="login-button">
-                        <button type="submit" id="btnL"><a id="aL" href="./Cadastro">Não tem Conta Ainda?</a></button>
-                    </div>
+                    <button type="submit" class="btnLogin">Confirmar</button>
+                    <div class="register">
+                        <p>Não tem conta ainda ?<a id="aL" href="./Cadastro">Cadastra se</a></p>
+                        </div>
                 </div>
             </form>
-        </main>
     </body>
     </html>

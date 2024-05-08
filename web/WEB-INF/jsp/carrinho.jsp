@@ -9,9 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>MegaMart- Carrinho</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <header>
+            <jsp:include page="header.jsp"></jsp:include>
+        </header>
     </body>
 </html>
