@@ -35,4 +35,10 @@
                 </div>
             </form>
     </body>
+    <% if (request.getAttribute("Erro ao realizar Login") != null) { %>
+        <script>
+            alert("E-mail ou senha incorretos!");
+        </script>
+    <% } %>
+    <script src="js/login.js" type="text/javascript"></script>
     </html>

@@ -3,7 +3,7 @@ package model.bean;
 import java.sql.Date;
 
 public class UsuarioDTO {
-   private static int idUsuario;
+   private int idUsuario;
    private String nome;
    private String senha;
    private String email;
@@ -15,7 +15,8 @@ public class UsuarioDTO {
     public UsuarioDTO() {
     }
 
-    public UsuarioDTO(String nome, String senha, String email, String cpf, String telefone, Date nascimento, int stats) {
+    public UsuarioDTO(int idUsuario, String nome, String senha, String email, String cpf, String telefone, Date nascimento, int stats) {
+        this.idUsuario = idUsuario;
         this.nome = nome;
         this.senha = senha;
         this.email = email;
@@ -25,12 +26,12 @@ public class UsuarioDTO {
         this.stats = stats;
     }
 
-    public static int getIdUsuario() {
+    public int getIdUsuario() {
         return idUsuario;
     }
 
-    public static void setIdUsuario(int idUsuario) {
-        UsuarioDTO.idUsuario = idUsuario;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNome() {
@@ -87,5 +88,5 @@ public class UsuarioDTO {
 
     public void setStats(int stats) {
         this.stats = stats;
-    }    
+    }
 }

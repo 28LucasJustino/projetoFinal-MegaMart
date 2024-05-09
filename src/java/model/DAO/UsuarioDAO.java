@@ -72,7 +72,7 @@ public class UsuarioDAO {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
             ResultSet rs = null;
-
+   
             stmt = conexao.prepareStatement("SELECT * FROM usuario WHERE email = ? AND senha = ?");
             stmt.setString(1, email);
             stmt.setString(2, senha);

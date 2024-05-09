@@ -20,17 +20,20 @@
                     
                     </form>
                 <ul>
-                    <li class="item"><a href="./Produtos" class="link">Produtos</a></li>
-                                <li class="item"><a href="./cadastrar-produto" class="link">teste</a></li>
-                                <c:forEach items="${categorias}" var="categoria" >  
-                                <li class="item"><a href="./buscar-produtos?cat=${categoria.idCategoria}&busca=" class="link">${categoria.nome}</a></li>  
-                            </c:forEach> 
-                            <li class="item"><a href="#" class="link"><i class="fa-solid fa-cart-shopping" id="iconC"> </i></a></li>                             
+                <li class="item"><a href="./cadastrar-produto" class="link">teste</a></li>
+                <c:forEach items="${categorias}" var="categoria" >  
+                <li class="item"><a href="./buscar-produtos?cat=${categoria.idCategoria}&busca=" class="link">${categoria.nome}</a></li>  
+                </c:forEach> 
                 </ul>
-            </div>    
+            </div> 
+            <div class="carrinho">
+                <ul>
+                <li class="item"><a href="#" class="link"><i class="fa-solid fa-cart-shopping" id="iconC"> </i></a></li>      
+                </ul> 
+                 </div>       
             <div class="btnCad">
                 <button><a href="./Cadastro">Entrar</a></button>
-            </div>
+            </div>                
           </nav>
     </body>
 </html>

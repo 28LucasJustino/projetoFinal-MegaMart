@@ -106,7 +106,17 @@ header {
 .btnCad button a:hover {
     transform: scale(1.0);
 }
-
+.carrinho {
+    display: flex;
+    align-items: center;
+}
+.carrinho ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    position: relative;
+    bottom: 2vw;
+}
 .prod{
     display: flex;
     flex-wrap: wrap;

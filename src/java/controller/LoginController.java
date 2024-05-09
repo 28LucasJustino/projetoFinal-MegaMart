@@ -65,29 +65,38 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
          String url = request.getServletPath();
         if (url.equals("/log")) {
-            String nextPage = "/WEB-INF/jsp/index.jsp";
+            String nextLogin = "/WEB-INF/jsp/login.jsp";
             UsuarioDTO user = new UsuarioDTO();
-
+            UsuarioDAO valida = new UsuarioDAO();
             user.setEmail(request.getParameter("email"));
             user.setSenha(request.getParameter("senha"));
-
-                UsuarioDAO userD = new UsuarioDAO();
-                user = userD.buscarLogin(user);
-              
-                if (user.getIdUsuario() > 0) {
-                if (user.getStats() == 2) {
+            try {
+              if (valida.login(user.getEmail().trim(),user.getSenha().trim())) {  
+                  user = valida.buscarLogin(user);
+                  
+                if (user.getIdUsuario() > 0 & user.getStats() == 2) {
                     // redirecionar para página de admin
-                    response.sendRedirect("./cadastrar-produto");
-                } else {
+                    String nextAdmin = "/WEB-INF/jsp/admin.jsp";
+                    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextAdmin);
+                    dispatcher.forward(request, response);
+                } else{
                     // redirecionar para página de usuario
-                    response.sendRedirect("./Home");
+                    String nextUser = "/WEB-INF/jsp/index.jsp";
+                    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextUser);
+                    dispatcher.forward(request, response);
                 }
-            } else {
-                request.setAttribute("erroMensagem", "Erro ao realizar Login");          
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+              }else {
+                request.setAttribute("Erro ao realizar Login", true);
+                nextLogin = "/WEB-INF/jsp/login.jsp";
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextLogin);
+                dispatcher.forward(request, response);
+              }
+               } catch (Exception e) {
+                nextLogin = "/WEB-INF/jsp/login.jsp";
+                request.setAttribute("errorMessage", "Usuário ou senha inválidos");
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextLogin);
                 dispatcher.forward(request, response);
             }
-           
         } else {
             processRequest(request, response);
         }
