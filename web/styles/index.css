@@ -119,14 +119,6 @@ header {
 }
 .prod{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 0;
-    padding: 0;
-}
-.prod{
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
     margin: 0;
     padding: 0;
