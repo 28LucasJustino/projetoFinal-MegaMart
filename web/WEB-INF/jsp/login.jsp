@@ -9,13 +9,12 @@
 <html>
     <head>
         <link href="styles/login.css" rel="stylesheet" type="text/css" />
-        <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
+        <link href="styles/index.css" rel="stylesheet" type="text/css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>MegaMart- Login</title>
     </head>
     <body>
-
-            <form action="log" id="logar" class="login" method="post">
+            <form action="log" id="logar" class="login" method="post"> 
                 <div class="card-login">
                     <h1>Login</h1>
                     <div class="inputsL">
@@ -30,7 +29,7 @@
                     </div>
                     <button type="submit" class="btnLogin">Confirmar</button>
                     <div class="register">
-                        <p>Não tem conta ainda ?<a id="aL" href="./Cadastro">Cadastra se</a></p>
+                        <p>Não tem conta ainda ?<a id="aL" href="./Cadastro">Cadastra-se</a></p>
                         </div>
                 </div>
             </form>
@@ -41,4 +40,5 @@
         </script>
     <% } %>
     <script src="js/login.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
     </html>

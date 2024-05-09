@@ -28,7 +28,7 @@
                   <p >Categoria : ${produto.categoria}</p>
                   <p >Descrição : ${produto.descricao}</p>
                   <p >Preço : ${produto.preco}</p>
-                  <a href="./Produtos" class="btn btn-primary">Comprar</a>
+                  <a href="./Produtos?" class="btn btn-primary">Comprar</a>
                 </div>
                 </div>
               </div>

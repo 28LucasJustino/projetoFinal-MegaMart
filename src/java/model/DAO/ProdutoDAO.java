@@ -162,4 +162,38 @@ public class ProdutoDAO {
         }
         return produtos;
     }
+      public List<ProdutoDTO> produto(int Busca) {
+       List<ProdutoDTO> resultadoBusca = new ArrayList();
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+
+            stmt = conexao.prepareStatement("SELECT * FROM produto WHERE idUsuario LIKE ?");
+            
+            stmt.setInt(1, Busca);
+            
+            rs = stmt.executeQuery(); 
+            while (rs.next()) {
+                ProdutoDTO produto = new ProdutoDTO();
+                produto.setIdProduto(rs.getInt("idProduto"));
+                produto.setNome(rs.getString("nome"));
+                produto.setCategoria(rs.getInt("categoria"));
+                produto.setDescricao(rs.getString("descricao"));
+                produto.setPreco(rs.getFloat("preco"));
+                produto.setEstoque(rs.getInt("estoque"));
+                produto.setImg(rs.getString("img"));
+                resultadoBusca.add(produto);
+            
+            }
+            rs.close();
+            stmt.close();
+            conexao.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultadoBusca;
+    }
+      
 }

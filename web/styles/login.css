@@ -13,7 +13,6 @@ body{
     align-items: center;
     background-color:  rgb(100, 99, 99);;
 }
-
 .login{
     width: 50vw;
     height: 50vh;
@@ -55,10 +54,11 @@ body{
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     font-size: 12pt;
-    box-shadow: 0px 10px 40px rgb(90, 87, 87) ;
+    box-shadow: 0px 5px 10px rgb(90, 87, 87) ;
     outline: none;
     box-sizing: border-box;
     cursor: text;
+    border-radius: 15px;
 }
 #icon{
     font-size: 27px;
@@ -93,7 +93,8 @@ body{
     color: rgb(255, 255, 255);
     background-color: rgb(0, 0, 0);
     cursor: pointer;
-    box-shadow: 0 10px 40px -12px red;
+    box-shadow: 0 10px 20px -12px red;
+    border-radius: 15px;
 }
 .btnLogin:hover{
     transform: scale(1.05);

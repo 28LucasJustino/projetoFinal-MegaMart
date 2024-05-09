@@ -17,10 +17,8 @@
             <div class="cate">
                 <form action="buscar-produtos" method="get">
                     <input type="text" name="busca" type="search" placeholder="Busca" aria-label="Busca" class="inB"><button class="btnB" ><i class="fa-solid fa-magnifying-glass"id="iconB"></i></button>
-                    
                     </form>
                 <ul>
-                <li class="item"><a href="./cadastrar-produto" class="link">teste</a></li>
                 <c:forEach items="${categorias}" var="categoria" >  
                 <li class="item"><a href="./buscar-produtos?cat=${categoria.idCategoria}&busca=" class="link">${categoria.nome}</a></li>  
                 </c:forEach> 
