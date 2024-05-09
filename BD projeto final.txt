@@ -70,7 +70,10 @@ INSERT INTO produto (categoria, nome, descricao, preco, estoque) VALUES
 (3, 'Console 4', 'Console com controle sem fio e suporte a jogos multiplayer online.', 1400.00, 9),
 (4, 'TV 4', 'TV 8K com tecnologia de upscaling para imagens mais nítidas.', 5000.00, 1);
  
- 
+ insert into usuario(nome,senha,email,cpf,telefone,nascimento,stats)values
+('Lucas','admin123','lucas@gmail.com','12344543565','1212345678','2004-05-19',2),
+('Luk','123','luk@gmail.com','54356512344','4567812123','2006-11-14',1);
+
  
 DELIMITER //
 
