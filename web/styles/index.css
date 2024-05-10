@@ -70,7 +70,11 @@ header {
 .item {
     margin: 0 15px;
 }
-
+#iconC{
+    font-size: 22px;
+    color: red;
+    cursor: pointer;
+}
 .link {
     text-decoration: none;
     font-size: 1.15rem;
