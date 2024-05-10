@@ -30,8 +30,9 @@
                 </ul> 
                  </div>       
             <div class="btnCad">
-                <button><a href="./Cadastro">Entrar</a></button>
+                <button><a href="./Login">Entrar</a></button>
             </div>                
           </nav>
     </body>
+    <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
 </html>

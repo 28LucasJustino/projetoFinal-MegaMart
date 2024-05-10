@@ -8,7 +8,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
         <link href="styles/cadastro.css" rel="stylesheet" type="text/css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>MegaMart- Cadastro</title>
@@ -99,9 +98,7 @@
                     </form>
                 </div>
         </main>
-        <footer>
-
-        </footer>
     </body>
     <script src="js/inputs.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
     </html>

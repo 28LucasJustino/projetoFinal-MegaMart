@@ -9,7 +9,6 @@
 <html>
     <head>
         <link href="styles/login.css" rel="stylesheet" type="text/css" />
-        <link href="styles/index.css" rel="stylesheet" type="text/css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>MegaMart- Login</title>
     </head>
@@ -39,6 +38,5 @@
             alert("E-mail ou senha incorretos!");
         </script>
     <% } %>
-    <script src="js/login.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
     </html>
