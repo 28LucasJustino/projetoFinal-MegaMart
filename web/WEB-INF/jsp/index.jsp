@@ -7,6 +7,7 @@
     <head>
         <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
         <link href="styles/index.css" rel="stylesheet" type="text/css" />
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>MegaMart- Home</title>
@@ -48,13 +49,12 @@
         <c:forEach var="produto" items="${produtos}">                 
             <div class="card" style="width: 18rem;">
                  <div class="card-body">
-                  <div class="cards">
-                      <img src="${produto.img}" alt="${produto.nome}">
+                  <div class="cards"> 
                   <div id="card">
+                    <img src="${produto.img}" alt="${produto.nome}">
                   <h5 >${produto.nome}</h5>
                   <p >Categoria : ${produto.categoria}</p>
-                  <p >Descrição : ${produto.descricao}</p>
-                  <p >Preço : ${produto.preco}</p>
+                  <p id="pre">Preço : ${produto.preco}</p>
                   <a href="./Produtos?" class="btn btn-primary">Comprar</a>
                 </div>
                 </div>

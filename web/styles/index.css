@@ -9,7 +9,7 @@
 header {
     background-color: rgb(66, 66, 66);
     box-shadow: 0px 3px 10px #000000;
-    width: 100vw;
+    width: auto;
     height: 13vh;
 }
 
@@ -113,5 +113,29 @@ header {
     margin-top: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-between;
+    position: relative;
+    left: 5vh;
+}
+
+.card{
+    margin-bottom: 2vw;
+    display: flex;
+}
+
+#card{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#pre{
+    font-weight: 500;
+}
+
+#zz{
+    position: relative;
+    top: 0.5vw;
 }

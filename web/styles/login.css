@@ -11,7 +11,7 @@ body{
 header {
     background-color: rgb(66, 66, 66);
     box-shadow: 0px 3px 10px #000000;
-    width: 100vw;
+    width: auto;
     height: 12vh;
 }
 .Header-site{

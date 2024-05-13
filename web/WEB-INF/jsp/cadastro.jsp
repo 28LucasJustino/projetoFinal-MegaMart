@@ -17,7 +17,6 @@
             <jsp:include page="header.jsp"></jsp:include>
         </header>
         <main>
-            <div class="cadastro">
             <div class="container">
                 <div class="form">
                     <form action="cad" method="post">

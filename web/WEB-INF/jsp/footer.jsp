@@ -39,15 +39,15 @@
             <li><a href="#">Mulheres</a></li>
             <li><a href="#">Crianças</a></li>
             <li><a href="#">Outros</a></li>
-  	 			</ul>
+  	 			</ul> 
   	 		</div>
   	 		<div class="info">
   	 			<h4>Siga-nos</h4>
   	 			<div class="social-links">
-  	 				<a class="st" href="#"><i class="fa-brands fa-facebook"></i></a>
-  	 				<a class="st" href="#"><i class="fa-brands fa-x-twitter"></i></a>
-  	 				<a class="st" href="#"><i class="fa-brands fa-instagram"></i></a>
-  	 				<a class="st" href="#"><i class="fa-brands fa-linkedin"></i></a>
+  	 				<a class="st" href="#"><i class="fa-brands fa-facebook" id="zz"></i></a>
+  	 				<a class="st" href="#"><i class="fa-brands fa-x-twitter" id="zz"></i></a>
+  	 				<a class="st" href="#"><i class="fa-brands fa-instagram" id="zz"></i></a>
+  	 				<a class="st" href="#"><i class="fa-brands fa-linkedin" id="zz"></i></a>
   	 			</div>
   	 		</div>
   	 	</div>
