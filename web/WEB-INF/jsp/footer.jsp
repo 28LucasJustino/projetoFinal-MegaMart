@@ -44,10 +44,10 @@
   	 		<div class="info">
   	 			<h4>Siga-nos</h4>
   	 			<div class="social-links">
-  	 				<a href="#"><i class="fa-brands fa-facebook"></i></a>
-  	 				<a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-  	 				<a href="#"><i class="fa-brands fa-instagram"></i></a>
-  	 				<a href="#"><i class="fa-brands fa-linkedin"></i></a>
+  	 				<a class="st" href="#"><i class="fa-brands fa-facebook"></i></a>
+  	 				<a class="st" href="#"><i class="fa-brands fa-x-twitter"></i></a>
+  	 				<a class="st" href="#"><i class="fa-brands fa-instagram"></i></a>
+  	 				<a class="st" href="#"><i class="fa-brands fa-linkedin"></i></a>
   	 			</div>
   	 		</div>
   	 	</div>

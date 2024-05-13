@@ -13,7 +13,11 @@
         <title>MegaMart- Cadastro</title>
     </head>
     <body>
+        <header>
+            <jsp:include page="header.jsp"></jsp:include>
+        </header>
         <main>
+            <div class="cadastro">
             <div class="container">
                 <div class="form">
                     <form action="cad" method="post">
@@ -97,7 +101,9 @@
                         </div>
                     </form>
                 </div>
+            </div>
         </main>
+        <jsp:include page="footer.jsp"></jsp:include>
     </body>
     <script src="js/inputs.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>

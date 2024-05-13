@@ -6,12 +6,44 @@
     font-family: "Roboto Condensed", sans-serif;
 }
 body{
+    background-color:  rgb(100, 99, 99);  
+}
+header {
+    background-color: rgb(66, 66, 66);
+    box-shadow: 0px 3px 10px #000000;
     width: 100vw;
-    height: 100vh;
+    height: 12vh;
+}
+.Header-site{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 6rem;
+}
+#imageL{
+    display: flex;
+    width: 13vw;
+    position: relative;
+    bottom: 2vw;
+    right: 11vh;
+}
+.cate {
+    display: none;
+}
+
+.btnB {
+  display: none;
+}
+.btnCad button {
+   display:  none;
+}
+.user {
+ display: none;
+}
+
+.loginBody{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:  rgb(100, 99, 99);;
 }
 .login{
     width: 50vw;
@@ -19,7 +51,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    position: relative;
+    left: 50vh;
 }
 .card-login{
     width: 60%;

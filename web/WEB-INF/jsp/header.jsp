@@ -13,26 +13,28 @@
     </head>
     <body>
         <nav class="Header-site">
-            <a href="./Home"><img src="assets/Design_sem_nome-removebg-preview.png" id="imageL" alt="" /></a> 
+            <a href="./Home"><img src="assets/Design_sem_nome-removebg-preview.png" id="imageL" alt=""></a> 
             <div class="cate">
                 <form action="buscar-produtos" method="get">
                     <input type="text" name="busca" type="search" placeholder="Busca" aria-label="Busca" class="inB"><button class="btnB" ><i class="fa-solid fa-magnifying-glass"id="iconB"></i></button>
                     </form>
+            </div> 
+            <div class="user">
                 <ul>
-                <c:forEach items="${categorias}" var="categoria" >  
+                <li class="item"><a href="#" class="link"><i class="fa-solid fa-cart-shopping" id="iconC"></i></a></li>
+                <li class="item"><a href="#" class="link"><i class="fa-solid fa-clock-rotate-left" id="iconC"></i></a></li> 
+                <li class="item"><a href="./Login" class="link"><i class="fa-solid fa-user" id="iconC"></i></a></li>  
+                </ul> 
+                 </div>                   
+          </nav>
+          <div class="bcCate">
+            <ul>
+                <li class="item"><a href="#" class="link"><i class="fa-solid fa-list-ul" ></i></a></li> 
+                <c:forEach items="${categorias}" var="categoria" > 
                 <li class="item"><a href="./buscar-produtos?cat=${categoria.idCategoria}&busca=" class="link">${categoria.nome}</a></li>  
                 </c:forEach> 
                 </ul>
-            </div> 
-            <div class="carrinho">
-                <ul>
-                <li class="item"><a href="#" class="link"><i class="fa-solid fa-cart-shopping" id="iconC"> </i></a></li>      
-                </ul> 
-                 </div>       
-            <div class="btnCad">
-                <button><a href="./Login">Entrar</a></button>
-            </div>                
-          </nav>
+         </div>    
     </body>
     <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
 </html>

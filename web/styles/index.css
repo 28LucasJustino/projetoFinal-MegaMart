@@ -10,7 +10,7 @@ header {
     background-color: rgb(66, 66, 66);
     box-shadow: 0px 3px 10px #000000;
     width: 100vw;
-    height: 12vh;
+    height: 13vh;
 }
 
 .Header-site{
@@ -30,7 +30,7 @@ header {
     align-items: center;
 }
 .cate .inB{
-    width: 20vw;
+    width: 50vw;
     height: 4vh;
     cursor: text;
     position: relative;
@@ -46,8 +46,10 @@ header {
 }
 #iconB{
     font-size: 22px;
-    color: #fff;
+    color: #000000;
     cursor: pointer;
+    position: relative;
+    right: 3.3vh;
 }
 #iconB:hover{
     transform: scale(1.0);
@@ -59,13 +61,6 @@ header {
     right: 8vh;
     border: none;
     background-color: transparent;
-}
-.cate ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    position: relative;
-    bottom: 2vw;
 }
 .item {
     margin: 0 15px;
@@ -88,42 +83,35 @@ header {
     color: red;
 }
 
-.btnCad button {
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    background-color:rgb(10, 136, 136) ;
-    position: relative;
-    bottom: 0.6vw;
-}
-
-.btnCad button a {
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-    font-size: 1.1rem;
-}
-.btnCad button:hover{
-    transform: scale(1.0);
-    background-color: red;
-}
-.btnCad button a:hover {
-    transform: scale(1.0);
-}
-.carrinho {
+.user {
     display: flex;
     align-items: center;
 }
-.carrinho ul {
+.user ul {
     display: flex;
     justify-content: center;
     list-style: none;
     position: relative;
     bottom: 2vw;
 }
+
+.bcCate{
+ display: grid;
+ align-items: center;
+ background-color: rgb(92, 91, 91);
+ height: 4vh;
+ position: relative;
+ bottom: 5.5vw;
+}
+.bcCate ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: space-between;
+}
+
 .prod{
-    display: flex;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     justify-content: space-around;
-    margin: 0;
-    padding: 0;
 }
