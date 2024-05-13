@@ -40,6 +40,9 @@ header {
 .user {
  display: none;
 }
+.bcCate{
+    display: none;
+}
 
 main .cadastro{
     width: 100%;
