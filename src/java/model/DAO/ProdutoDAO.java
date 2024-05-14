@@ -25,6 +25,7 @@ public class ProdutoDAO {
                 produto.setIdProduto(rs.getInt("idProduto"));
                 produto.setNome(rs.getString("nome"));
                 produto.setCategoria(rs.getInt("categoria"));
+                produto.setNomeCategoria(rs.getString("nomeCategoria"));
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setEstoque(rs.getInt("estoque"));
@@ -48,13 +49,14 @@ public class ProdutoDAO {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
 
-            stmt = conexao.prepareStatement("INSERT INTO produto (categoria,nome,descricao,preco,estoque,img) VALUES (?,?,?,?,?,?)");
+            stmt = conexao.prepareStatement("INSERT INTO produto (categoria,nomeCategoria,nome,descricao,preco,estoque,img) VALUES (?,?,?,?,?,?,?)");
             stmt.setInt(1, createProduto.getCategoria());
-            stmt.setString(2, createProduto.getNome());
-            stmt.setString(3, createProduto.getDescricao());
-            stmt.setFloat(4, createProduto.getPreco());
-            stmt.setInt(5, createProduto.getEstoque());
-            stmt.setString(6, createProduto.getImg());
+            stmt.setString(2, createProduto.getNomeCategoria());
+            stmt.setString(3, createProduto.getNome());
+            stmt.setString(4, createProduto.getDescricao());
+            stmt.setFloat(5, createProduto.getPreco());
+            stmt.setInt(6, createProduto.getEstoque());
+            stmt.setString(7, createProduto.getImg());
             stmt.executeUpdate();
 
             stmt.close();
@@ -71,7 +73,7 @@ public class ProdutoDAO {
             PreparedStatement stmt = null;
             ResultSet rs = null;
 
-            stmt = conexao.prepareStatement("SELECT * FROM produto WHERE nome LIKE ? OR descricao LIKE ?");
+            stmt = conexao.prepareStatement("SELECT * FROM produto WHERE nome LIKE ? OR nomeCategoria LIKE ?");
      
             stmt.setString(1, Busca);
             stmt.setString(2, Busca);
@@ -82,6 +84,7 @@ public class ProdutoDAO {
                 produto.setIdProduto(rs.getInt("idProduto"));
                 produto.setNome(rs.getString("nome"));
                 produto.setCategoria(rs.getInt("categoria"));
+                produto.setNomeCategoria(rs.getString("nomeCategoria"));
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setEstoque(rs.getInt("estoque"));
@@ -116,6 +119,7 @@ public class ProdutoDAO {
                 produto.setIdProduto(rs.getInt("idProduto"));
                 produto.setNome(rs.getString("nome"));
                 produto.setCategoria(rs.getInt("categoria"));
+                produto.setNomeCategoria(rs.getString("nomeCategoria"));
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setEstoque(rs.getInt("estoque"));
@@ -148,6 +152,7 @@ public class ProdutoDAO {
                 prod.setIdProduto(rs.getInt("idProduto"));
                 prod.setNome(rs.getString("nome"));
                 prod.setCategoria(rs.getInt("categoria"));
+                prod.setNomeCategoria(rs.getString("nomeCategoria"));
                 prod.setDescricao(rs.getString("descricao"));
                 prod.setPreco(rs.getFloat("preco"));
                 prod.setEstoque(rs.getInt("estoque"));
@@ -179,6 +184,7 @@ public class ProdutoDAO {
                 produto.setIdProduto(rs.getInt("idProduto"));
                 produto.setNome(rs.getString("nome"));
                 produto.setCategoria(rs.getInt("categoria"));
+                produto.setNomeCategoria(rs.getString("nomeCategoria"));
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setEstoque(rs.getInt("estoque"));

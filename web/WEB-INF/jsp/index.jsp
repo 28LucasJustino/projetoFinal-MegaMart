@@ -47,13 +47,13 @@
 <br><br>   
       <div class="prod"> 
         <c:forEach var="produto" items="${produtos}">                 
-            <div class="card" style="width: 18rem;">
+            <div class="card">
                  <div class="card-body">
                   <div class="cards"> 
                   <div id="card">
-                    <img src="${produto.img}" alt="${produto.nome}">
+                    <img id="imgP" src="${produto.img}" alt="${produto.nome}">
                   <h5 >${produto.nome}</h5>
-                  <p >Categoria : ${produto.categoria}</p>
+                  <p >${produto.nomeCategoria}</p>
                   <p id="pre">Preço : ${produto.preco}</p>
                   <a href="./Produtos?" class="btn btn-primary">Comprar</a>
                 </div>

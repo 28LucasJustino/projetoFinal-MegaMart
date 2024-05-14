@@ -21,7 +21,7 @@
             </div> 
             <div class="user">
                 <ul>
-                <li class="item"><a href="#" class="link"><i class="fa-solid fa-cart-shopping" id="iconC"></i></a></li>
+                <li class="item"><a href="./Carrinho" class="link"><i class="fa-solid fa-cart-shopping" id="iconC"></i></a></li>
                 <li class="item"><a href="#" class="link"><i class="fa-solid fa-clock-rotate-left" id="iconC"></i></a></li> 
                 <li class="item"><a href="./Login" class="link"><i class="fa-solid fa-user" id="iconC"></i></a></li>  
                 </ul> 
