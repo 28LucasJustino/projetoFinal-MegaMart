@@ -12,6 +12,7 @@
         <link href="styles/header.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
+        <header>
         <nav class="Header-site">
             <a href="./Home"><img src="assets/Design_sem_nome-removebg-preview.png" id="imageL" alt=""></a> 
             <div class="cate">
@@ -34,7 +35,23 @@
                 <li class="item"><a href="./buscar-produtos?cat=${categoria.idCategoria}&busca=" class="link">${categoria.nome}</a></li>  
                 </c:forEach> 
                 </ul>
-         </div>    
+         </div>  
+        </header>
+       <!-- <div class="headCarrinho">
+            <div class="carrd"></div>
+            <div class="bodyCarrinho">
+                <div class="top">
+
+                </div>
+                <div class="mid">
+
+                </div>
+                <div class="bot">
+                    <button>Finalizar Compra</button>
+                </div>
+            </div>
+        </div> -->       
     </body>
+    <script src="js/carrinho.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
 </html>

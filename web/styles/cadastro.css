@@ -41,7 +41,7 @@ header {
  display: none;
 }
 .bcCate{
-    display: none;
+display: none;
 }
 main .container {
     width: 100%;
@@ -121,6 +121,7 @@ main .container {
     display: flex;
     flex-direction: column;
     margin-bottom: 1.1rem;
+    
 }
 
 .inputs input {

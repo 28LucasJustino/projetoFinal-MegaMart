@@ -77,28 +77,18 @@ public class HomeController extends HttpServlet {
             String nextPage = "/WEB-INF/jsp/index.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
-        }   
-         if(url.equals("/Carrinho")){
-            List<ProdutoDTO> produtos = produtosDAO.listarProdutos();
-            request.setAttribute("produtos", produtos);
-            String nextPage = "/WEB-INF/jsp/carrinho.jsp";
+        } 
+        else if (url.equals("/Produto")){
+            String nextPage = "/WEB-INF/jsp/produto.jsp";
+            int idProduto = Integer.parseInt(request.getParameter("focado"));
+            ProdutoDAO prodDAO = new ProdutoDAO();
+            ProdutoDTO produto = prodDAO.produtoSolo(idProduto);
+            request.setAttribute("produto", produto);
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
-        } else if (url.equals("/buscar-produtos")) {
-            String busca = request.getParameter("busca") != null ? request.getParameter("busca") : "";
-            if(busca.equals("")) {
-                String categoria = request.getParameter("cat");
-                List<ProdutoDTO> produtos = produtosDAO.buscarCategoria(Integer.parseInt(categoria));
-                request.setAttribute("produtos", produtos);
-            } else {
-                busca = "%"+busca+"%";
-                List<ProdutoDTO> produtos = produtosDAO.buscarProduto(busca);
-                request.setAttribute("produtos", produtos);
-            }
-            String nextPage = "/WEB-INF/jsp/index.jsp";
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
-        }     
+        }
+  
+         
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

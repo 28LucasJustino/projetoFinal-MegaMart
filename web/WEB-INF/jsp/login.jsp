@@ -16,7 +16,7 @@
         <header>
         <jsp:include page="header.jsp"></jsp:include>
     </header>
-   <br><br><br><br> <br><br> 
+   <br><br>
         <div class=".loginBody">
             <form action="log" id="logar" class="login" method="post"> 
                 <div class="card-login">
@@ -38,7 +38,7 @@
                 </div>
             </form>
         </div>
-        <br><br><br><br><br><br><br>
+        <br><br><br>
         <jsp:include page="footer.jsp"></jsp:include>
     </body>
     <% if (request.getAttribute("Erro ao realizar Login") != null) { %>

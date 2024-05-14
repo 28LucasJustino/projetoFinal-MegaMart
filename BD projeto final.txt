@@ -98,7 +98,7 @@ INSERT INTO produto (categoria, nomeCategoria, nome, descricao, preco, estoque,i
 ('Luk','123','luk@gmail.com','54356512344','4567812123','2006-11-14',1);
 
  
-DELIMITER //
+DELIMITER $$
 
 CREATE TRIGGER insert_pedidos
 AFTER INSERT ON pedidos
@@ -111,6 +111,6 @@ BEGIN
 
     DELETE FROM carrinho
     WHERE idUsuario = NEW.idUsuario AND idPedidos = NEW.idPedidos;
-END //
+END $$
 
 DELIMITER ;

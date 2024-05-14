@@ -12,6 +12,24 @@ header {
     width: auto;
     height: 13vh;
 }
+.headCarrinho{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.headCarrinho .carrd{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0,0.3);
+}
+.headCarrinho .bodyCarrinho{
+    background-color: #fff;
+}
 
 .Header-site{
     display: flex;
