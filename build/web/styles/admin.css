@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.form {
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 3rem;
+    position: relative;
+    left: 50vh;
+    top: 5vw;
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.1rem;
+}
+
+.inputs input {
+    margin: 0.6rem 0;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0000001c;
+    font-size: 0.8rem;
+    cursor: text;
+}
+
+.inputs input:hover {
+    background-color: #eeeeee75;
+    outline: 1px solid red;
+}
+.btnLogin{
+    width: 90%;
+    padding: 16px 0px;
+    margin: 25px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color:#fff;
+    background-color: red;
+    cursor: pointer;
+    box-shadow: 0 10px 40px -12px red;
+}
+.btnLogin a{
+    text-decoration: none;
+    font-size: 0.93rem;
+    font-weight: 500;
+    color:  rgb(0, 0, 0);
+}
+.btnLogin:hover{
+    transform: scale(1.05);
+    background-color:red;
+
+}
+.login-button #btnL {
+    border: none;
+    background-color:red;
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-button :hover {
+    transform: scale(1.0);
+    background-color:red;
+}
+
+.login-button #btnL #aL {
+    text-decoration: none;
+    font-weight: 500;
+    color: #fff;
+}

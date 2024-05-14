@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto Condensed", sans-serif;
+}
+body{
+    background-color:  rgb(100, 99, 99);  
+}
+header {
+    background-color: rgb(66, 66, 66);
+    box-shadow: 0px 3px 10px #000000;
+    width: auto;
+    height: 12vh;
+}
+.Header-site{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 6rem;
+}
+#imageL{
+    display: flex;
+    width: 13vw;
+    position: relative;
+    bottom: 2vw;
+    right: 11vh;
+}
+.cate {
+    display: none;
+}
+
+.btnB {
+  display: none;
+}
+.btnCad button {
+   display:  none;
+}
+.user {
+ display: none;
+}
+.bcCate{
+    display: none;
+}
+.loginBody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login{
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 50vh;
+}
+.card-login{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 35px;
+    background-color: rgb(255, 255, 255) ;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px rgb(73, 72, 72) ;
+}
+.card-login h1{
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+    margin: 0;
+}
+.inputsL{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.inputsL #inputL{
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: 12pt;
+    box-shadow: 0px 5px 10px rgb(90, 87, 87) ;
+    outline: none;
+    box-sizing: border-box;
+    cursor: text;
+    border-radius: 15px;
+}
+#icon{
+    font-size: 27px;
+    color: rgb(0, 0, 0);
+    position: relative;
+    bottom: 36px;
+    right: 28px;
+}
+.inputsL #inputL:hover{
+    border: 1px solid red;
+}
+
+.inputsL #labelL{
+    color: rgb(0, 0, 0);
+    margin-bottom: 10px;
+}
+
+.inputsL #inputL::placeholder{
+    color: rgb(0, 0, 0);
+}
+
+.btnLogin{
+    width: 100%;
+    padding: 16px 0px;
+    margin: 25px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    cursor: pointer;
+    box-shadow: 0 10px 20px -12px red;
+    border-radius: 15px;
+}
+.btnLogin:hover{
+    transform: scale(1.05);
+    background-color:red;
+
+}
+.register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register #aL {
+    text-decoration: none;
+    font-weight: 500;
+    color: #000000;
+    cursor: pointer;   
+}

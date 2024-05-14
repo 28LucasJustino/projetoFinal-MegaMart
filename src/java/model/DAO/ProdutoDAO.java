@@ -167,39 +167,33 @@ public class ProdutoDAO {
         }
         return produtos;
     }
-      public List<ProdutoDTO> produto(int Busca) {
-       List<ProdutoDTO> resultadoBusca = new ArrayList();
-        try {
+      public ProdutoDTO produtoSolo(int focado){
+        ProdutoDTO prod = new ProdutoDTO();
+       
+        try{
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
             ResultSet rs = null;
+           
+            stmt = conexao.prepareStatement("SELECT * FROM produto WHERE idProduto = ?");
+            stmt.setInt(1, focado);
+           
+            rs = stmt.executeQuery();
+           
+            if(rs.next()) {
+                prod.setIdProduto(rs.getInt("idProduto"));
+                prod.setNome(rs.getString("nome"));
+                prod.setCategoria(rs.getInt("Categoria"));
+                prod.setDescricao(rs.getString("descricao"));
+                prod.setPreco(rs.getFloat("preco"));
+                prod.setEstoque(rs.getInt("estoque"));
+                prod.setImg(rs.getString("img"));
 
-            stmt = conexao.prepareStatement("SELECT * FROM produto WHERE idUsuario LIKE ?");
-            
-            stmt.setInt(1, Busca);
-            
-            rs = stmt.executeQuery(); 
-            while (rs.next()) {
-                ProdutoDTO produto = new ProdutoDTO();
-                produto.setIdProduto(rs.getInt("idProduto"));
-                produto.setNome(rs.getString("nome"));
-                produto.setCategoria(rs.getInt("categoria"));
-                produto.setNomeCategoria(rs.getString("nomeCategoria"));
-                produto.setDescricao(rs.getString("descricao"));
-                produto.setPreco(rs.getFloat("preco"));
-                produto.setEstoque(rs.getInt("estoque"));
-                produto.setImg(rs.getString("img"));
-                resultadoBusca.add(produto);
-            
+       
             }
-            rs.close();
-            stmt.close();
-            conexao.close();
-
-        } catch (SQLException e) {
+        }catch (SQLException e){
             e.printStackTrace();
         }
-        return resultadoBusca;
+        return prod;
     }
-      
 }
