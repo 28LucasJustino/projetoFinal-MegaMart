@@ -48,7 +48,7 @@
                             </div>
                             <div class="inputs">
                                 <label for="nascimento"><i class="fa-solid fa-calendar-days" id="icon"></i> Data de Nascimento</label>
-                                <input type="date" name="nascimento" id="nascimento" placeholder="dd/mm/aaaa"  min="1900-01-01" max="2024-12-31" pattern="\d{4}-\d{2}-\d{2}" required>
+                                <input type="date" name="nascimento" id="nascimento" placeholder="dd/mm/aaaa"  min="1900-01-01" max="2006-12-31" pattern="\d{4}-\d{2}-\d{2}" required>
 
                             </div>
                             <div class="inputs">

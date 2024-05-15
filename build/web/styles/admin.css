@@ -5,6 +5,126 @@
     margin: 0;
     font-family: "Roboto Condensed", sans-serif;
 }
+header {
+    background-color: rgb(66, 66, 66);
+    box-shadow: 0px 3px 10px #000000;
+    width: auto;
+    height: 13vh;
+}
+.headCarrinho{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.headCarrinho .carrd{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0,0.3);
+}
+.headCarrinho .bodyCarrinho{
+    background-color: #fff;
+}
+
+.Header-site{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 6rem;
+}
+#imageL{
+    display: flex;
+    width: 13vw;
+    position: relative;
+    bottom: 2vw;
+    right: 11vh;
+}
+.cate {
+    display: flex;
+    align-items: center;
+}
+.cate .inB{
+    width: 50vw;
+    height: 4vh;
+    cursor: text;
+    position: relative;
+    bottom:2.5vw;
+    right: 8vh;
+}
+.cate .inB::placeholder{
+    color: rgb(0, 0, 0);
+}
+
+.cate .inB:hover{
+    border: 1px solid red;
+}
+#iconB{
+    font-size: 22px;
+    color: #000000;
+    cursor: pointer;
+    position: relative;
+    right: 3.3vh;
+}
+#iconB:hover{
+    transform: scale(1.0);
+    color: red;
+}
+.btnB {
+    position: relative;
+    bottom: 2.5vw;
+    right: 8vh;
+    border: none;
+    background-color: transparent;
+}
+.item {
+    margin: 0 15px;
+}
+#iconC{
+    font-size: 22px;
+    color: red;
+    cursor: pointer;
+}
+.link {
+    text-decoration: none;
+    font-size: 1.15rem;
+    color: #fff;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.link:hover{
+    transform: scale(1.0);
+    color: red;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+.user ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    position: relative;
+    bottom: 2vw;
+}
+
+.bcCate{
+ display: grid;
+ align-items: center;
+ background-color: rgb(92, 91, 91);
+ height: 4vh;
+ position: relative;
+ bottom: 5.5vw;
+}
+.bcCate ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: space-between;
+}
 
 .form {
     width: 50vw;
@@ -38,7 +158,7 @@
     padding: 0.8rem 1.2rem;
     border: none;
     border-radius: 10px;
-    box-shadow: 1px 1px 6px #0000001c;
+    box-shadow: 0px 5px 10px rgb(90, 87, 87) ;
     font-size: 0.8rem;
     cursor: text;
 }

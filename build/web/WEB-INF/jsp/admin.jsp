@@ -44,7 +44,7 @@
                             </div>
                             <div class="inputs">
                                 <label for="estoque"><i class="fa-solid fa-box"></i>Estoque</label>
-                                <input id="estoque" type="number" name="estoque"  placeholder="   Quantidade em Estoque" required>
+                                <input id="estoque" type="text" name="estoque"  placeholder="   Quantidade em Estoque" required>
                             </div>
                             <div class="inputs">
                                 <input type="file" id="image" name="img" placeholder="  Nome do Produto">

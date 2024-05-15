@@ -120,6 +120,7 @@ public class HomeController extends HttpServlet {
         newProduto.setNome(request.getParameter("nome"));
         newProduto.setCategoria(Integer.parseInt(request.getParameter("categoria")));
         newProduto.setDescricao(request.getParameter("descricao"));
+        newProduto.setEstoque(Integer.parseInt(request.getParameter("estoque")));
         newProduto.setPreco(Float.parseFloat(request.getParameter("preco")));
         Part filePart = request.getPart("img");
     String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // Corrige problemas com o navegador IE
