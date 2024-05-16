@@ -162,7 +162,9 @@ header {
     font-size: 0.8rem;
     cursor: text;
 }
-
+.tab{
+    width: 16vw;
+}
 .inputs input:hover {
     background-color: #eeeeee75;
     outline: 1px solid red;

@@ -34,10 +34,7 @@
                                     <option value="4">TV</option>
                                 </select>
                             </div>
-                            <div class="inputs">
-                                <label for="descricao"><i class="fa-solid fa-message"></i>Descrição</label>
-                                <textarea  id="descricao" name="descricao" rows="3"></textarea>
-                            </div>
+                            
                             <div class="inputs">
                                 <label for="Preco"><i class="fa-solid fa-money-bill"></i>Preço do Produto</label>
                                 <input  id="preco" type="text" name="preco"  placeholder="  Preço do Produto" onkeypress="float(event)" required>
@@ -45,6 +42,10 @@
                             <div class="inputs">
                                 <label for="estoque"><i class="fa-solid fa-box"></i>Estoque</label>
                                 <input id="estoque" type="text" name="estoque"  placeholder="   Quantidade em Estoque" required>
+                            </div>
+                            <div class="inputs">
+                                <label for="descricao"><i class="fa-solid fa-message"></i>Descrição</label>
+                                <textarea  id="descricao" name="descricao" class="tab" rows="6"></textarea>
                             </div>
                             <div class="inputs">
                                 <input type="file" id="image" name="img" placeholder="  Nome do Produto">

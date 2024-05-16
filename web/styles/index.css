@@ -157,7 +157,10 @@ header {
     font-weight: 500;
     color: red;
 }
-
+.btn.btn-primary{
+    background-color: red;
+    color: #000000;
+}
 #zz{
     position: relative;
     top: 0.5vw;

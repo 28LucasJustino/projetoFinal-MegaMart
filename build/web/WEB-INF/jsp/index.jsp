@@ -24,13 +24,13 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="#" class="d-block w-100" alt="...">
+      <img src="assets/zzzz.png" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="#" class="d-block w-100" alt="...">
+      <img src="assets/4343ff.png" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="#" class="d-block w-100" alt="...">
+      <img src="assets/ffffffffff.png" class="d-block w-100" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -42,28 +42,24 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-<br><br> 
-<div class="prod">     
-  <c:forEach var="produto" items="${produtos}">
-      <div class="card" style="width: 18rem;">
+<br><br>   
+<div class="prod"> 
+  <c:forEach var="produto" items="${produtos}">           
+      <div class="card">
            <div class="card-body">
-                
             <div class="cards"> 
-            
             <div id="card">
-              <img id="imgP" src="${produto.img}" alt="${produto.nome}">
+            <img id="imgP" src="${produto.img}" alt="${produto.nome}">
             <h5 >${produto.nome}</h5>
             <p >${produto.nomeCategoria}</p>
             <p id="pre">Preço : ${produto.preco}</p>
-            <a href="./Produtos?" class="btn btn-primary">Comprar</a>
+            <a href="./Produtos?" id="btnCompra" class="btn btn-primary">Comprar</a>
           </div>
-       
           </div>
-       
         </div>
-      </div> 
+      </div>
     </c:forEach> 
-</div>   
+</div> 
     </main>
     <br><br>
     <jsp:include page="footer.jsp"></jsp:include>
