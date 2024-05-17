@@ -117,8 +117,8 @@ public class ProdutoDAO {
             while (rs.next()) {
                 ProdutoDTO produto = new ProdutoDTO();
                 produto.setIdProduto(rs.getInt("idProduto"));
-                produto.setNome(rs.getString("nome"));
                 produto.setCategoria(rs.getInt("categoria"));
+                produto.setNome(rs.getString("nome"));
                 produto.setNomeCategoria(rs.getString("nomeCategoria"));
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setPreco(rs.getFloat("preco"));
@@ -167,7 +167,7 @@ public class ProdutoDAO {
         }
         return produtos;
     }
-      public ProdutoDTO produtoSolo(int focado){
+      public ProdutoDTO produtoSolo(int solo){
         ProdutoDTO prod = new ProdutoDTO();
        
         try{
@@ -176,7 +176,7 @@ public class ProdutoDAO {
             ResultSet rs = null;
            
             stmt = conexao.prepareStatement("SELECT * FROM produto WHERE idProduto = ?");
-            stmt.setInt(1, focado);
+            stmt.setInt(1, solo);
            
             rs = stmt.executeQuery();
            
@@ -184,6 +184,7 @@ public class ProdutoDAO {
                 prod.setIdProduto(rs.getInt("idProduto"));
                 prod.setNome(rs.getString("nome"));
                 prod.setCategoria(rs.getInt("Categoria"));
+                prod.setNomeCategoria(rs.getString("nomeCategoria"));
                 prod.setDescricao(rs.getString("descricao"));
                 prod.setPreco(rs.getFloat("preco"));
                 prod.setEstoque(rs.getInt("estoque"));
@@ -195,5 +196,46 @@ public class ProdutoDAO {
             e.printStackTrace();
         }
         return prod;
+    }
+      
+      public void drop(ProdutoDTO dropProd){
+       try {
+          Connection conexao = Conexao.conectar();
+          PreparedStatement stmt = null;
+          
+          stmt = conexao.prepareStatement("DELETE FROM produto WHERE idProduto = ?");
+          stmt.setInt(1,dropProd.getIdProduto());
+          
+          
+          stmt.executeUpdate();
+          
+          stmt.close();
+          conexao.close();
+ 
+       } catch (SQLException e){
+            e.printStackTrace();
+    }
+    }  
+ public void edit(ProdutoDTO editProduto){
+        try {
+          Connection conexao = Conexao.conectar();
+          PreparedStatement stmt = null;
+          stmt = conexao.prepareStatement("UPDATE produto SET categoria =?,nomeCategoria =?,nome =?,descricao =?,preco = ?,estoque = ?,img = ?   WHERE idProduto = ?");
+          stmt.setInt(1, editProduto.getCategoria());
+          stmt.setString(2, editProduto.getNomeCategoria());
+          stmt.setString(3, editProduto.getNome());
+          stmt.setString(4, editProduto.getDescricao());
+          stmt.setFloat(5, editProduto.getPreco());
+          stmt.setInt(6, editProduto.getEstoque());
+          stmt.setString(7, editProduto.getImg());
+          
+          stmt.executeUpdate();
+          
+          stmt.close();
+          conexao.close();
+           
+       } catch (SQLException e){
+            e.printStackTrace();
+    }
     }
 }

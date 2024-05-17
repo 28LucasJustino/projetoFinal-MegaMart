@@ -80,7 +80,7 @@ public class HomeController extends HttpServlet {
         } 
         else if (url.equals("/Produto")){
             String nextPage = "/WEB-INF/jsp/produto.jsp";
-            int idProduto = Integer.parseInt(request.getParameter("focado"));
+            int idProduto = Integer.parseInt(request.getParameter("solo"));
             ProdutoDAO prodDAO = new ProdutoDAO();
             ProdutoDTO produto = prodDAO.produtoSolo(idProduto);
             request.setAttribute("produto", produto);

@@ -32,6 +32,11 @@
                                     <option value="2">PC</option>
                                     <option value="3">Console</option>
                                     <option value="4">TV</option>
+                                    <option value="5">Games</option>
+                                    <option value="6">Impresorra</option>
+                                    <option value="7">Notebook</option>
+                                    <option value="8">Tablet</option>
+                                    <option value="9">Fones de Ouvido</option>
                                 </select>
                             </div>
                             

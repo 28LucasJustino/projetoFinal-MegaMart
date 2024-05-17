@@ -17,7 +17,7 @@
             <a href="./Home"><img src="assets/Design_sem_nome-removebg-preview.png" id="imageL" alt=""></a> 
             <div class="cate">
                 <form action="buscar-produtos" method="get">
-                    <input type="text" name="busca" type="search" placeholder="Busca" aria-label="Busca" class="inB"><button class="btnB" ><i class="fa-solid fa-magnifying-glass"id="iconB"></i></button>
+                    <input type="text" name="busca" type="search" placeholder="Digite o que voçê procura..." class="inB"><button class="btnB" ><i class="fa-solid fa-magnifying-glass"id="iconB"></i></button>
                     </form>
             </div> 
             <div class="user">

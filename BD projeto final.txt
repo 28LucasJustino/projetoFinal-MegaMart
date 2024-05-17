@@ -14,12 +14,12 @@ CREATE TABLE usuario (
 
 CREATE TABLE categoria (
     idCategoria INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(45) NOT NULL
+    nome VARCHAR(45) 
 );
 
 CREATE TABLE produto (
     idProduto INT AUTO_INCREMENT PRIMARY KEY,
-    categoria INT(10) NOT NULL,
+    categoria INT(10),
     nomeCategoria VARCHAR(45),
     nome VARCHAR(45) NOT NULL,
     descricao TEXT NOT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE checkout (
     FOREIGN KEY (idProduto) REFERENCES produto(idProduto));
  
  INSERT INTO categoria (idCategoria,nome) VALUES
-(1,'Celular'),(2,'PC'),(3,'Console'),(4,'TV');
+(1,'Celular'),(2,'PC'),(3,'Console'),(4,'TV'),(5,'Games'),(6,'Impresorra'),(7,'Notebook'),(8,'Tablet'),(9,'Fones de Ouvido');
 
 INSERT INTO produto (categoria, nomeCategoria, nome, descricao, preco, estoque,img) VALUES
 (1,'Celular','Smartphone Zod X', 'O Smartphone Zod X Ã© um dispositivo revolucionÃ¡rio que combina a portabilidade de um smartphone com a praticidade de um tablet. Com sua tela dobrÃ¡vel de Ãºltima geraÃ§Ã£o, vocÃª pode desfrutar de uma experiÃªncia Ãºnica de visualizaÃ§Ã£o e produtividade. AlÃ©m disso, possui um poderoso processador, cÃ¢meras de alta qualidade e uma bateria de longa duraÃ§Ã£o.', '4000.00', '10', 'assets/19681-removebg-preview.png'),
@@ -80,7 +80,7 @@ INSERT INTO produto (categoria, nomeCategoria, nome, descricao, preco, estoque,i
 (4,'TV','Smart TV UltraHD 4K', 'A Smart TV UltraHD 4K oferece uma experiência de visualização incrível com sua resolução 4K e tecnologia HDR. Com uma tela grande e cores vibrantes, você pode desfrutar de filmes, programas de TV e jogos com detalhes impressionantes. Além disso, possui recursos inteligentes, como streaming de conteúdo, controle por voz e integração com dispositivos inteligentes.', 1299.99, 20, 'assets/166928-removebg-preview.png'),
 (4,'TV','TV QLED 4K', 'A TV QLED 4K oferece uma experiência de visualização excepcional com sua tecnologia de pontos quânticos e resolução 4K. Com cores vibrantes e brilho intenso, você pode desfrutar de uma qualidade de imagem incrível. Além disso, possui recursos inteligentes para streaming de conteúdo, controle por voz e integração com dispositivos inteligentes.', 1799.99, 12, 'assets/636b706f764e72478b482a50-smart-tv-hd-32inch-television-set-removebg-preview.png'),
 
-(3,'Console','Playstation 4', 'O Console Portátil Gamer é um dispositivo compacto e leve projetado para jogar em movimento. Com uma tela de alta definição, controles ergonômicos e uma biblioteca de jogos diversificada, o Console Portátil Gamer oferece uma experiência de jogo excepcional em um pacote portátil. Sua bateria de longa duração permite horas de jogo sem interrupções.', 2890.90, 25, 'assets/Console-Ps5-Sony-Driver-Standard-Branco-Playstation-5_1702579086_gg-removebg-preview.png'),
+(3,'Console','Playstation 5', 'O Console Portátil Gamer é um dispositivo compacto e leve projetado para jogar em movimento. Com uma tela de alta definição, controles ergonômicos e uma biblioteca de jogos diversificada, o Console Portátil Gamer oferece uma experiência de jogo excepcional em um pacote portátil. Sua bateria de longa duração permite horas de jogo sem interrupções.', 2890.90, 25, 'assets/Console-Ps5-Sony-Driver-Standard-Branco-Playstation-5_1702579086_gg-removebg-preview.png'),
 (3,'Console','Xbox Retro Classic', 'O Console Retro Classic é uma homenagem aos consoles de jogos clássicos dos anos 80 e 90. Com uma seleção de jogos nostálgicos pré-carregados e controles vintage, o Retro Classic oferece uma experiência de jogo autêntica para os fãs de jogos retrô. Seu design retrô e compacto o tornam uma adição única para qualquer coleção de jogos.', 799.99, 15, 'assets/s-l600-removebg-preview.png'),
 (3,'Console','Xbox One', 'O Console VR Immersio é um sistema de realidade virtual avançado que oferece uma experiência de jogo imersiva. Com tecnologia de ponta e controles precisos, o Immersio leva você para dentro do jogo como nunca antes. Sua biblioteca crescente de jogos VR proporciona uma variedade de experiências emocionantes.', 2099.99, 10, 'assets/727-1-removebg-preview.png'),
 (4,'TV','TV OLED 8K', 'A TV OLED 8K redefine a experiência de TV com sua resolução ultrarrápida e qualidade de imagem incomparável. Com cores realistas, pretos profundos e brilho impressionante, você pode desfrutar de uma qualidade de imagem como nunca antes. Além disso, possui tecnologia inteligente para acesso fácil ao conteúdo e controle conveniente.', 3499.99, 10, 'assets/Apple-TV-4K-hero-221018.jpg.news_app_ed-removebg-preview.png'),
@@ -98,7 +98,7 @@ INSERT INTO produto (categoria, nomeCategoria, nome, descricao, preco, estoque,i
 ('Luk','123','luk@gmail.com','54356512344','4567812123','2006-11-14',1);
 
  
-DELIMITER //
+DELIMITER $$
 
 CREATE TRIGGER insert_pedidos
 AFTER INSERT ON pedidos
@@ -111,6 +111,6 @@ BEGIN
 
     DELETE FROM carrinho
     WHERE idUsuario = NEW.idUsuario AND idPedidos = NEW.idPedidos;
-END //
+END $$
 
 DELIMITER ;
