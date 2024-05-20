@@ -22,7 +22,7 @@
             </div> 
             <div class="user">
                 <ul>
-                <li class="item"><a href="./Carrinho" class="link"><i class="fa-solid fa-cart-shopping" id="iconC"></i></a></li>
+                <li class="item"><a href="#" class="link"><i class="fa-solid fa-cart-shopping" id="iconC"></i></a></li>
                 <li class="item"><a href="#" class="link"><i class="fa-solid fa-clock-rotate-left" id="iconC"></i></a></li> 
                 <li class="item"><a href="./Login" class="link"><i class="fa-solid fa-user" id="iconC"></i></a></li>  
                 </ul> 
@@ -37,20 +37,23 @@
                 </ul>
          </div>  
         </header>
-       <!-- <div class="headCarrinho">
-            <div class="carrd"></div>
-            <div class="bodyCarrinho">
-                <div class="top">
-
-                </div>
-                <div class="mid">
-
-                </div>
-                <div class="bot">
-                    <button>Finalizar Compra</button>
-                </div>
+        <div id="carrinho">
+            <div id="background-carrinho"></div>
+            <div id="carrinho-container">
+              <div class="header">
+                <i id="fechar-carrinho" class="fa-solid fa-xmark"></i>
+              </div>
+              <div id="main-carrinho" class="main">
+      
+              </div>
+              <div class="footer">
+                <p>Total: </p>
+                <button class="btn btn-custom">
+                  FINALIZAR COMPRA
+                </button>
+              </div>
             </div>
-        </div> -->       
+          </div>
     </body>
     <script src="js/carrinho.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
