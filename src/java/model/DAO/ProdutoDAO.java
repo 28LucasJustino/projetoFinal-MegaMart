@@ -144,7 +144,7 @@ public class ProdutoDAO {
 
         try {
             conexao = Conexao.conectar();
-            stmt = conexao.prepareStatement("SELECT * FROM produto LIMIT 10");
+            stmt = conexao.prepareStatement("SELECT * FROM produto LIMIT 20");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -189,7 +189,6 @@ public class ProdutoDAO {
                 prod.setPreco(rs.getFloat("preco"));
                 prod.setEstoque(rs.getInt("estoque"));
                 prod.setImg(rs.getString("img"));
-
        
             }
         }catch (SQLException e){
@@ -237,5 +236,34 @@ public class ProdutoDAO {
        } catch (SQLException e){
             e.printStackTrace();
     }
+    }
+ public ProdutoDTO buscarProduto(int idProduto) {
+        ProdutoDTO produto = new ProdutoDTO();
+        
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            
+            stmt = conexao.prepareStatement("SELECT * FROM produto WHERE  idProduto = ?");
+            stmt.setInt(1, idProduto);
+            
+            rs = stmt.executeQuery();
+            
+            if(rs.next()) {
+                produto.setIdProduto(rs.getInt("id_produto"));
+                produto.setNome(rs.getString("nome"));
+                produto.setCategoria(rs.getInt("categoria"));
+                produto.setDescricao(rs.getString("descricao"));
+                produto.setPreco(rs.getFloat("preco"));
+                produto.setImg(rs.getString("img"));
+            } else {
+                produto.setIdProduto(0);
+            }
+        } catch(SQLException e ) {
+            e.printStackTrace();
+        }
+        
+        return produto;
     }
 }

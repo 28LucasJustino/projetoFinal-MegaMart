@@ -78,12 +78,12 @@ public class HomeController extends HttpServlet {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } 
-        else if (url.equals("/Produto")){
-            String nextPage = "/WEB-INF/jsp/produto.jsp";
+        else if (url.equals("/Produtos")){
+            String nextPage = "/WEB-INF/jsp/produtos.jsp";
             int idProduto = Integer.parseInt(request.getParameter("solo"));
             ProdutoDAO prodDAO = new ProdutoDAO();
             ProdutoDTO produto = prodDAO.produtoSolo(idProduto);
-            request.setAttribute("produto", produto);
+            request.setAttribute("produto", produto);         
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         }

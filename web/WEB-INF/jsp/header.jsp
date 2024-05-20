@@ -38,22 +38,17 @@
          </div>  
         </header>
         <div id="carrinho">
-            <div id="background-carrinho"></div>
-            <div id="carrinho-container">
-              <div class="header">
+          <div id="background-carrinho"></div>
+          <div id="carrinho-container">
+            <div class="carrinho-header">
                 <i id="fechar-carrinho" class="fa-solid fa-xmark"></i>
-              </div>
-              <div id="main-carrinho" class="main">
-      
-              </div>
-              <div class="footer">
-                <p>Total: </p>
-                <button class="btn btn-custom">
-                  FINALIZAR COMPRA
-                </button>
-              </div>
+            </div>
+            <div id="carrinho-main"></div>
+            <div class="carrinho-footer">
+              <button class="btn btn-finalizar">FINALIZAR COMPRA</button>
             </div>
           </div>
+        </div>
     </body>
     <script src="js/carrinho.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>

@@ -32,10 +32,6 @@
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/Home</url-pattern>
     </servlet-mapping>
-      <servlet-mapping>
-        <servlet-name>HomeController</servlet-name>
-        <url-pattern>/Carrinho</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/buscar-produtos</url-pattern>
@@ -44,7 +40,7 @@
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/cadastrar-produto</url-pattern>
     </servlet-mapping>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/cadastrarProduto</url-pattern>
     </servlet-mapping>
@@ -68,7 +64,6 @@
         <servlet-name>CadastroController</servlet-name>
         <url-pattern>/cad</url-pattern>
     </servlet-mapping>
-   
     <session-config>
         <session-timeout>
             30

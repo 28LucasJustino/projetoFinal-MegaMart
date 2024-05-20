@@ -53,7 +53,7 @@
             <h5 >${produto.nome}</h5>
             <p >${produto.nomeCategoria}</p>
             <p id="pre">Preço : ${produto.preco}</p>
-            <a href="./Produtos?" id="btnCompra" class="btn btn-primary">Comprar</a>
+            <a href="./Produtos?solo=${produto.idProduto}" id="btnCompra" class="btn btn-primary">Comprar</a>
           </div>
           </div>
         </div>

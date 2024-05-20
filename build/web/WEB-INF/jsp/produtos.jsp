@@ -17,21 +17,24 @@
        <header>
         <jsp:include page="header.jsp"></jsp:include>
        </header>
-
        <main>
-        <br>
-     <c:forEach var="produto" items="${produtos}">    
-         
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">${produto.nome}</h5>
-          <p class="card-text">Categoria : ${produto.categoria}</p>
-          <p class="card-text">Descrição : ${produto.descricao}</p>
-          <p class="card-text">Preço : ${produto.preco}</p>
-          <a href="#" class="btn btn-primary">Comprar</a>
-        </div>
-      </div>
-      </c:forEach>       
+        <br><br>
+        <div class="prod"> 
+                <div class="card">
+                     <div class="card-body">
+                      <div class="cards"> 
+                      <div id="card">
+                      <img id="imgP" src="${produto.img}" alt="${produto.nome}">
+                      <h5 >${produto.nome}</h5>
+                      <p >${produto.nomeCategoria}</p>
+                      <p id="pre">Preço : ${produto.preco}</p>
+                      <p>${produto.descricao}</p>
+                      <a href="./Carrinho" id="btnCompra" class="btn btn-primary">Comprar</a>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+          </div> 
        </main>
        <br><br>
        <jsp:include page="footer.jsp"></jsp:include>
