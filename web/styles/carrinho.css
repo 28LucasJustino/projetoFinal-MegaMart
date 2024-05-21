@@ -70,7 +70,7 @@ header {
     right: 3.3vh;
 }
 #iconB:hover{
-    transform: scale(1.0);
+    transform: scale(1.05);
     color: red;
 }
 .btnB {
@@ -88,6 +88,10 @@ header {
     color: red;
     cursor: pointer;
 }
+#iconC:hover{
+    transform: scale(1.05);
+    color: red;
+}
 .link {
     text-decoration: none;
     font-size: 1.15rem;
@@ -97,7 +101,7 @@ header {
 }
 
 .link:hover{
-    transform: scale(1.0);
+    transform: scale(1.05);
     color: red;
 }
 

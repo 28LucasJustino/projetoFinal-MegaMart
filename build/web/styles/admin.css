@@ -9,7 +9,7 @@ header {
     background-color: rgb(66, 66, 66);
     box-shadow: 0px 3px 10px #000000;
     width: auto;
-    height: 13vh;
+    height: 12vh;
 }
 .headCarrinho{
     display: grid;
@@ -70,7 +70,7 @@ header {
     right: 3.3vh;
 }
 #iconB:hover{
-    transform: scale(1.0);
+    transform: scale(1.05);
     color: red;
 }
 .btnB {
@@ -88,6 +88,10 @@ header {
     color: red;
     cursor: pointer;
 }
+#iconC:hover{
+    transform: scale(1.05);
+    color: red;
+}
 .link {
     text-decoration: none;
     font-size: 1.15rem;
@@ -97,7 +101,7 @@ header {
 }
 
 .link:hover{
-    transform: scale(1.0);
+    transform: scale(1.05);
     color: red;
 }
 
@@ -119,7 +123,7 @@ header {
  background-color: rgb(92, 91, 91);
  height: 4vh;
  position: relative;
- bottom: 5.5vw;
+ bottom: 5vw;
 }
 .bcCate ul{
     display: grid;

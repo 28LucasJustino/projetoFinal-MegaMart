@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Obtém referências para os elementos HTML relevantes
     const abrirCarrinho = document.getElementById("iconC");
-    const fecharCarrinho = document.getElementById("fechar-carrinho");
+    const fecharCarrinho = document.getElementById("iconF");
     const background = document.getElementById("background-carrinho");
     const carrinho = document.getElementById("carrinho");
 
@@ -45,11 +45,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     const divImg = document.createElement("div");
                     divImg.classList.add("container-img");
-                    divImg.innerHTML = '<img src="'+produto.imagem+'" >';
+                    divImg.innerHTML = '<img src="'+produto.img+'" >';
 
                     const divInfo = document.createElement("div");
                     divInfo.classList.add("container-info");
-                    divInfo.innerHTML = '<h3>'+produto.nome+'</h3><h4 class="preco">R$ '+produto.valor.toFixed(2)+'</h4>';
+                    divInfo.innerHTML = '<h3>'+produto.nome+'</h3><h4>R$ '+produto.preco.toFixed(2)+'</h4>';
 
                     divP.appendChild(divImg);
                     divP.appendChild(divInfo);
@@ -88,13 +88,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Adiciona eventos de clique aos botões de compra para adicionar itens ao carrinho
-    const btns = document.getElementsByClassName("btn-comprar");
-    for(let i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function() {
-            // Obtém o ID do produto a partir do atributo data-idproduto
-            const idProduto = this.getAttribute("data-idproduto");
+    const btn = document.getElementById("btnCompra");
+    if (btn !== null){
+ const idProduto = btn.getAttribute("carrinho");
             // Chama a função para adicionar o item ao carrinho
             adicionarItemAoCarrinho(idProduto);
-        });
-    }
+    }         
 });

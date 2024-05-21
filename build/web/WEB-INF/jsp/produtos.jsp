@@ -29,15 +29,17 @@
                       <p >${produto.nomeCategoria}</p>
                       <p id="pre">Preço : ${produto.preco}</p>
                       <p>${produto.descricao}</p>
-                      <a href="./Carrinho" id="btnCompra" class="btn btn-primary">Comprar</a>
+                      <button id="btnCompra" class="btn btn-primary" carrinho="${produto.idProduto}">Comprar</button>
                     </div>
                     </div>
                   </div>
                 </div>
           </div> 
+          <br>
        </main>
        <br><br>
        <jsp:include page="footer.jsp"></jsp:include>
     </body>
     <script src="https://kit.fontawesome.com/ffe7fbbd06.js" crossorigin="anonymous"></script>
+    <script src="js/carrinho.js"></script>
 </html>

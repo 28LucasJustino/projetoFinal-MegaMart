@@ -8,8 +8,8 @@ package controller;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +22,8 @@ import model.bean.ProdutoDTO;
  *
  * @author Senai
  */
-@WebServlet(name = "CarrinhoController", urlPatterns = {"/Carrinho"})
+@MultipartConfig
+@WebServlet(name = "CarrinhoController", urlPatterns = {"/carrinho"})
 public class CarrinhoController extends HttpServlet {
 
     /**
@@ -36,10 +37,7 @@ public class CarrinhoController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nextPage = "/WEB-INF/jsp/carrinho.jsp";
-       
-       RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-       dispatcher.forward(request, response);
+         response.setContentType("text/html;charset=UTF-8");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -54,8 +52,7 @@ public class CarrinhoController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      // Recupera ou cria o carrinho da sessão
-    CarrinhoDTO carrinho = CarrinhoDTO.getOrCreateCarrinho(request);
+       CarrinhoDTO carrinho = CarrinhoDTO.getOrCreateCarrinho(request);
 
     // Retorna a lista de itens do carrinho em formato JSON
     response.setContentType("application/json");
@@ -63,8 +60,7 @@ public class CarrinhoController extends HttpServlet {
     PrintWriter out = response.getWriter();
     out.print(toJson(carrinho));
     out.flush();
-}
-    
+    }
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -77,12 +73,11 @@ public class CarrinhoController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       // Recupera ou cria o carrinho da sessão
-    CarrinhoDTO carrinho = CarrinhoDTO.getOrCreateCarrinho(request);
+        CarrinhoDTO carrinho = CarrinhoDTO.getOrCreateCarrinho(request);
  
 
     // Adiciona o item ao carrinho
-    int idProduto = Integer.parseInt(request.getParameter("id"));
+    int idProduto = Integer.parseInt(request.getParameter("idProduto"));
     ProdutoDAO pDao = new ProdutoDAO();
     ProdutoDTO item = pDao.buscarProduto(idProduto);
     if (item.getIdProduto() > 0) {

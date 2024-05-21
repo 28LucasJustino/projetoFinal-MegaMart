@@ -53,7 +53,7 @@
             <h5 >${produto.nome}</h5>
             <p >${produto.nomeCategoria}</p>
             <p id="pre">Preço : ${produto.preco}</p>
-            <a href="./Produtos?solo=${produto.idProduto}" id="btnCompra" class="btn btn-primary">Comprar</a>
+            <a href="./Produtos?solo=${produto.idProduto}" class="btn btn-primary">Comprar</a>
           </div>
           </div>
         </div>
@@ -64,6 +64,7 @@
     <br><br>
     <jsp:include page="footer.jsp"></jsp:include>
       </body>
+      <script src="js/carrinho.js"></script>
       <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

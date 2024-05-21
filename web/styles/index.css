@@ -70,7 +70,7 @@ header {
     right: 3.3vh;
 }
 #iconB:hover{
-    transform: scale(1.0);
+    transform: scale(1.05);
     color: red;
 }
 .btnB {
@@ -88,6 +88,10 @@ header {
     color: red;
     cursor: pointer;
 }
+#iconC:hover{
+    transform: scale(1.05);
+    color: red;
+}
 .link {
     text-decoration: none;
     font-size: 1.15rem;
@@ -97,7 +101,7 @@ header {
 }
 
 .link:hover{
-    transform: scale(1.0);
+    transform: scale(1.05);
     color: red;
 }
 
@@ -126,6 +130,7 @@ header {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     justify-content: space-between;
 }
+
 
 #carrinho {
     display: none;
@@ -156,7 +161,7 @@ header {
 
 
 #carrinho #carrinho-container .carrinho-header {
-    background-color: var(--background-primary);
+    background-color: #393941;
     font-size: 32px;
     padding: 15px;
 }
@@ -175,7 +180,7 @@ header {
 }
 
 #carrinho #carrinho-container .carrinho-footer {
-    border-top: 1px solid var(--background-primary);
+    border-top: 1px solid #393941;
     display: grid;
     justify-content: center;
     align-content: center;
@@ -184,13 +189,24 @@ header {
 #carrinho #carrinho-container .carrinho-footer .btn-finalizar {
     width: 300px;
     height: 36px;
-    background-color: rgb(88, 223, 76);
+    background-color: red;
     color: #fff;
 }
 
+#carrinho #carrinho-container .carrinho-footer .btn-finalizar:hover{
+    transform: scale(1.05);
+    background-color: rgb(88, 223, 76);
+}
 
-
-
+#iconF{
+    font-size: 22px;
+    color: red;
+    cursor: pointer;
+}
+#iconF:hover{
+    transform: scale(1.05);
+    color: red;
+}
 
 .prod{
     margin-top: 20px;

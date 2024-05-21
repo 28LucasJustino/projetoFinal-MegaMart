@@ -1,20 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.bean;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
-/**
- *
- * @author Senai
- */
 public class CarrinhoDTO {
-    private static List<ProdutoDTO> itens = new ArrayList<>();
+ private static List<ProdutoDTO> itens = new ArrayList<>();
 
     public static void adicionarProd(ProdutoDTO produto) {
         itens.add(produto);
@@ -44,4 +35,4 @@ public class CarrinhoDTO {
         }
         return total;
     }
-}
+}  
