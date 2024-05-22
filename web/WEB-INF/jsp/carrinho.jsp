@@ -13,9 +13,7 @@
         <title>MegaMart- Carrinho</title>
     </head>
     <body>
-        <header>
             <jsp:include page="header.jsp"></jsp:include>
-        </header>
         <main>
             <br><br>
             <div class="prod"> 

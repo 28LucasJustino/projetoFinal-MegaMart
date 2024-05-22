@@ -43,6 +43,10 @@ header {
 .bcCate{
 display: none;
 }
+#carrinho{
+    display: none;
+}
+
 main .container {
     width: 100%;
     height: 100vh;

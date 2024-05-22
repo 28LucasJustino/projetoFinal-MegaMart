@@ -82,10 +82,11 @@ public class CadastroController extends HttpServlet {
           
             if(user.getNome().trim().equals("") || (user.getEmail().trim().equals("")) || (user.getSenha().trim().equals(""))){
                 nextPage = "/WEB-INF/jsp/cadastro.jsp";
-                    request.setAttribute("errorMessage", "ERRO");
+                   request.setAttribute("Erro ao realizar Cadastro", true);
                     RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
             } else{
+                request.setAttribute("Cadastro Realizado com Sucesso", true);
                 valida.create(user); 
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);

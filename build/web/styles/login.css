@@ -42,6 +42,10 @@ header {
 .bcCate{
     display: none;
 }
+#carrinho{
+    display: none;
+}
+
 .loginBody{
     display: flex;
     justify-content: center;

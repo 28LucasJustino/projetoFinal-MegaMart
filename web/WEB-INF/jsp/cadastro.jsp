@@ -48,7 +48,7 @@
                             </div>
                             <div class="inputs">
                                 <label for="nascimento"><i class="fa-solid fa-calendar-days" id="icon"></i> Data de Nascimento</label>
-                                <input type="date" name="nascimento" id="nascimento" placeholder="dd/mm/aaaa"  min="1900-01-01" max="2006-12-31" pattern="\d{4}-\d{2}-\d{2}" required>
+                                <input type="date" name="nascimento" id="nascimento" placeholder="dd/mm/aaaa"  min="1945-01-01" max="2006-12-31" pattern="\d{4}-\d{2}-\d{2}" required>
 
                             </div>
                             <div class="inputs">
@@ -104,6 +104,16 @@
         </main>
         <jsp:include page="footer.jsp"></jsp:include>
     </body>
+    <% if (request.getAttribute("Erro ao realizar Cadastro") != null) { %>
+        <script>
+            alert("Erro ao realizar Cadastro");
+        </script>
+    <% } %>
+    <% if (request.getAttribute("Cadastro Realizado com Sucesso") != null) { %>
+        <script>
+            alert("Cadastro Realizado com Sucesso!");
+        </script>
+    <% } %>
     <script src="js/inputs.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
     </html>
