@@ -117,7 +117,9 @@ public class HomeController extends HttpServlet {
             throws ServletException, IOException {
          ProdutoDTO newProduto = new ProdutoDTO();
         newProduto.setNome(request.getParameter("nome"));
+        newProduto.setNome(request.getParameter("nome"));
         newProduto.setCategoria(Integer.parseInt(request.getParameter("categoria")));
+        newProduto.setDescricao(request.getParameter("descricao"));
         newProduto.setDescricao(request.getParameter("descricao"));
         newProduto.setEstoque(Integer.parseInt(request.getParameter("estoque")));
         newProduto.setPreco(Float.parseFloat(request.getParameter("preco")));

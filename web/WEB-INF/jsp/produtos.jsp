@@ -26,7 +26,7 @@
                       <div id="card">
                       <img id="imgP" src="${produto.img}" alt="${produto.nome}">
                       <h5 >${produto.nome}</h5>
-                      <p >${produto.nomeCategoria}</p>
+                      <p >${produto.marca}</p>
                       <p id="pre">Preço : ${produto.preco}</p>
                       <p>${produto.descricao}</p>
                       <a href="./Carrinho" id="btnCompra" class="btn btn-primary" carrinho="${produto.idProduto}">Comprar</a>

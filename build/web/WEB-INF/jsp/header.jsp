@@ -38,22 +38,7 @@
                 </ul>
          </div>
         </div> 
-        <div id="carrinho">
-           <div id="background-carrinho"></div>
-           <div id="carrinho-container">
-             <div class="carrinho-header">
-                 <i id="iconF" class="fa-solid fa-xmark"></i>
-             </div>
-             <div id="carrinho-main">
-               
-             </div>
-             <div class="carrinho-footer">
-               <button class="btn btn-finalizar">FINALIZAR COMPRA</button>
-             </div>
-           </div>
-         </div> 
         </header>
     </body>
-    <script src="js/carrinho.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
 </html>
