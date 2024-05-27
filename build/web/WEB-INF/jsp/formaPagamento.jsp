@@ -9,9 +9,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="shortcut icon" href="assets/png-transparent-red-m-and-crown-illustration-letter-m-alphabet-logo-m-blue-text-heart-thumbnail-removebg-preview.png" type="image/x-icon">
+        <title>MegaMart- Forma de Pagamento</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <jsp:include page="header.jsp"></jsp:include>
+        <main>
+
+        </main>
+
+        <jsp:include page="footer.jsp"></jsp:include>
     </body>
 </html>

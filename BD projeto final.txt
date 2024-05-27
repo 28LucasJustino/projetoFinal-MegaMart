@@ -54,7 +54,7 @@ CREATE TABLE carrinho (
     idProduto INT NOT NULL,
     idPedidos INT NOT NULL,
     quantidade INT NOT NULL,
-    data_compra TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    valorTotal FLOAT(8,2),
     FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
     FOREIGN KEY (idProduto) REFERENCES produto(idProduto),
     FOREIGN KEY (idPedidos) REFERENCES pedidos(idPedidos));
@@ -79,7 +79,6 @@ INSERT INTO produto (categoria, nomeCategoria, nome, descricao, preco, estoque,i
 (3,'Console','Playstation 4', 'O Console PlayTech 4K é um console de jogos avançado que suporta resolução 4K. Com uma biblioteca de jogos impressionante e recursos de streaming de mídia integrados, o PlayTech 4K oferece entretenimento completo em um único dispositivo. Seu design elegante e interface intuitiva o tornam uma escolha popular entre os entusiastas de jogos.', 2199.99, 15, 'assets/sony-console-ps4-pro-1tb-removebg-preview.png'),
 (4,'TV','Smart TV UltraHD 4K', 'A Smart TV UltraHD 4K oferece uma experiência de visualização incrível com sua resolução 4K e tecnologia HDR. Com uma tela grande e cores vibrantes, você pode desfrutar de filmes, programas de TV e jogos com detalhes impressionantes. Além disso, possui recursos inteligentes, como streaming de conteúdo, controle por voz e integração com dispositivos inteligentes.', 1299.99, 20, 'assets/166928-removebg-preview.png'),
 (4,'TV','TV QLED 4K', 'A TV QLED 4K oferece uma experiência de visualização excepcional com sua tecnologia de pontos quânticos e resolução 4K. Com cores vibrantes e brilho intenso, você pode desfrutar de uma qualidade de imagem incrível. Além disso, possui recursos inteligentes para streaming de conteúdo, controle por voz e integração com dispositivos inteligentes.', 1799.99, 12, 'assets/636b706f764e72478b482a50-smart-tv-hd-32inch-television-set-removebg-preview.png'),
-
 (3,'Console','Playstation 5', 'O Console Portátil Gamer é um dispositivo compacto e leve projetado para jogar em movimento. Com uma tela de alta definição, controles ergonômicos e uma biblioteca de jogos diversificada, o Console Portátil Gamer oferece uma experiência de jogo excepcional em um pacote portátil. Sua bateria de longa duração permite horas de jogo sem interrupções.', 2890.90, 25, 'assets/Console-Ps5-Sony-Driver-Standard-Branco-Playstation-5_1702579086_gg-removebg-preview.png'),
 (3,'Console','Xbox Retro Classic', 'O Console Retro Classic é uma homenagem aos consoles de jogos clássicos dos anos 80 e 90. Com uma seleção de jogos nostálgicos pré-carregados e controles vintage, o Retro Classic oferece uma experiência de jogo autêntica para os fãs de jogos retrô. Seu design retrô e compacto o tornam uma adição única para qualquer coleção de jogos.', 799.99, 15, 'assets/s-l600-removebg-preview.png'),
 (3,'Console','Xbox One', 'O Console VR Immersio é um sistema de realidade virtual avançado que oferece uma experiência de jogo imersiva. Com tecnologia de ponta e controles precisos, o Immersio leva você para dentro do jogo como nunca antes. Sua biblioteca crescente de jogos VR proporciona uma variedade de experiências emocionantes.', 2099.99, 10, 'assets/727-1-removebg-preview.png'),

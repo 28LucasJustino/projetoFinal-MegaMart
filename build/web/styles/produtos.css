@@ -104,7 +104,17 @@ header {
     transform: scale(1.05);
     color: red;
 }
-
+.lin {
+    text-decoration: none;
+    font-size: 1.35rem;
+    color: #000000;
+    font-weight: 400;
+    cursor: pointer;
+}
+.lin:hover{
+    transform: scale(1.05);
+    color: red;
+}
 .user {
     display: flex;
     align-items: center;
@@ -209,19 +219,17 @@ header {
 }
 
 
-.prod{
+.card{
+    margin-bottom: 2vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
     align-content: space-between;
     justify-items: center;
-}
-
-.card{
-    margin-bottom: 2vw;
-    display: flex;
-    width: 17vw;
-    height: 13vh;
+    width: 50vw;
+    height: 40vh;
+    position: relative;
+    left: 50vh;
 }
 
 #card{

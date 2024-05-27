@@ -9,17 +9,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" href="assets/png-transparent-red-m-and-crown-illustration-letter-m-alphabet-logo-m-blue-text-heart-thumbnail-removebg-preview.png" type="image/x-icon">
         <link href="styles/produtos.css" rel="stylesheet" type="text/css" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <title>MegaMart- Produtos</title>
     </head>
     <body>
-       <header>
+       
         <jsp:include page="header.jsp"></jsp:include>
-       </header>
+   
        <main>
         <br><br>
-        <div class="prod"> 
                 <div class="card">
                      <div class="card-body">
                       <div class="cards"> 
@@ -29,12 +29,11 @@
                       <p >${produto.nomeCategoria}</p>
                       <p id="pre">Preço : ${produto.preco}</p>
                       <p>${produto.descricao}</p>
-                      <button id="btnCompra" class="btn btn-primary" carrinho="${produto.idProduto}">Comprar</button>
+                      <a href="./Carrinho" id="btnCompra" class="btn btn-primary" carrinho="${produto.idProduto}">Comprar</a>
                     </div>
                     </div>
                   </div>
                 </div>
-          </div> 
           <br>
        </main>
        <br><br>

@@ -9,40 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.bean.ProdutoDTO;
 
-public class ProdutoDAO {
-   public List<ProdutoDTO> read() {
-        List<ProdutoDTO> prod = new ArrayList();
-        try {
-            Connection conexao = Conexao.conectar();
-            PreparedStatement stmt = null;
-            ResultSet rs = null;
-
-            stmt = conexao.prepareStatement("SELECT * FROM produto");
-            rs = stmt.executeQuery();
-
-            while (rs.next()) {
-                ProdutoDTO produto = new ProdutoDTO();
-                produto.setIdProduto(rs.getInt("idProduto"));
-                produto.setNome(rs.getString("nome"));
-                produto.setCategoria(rs.getInt("categoria"));
-                produto.setNomeCategoria(rs.getString("nomeCategoria"));
-                produto.setDescricao(rs.getString("descricao"));
-                produto.setPreco(rs.getFloat("preco"));
-                produto.setEstoque(rs.getInt("estoque"));
-                produto.setImg(rs.getString("img"));
-                prod.add(produto);
-            }
-            rs.close();
-            stmt.close();
-            conexao.close();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return prod;
-    }
-
+public class ProdutoDAO { 
      public void create(ProdutoDTO createProduto) {
 
         try {

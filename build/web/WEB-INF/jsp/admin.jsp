@@ -8,14 +8,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="shortcut icon" href="assets/png-transparent-red-m-and-crown-illustration-letter-m-alphabet-logo-m-blue-text-heart-thumbnail-removebg-preview.png" type="image/x-icon">
         <link href="styles/admin.css" rel="stylesheet" type="text/css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>MegaMart- Admin</title>
     </head>
-    <body>
-        
+    <body>  
             <jsp:include page="header.jsp"></jsp:include>
-
         <main>
             <br><br>
             <div class="form">

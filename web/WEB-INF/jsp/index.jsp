@@ -5,7 +5,7 @@
 
 <html>
     <head>
-        <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
+        <link rel="shortcut icon" href="assets/png-transparent-red-m-and-crown-illustration-letter-m-alphabet-logo-m-blue-text-heart-thumbnail-removebg-preview.png" type="image/x-icon">
         <link href="styles/index.css" rel="stylesheet" type="text/css" />
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -45,7 +45,7 @@
 <br><br>   
 <div class="prod"> 
   <c:forEach var="produto" items="${produtos}">           
-      <div class="card">
+  <a href="./Produtos?solo=${produto.idProduto}" class="card">    
            <div class="card-body">
             <div class="cards"> 
             <div id="card">
@@ -53,18 +53,16 @@
             <h5 >${produto.nome}</h5>
             <p >${produto.nomeCategoria}</p>
             <p id="pre">Preço : ${produto.preco}</p>
-            <a href="./Produtos?solo=${produto.idProduto}" class="btn btn-primary">Comprar</a>
           </div>
           </div>
         </div>
-      </div>
+    </a>
     </c:forEach> 
 </div> 
     </main>
     <br><br>
     <jsp:include page="footer.jsp"></jsp:include>
       </body>
-      <script src="js/carrinho.js"></script>
       <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

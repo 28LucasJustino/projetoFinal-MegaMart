@@ -5,9 +5,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 public class CarrinhoDTO {
- private static List<ProdutoDTO> itens = new ArrayList<>();
+    private static List<ProdutoDTO> itens = new ArrayList<>();
 
-    public static void adicionarProd(ProdutoDTO produto) {
+    public static void adicionarItem(ProdutoDTO produto) {
         itens.add(produto);
     }
     
@@ -20,7 +20,7 @@ public class CarrinhoDTO {
         return carrinho;
     }
 
-    public static void removerProd(int index) {
+    public static void removerItem(int index) {
         itens.remove(index);
     }
 
@@ -35,4 +35,4 @@ public class CarrinhoDTO {
         }
         return total;
     }
-}  
+}

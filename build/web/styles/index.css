@@ -104,7 +104,17 @@ header {
     transform: scale(1.05);
     color: red;
 }
-
+.lin {
+    text-decoration: none;
+    font-size: 1.35rem;
+    color: #000000;
+    font-weight: 400;
+    cursor: pointer;
+}
+.lin:hover{
+    transform: scale(1.05);
+    color: red;
+}
 .user {
     display: flex;
     align-items: center;
@@ -130,6 +140,7 @@ header {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     justify-content: space-between;
 }
+
 
 
 #carrinho {
@@ -208,6 +219,8 @@ header {
     color: red;
 }
 
+
+
 .prod{
     margin-top: 20px;
     display: grid;
@@ -223,6 +236,7 @@ header {
     display: flex;
     width: 17vw;
     height: 13vh;
+    text-decoration: none;
 }
 
 #card{
