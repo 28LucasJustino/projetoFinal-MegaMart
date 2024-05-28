@@ -1,38 +1,60 @@
 package model.bean;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.servlet.http.HttpServletRequest;
-
 public class CarrinhoDTO {
-    private static List<ProdutoDTO> itens = new ArrayList<>();
+ private int idCarrinho;
+ private int carrinhoUser;
+ private int produto;
+ private int quantidade;
+ private float valorTotal;
 
-    public static void adicionarItem(ProdutoDTO produto) {
-        itens.add(produto);
-    }
-    
-    public static CarrinhoDTO getOrCreateCarrinho(HttpServletRequest request) {
-        CarrinhoDTO carrinho = (CarrinhoDTO) request.getAttribute("carrinho");
-        if (carrinho == null) {
-            carrinho = new CarrinhoDTO();
-            request.setAttribute("carrinho", carrinho);
-        }
-        return carrinho;
+    public CarrinhoDTO() {
     }
 
-    public static void removerItem(int index) {
-        itens.remove(index);
+    public CarrinhoDTO(int idCarrinho, int carrinhoUser, int produto, int quantidade, float valorTotal) {
+        this.idCarrinho = idCarrinho;
+        this.carrinhoUser = carrinhoUser;
+        this.produto = produto;
+        this.quantidade = quantidade;
+        this.valorTotal = valorTotal;
     }
 
-    public static List<ProdutoDTO> getItens() {
-        return itens;
+    public int getIdCarrinho() {
+        return idCarrinho;
     }
 
-    public static float calcularTotal() {
-        float total = 0;
-        for (ProdutoDTO produto : itens) {
-            total += produto.getPreco();
-        }
-        return total;
+    public void setIdCarrinho(int idCarrinho) {
+        this.idCarrinho = idCarrinho;
+    }
+
+    public int getCarrinhoUser() {
+        return carrinhoUser;
+    }
+
+    public void setCarrinhoUser(int carrinhoUser) {
+        this.carrinhoUser = carrinhoUser;
+    }
+
+    public int getProduto() {
+        return produto;
+    }
+
+    public void setProduto(int produto) {
+        this.produto = produto;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public float getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(float valorTotal) {
+        this.valorTotal = valorTotal;
     }
 }

@@ -41,11 +41,11 @@
         </div>
         <br><br><br>
         <jsp:include page="footer.jsp"></jsp:include>
+        <% if (request.getAttribute("Erro ao realizar Login") != null) { %>
+            <script>
+                alert("E-mail ou senha incorretos!");
+            </script>
+        <% } %>
     </body>
-    <% if (request.getAttribute("Erro ao realizar Login") != null) { %>
-        <script>
-            alert("E-mail ou senha incorretos!");
-        </script>
-    <% } %>
     <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
     </html>

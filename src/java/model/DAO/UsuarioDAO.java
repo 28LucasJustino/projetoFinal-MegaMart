@@ -10,39 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.bean.UsuarioDTO;
 
-public class UsuarioDAO {
-     public List<UsuarioDTO> read() {
-        List<UsuarioDTO> user = new ArrayList();
-        try {
-            Connection conexao = Conexao.conectar();
-            PreparedStatement stmt = null;
-            ResultSet rs = null;
-
-            stmt = conexao.prepareStatement("SELECT * FROM usuario");
-            rs = stmt.executeQuery();
-
-            while (rs.next()) {
-                UsuarioDTO usuario = new UsuarioDTO();
-                usuario.setIdUsuario(rs.getInt("idUsuario"));
-                usuario.setNome(rs.getString("nome"));
-                usuario.setSenha(rs.getString("senha"));
-                usuario.setEmail(rs.getString("email"));
-                usuario.setCpf(rs.getString("cpf"));
-                usuario.setTelefone(rs.getString("telefone"));
-                usuario.setNascimento(rs.getDate("nascimento"));
-                user.add(usuario);
-            }
-            rs.close();
-            stmt.close();
-            conexao.close();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return user;
-    }
-
+public class UsuarioDAO {    
      public void create(UsuarioDTO createLogin) {
 
         try {

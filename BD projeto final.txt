@@ -1,4 +1,4 @@
-drop database bd_projetofinal;
+drop database bd_projetoFinal;
 create database bd_projetoFinal;
 use bd_projetoFinal;
 
@@ -20,7 +20,7 @@ CREATE TABLE categoria (
 CREATE TABLE produto (
     idProduto INT AUTO_INCREMENT PRIMARY KEY,
     categoria INT(10),
-    nomeCategoria VARCHAR(45),
+    marca VARCHAR(45),
     nome VARCHAR(45) NOT NULL,
     descricao TEXT NOT NULL,
     preco FLOAT(8,2),
@@ -48,16 +48,24 @@ CREATE TABLE endereco (
     FOREIGN KEY (idUsuario) REFERENCES usuario (idUsuario)
 );
 
+CREATE TABLE carrinhoUser(
+	idCarrinhoUser INT AUTO_INCREMENT PRIMARY KEY,
+    usuario INT DEFAULT NULL,
+    KEY usuario_carrinho (usuario),
+    CONSTRAINT carrinhoUser FOREIGN KEY (usuario) REFERENCES usuario (idUsuario));
+
 CREATE TABLE carrinho (
     idCarrinho INT AUTO_INCREMENT PRIMARY KEY,
-    idUsuario INT NOT NULL,
-    idProduto INT NOT NULL,
-    idPedidos INT NOT NULL,
+    carrinhoUser INT NOT NULL,
+    produto INT NOT NULL,
+    pedidos INT NOT NULL,
     quantidade INT NOT NULL,
     valorTotal FLOAT(8,2),
-    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
-    FOREIGN KEY (idProduto) REFERENCES produto(idProduto),
-    FOREIGN KEY (idPedidos) REFERENCES pedidos(idPedidos));
+    KEY carrinhoUser_carrinho (carrinhoUser),
+    CONSTRAINT usuario_carrinho FOREIGN KEY (carrinhoUser) REFERENCES carrinhoUser (idCarrinhoUser),
+    KEY produto_carrinho (produto),
+    CONSTRAINT produto_carrinho FOREIGN KEY (produto) REFERENCES produto (idProduto));
+  
 
 CREATE TABLE checkout (
     idCheckout INT AUTO_INCREMENT PRIMARY KEY,
@@ -70,7 +78,7 @@ CREATE TABLE checkout (
  INSERT INTO categoria (idCategoria,nome) VALUES
 (1,'Celular'),(2,'PC'),(3,'Console'),(4,'TV'),(5,'Games'),(6,'Impresorra'),(7,'Notebook'),(8,'Tablet'),(9,'Fones de Ouvido');
 
-INSERT INTO produto (categoria, nomeCategoria, nome, descricao, preco, estoque,img) VALUES
+INSERT INTO produto (categoria, marca, nome, descricao, preco, estoque,img) VALUES
 (1,'Celular','Smartphone Zod X', 'O Smartphone Zod X Ã© um dispositivo revolucionÃ¡rio que combina a portabilidade de um smartphone com a praticidade de um tablet. Com sua tela dobrÃ¡vel de Ãºltima geraÃ§Ã£o, vocÃª pode desfrutar de uma experiÃªncia Ãºnica de visualizaÃ§Ã£o e produtividade. AlÃ©m disso, possui um poderoso processador, cÃ¢meras de alta qualidade e uma bateria de longa duraÃ§Ã£o.', '4000.00', '10', 'assets/19681-removebg-preview.png'),
 (1,'Celular', 'Smartphone Zod Ultra', 'O Smartphone Zod Ultra Ã© o novo lanÃ§amento da linha Zod, conhecida por sua qualidade de cÃ¢mera e experiÃªncia Android pura. Com um design elegante e especificaÃ§Ãµes poderosas, o Zod Ultra oferece desempenho excepcional em um pacote compacto. Sua cÃ¢mera de Ãºltima geraÃ§Ã£o captura fotos incrÃ­veis, enquanto seu sistema operacional garante atualizaÃ§Ãµes rÃ¡pidas e seguras.', '1499.99', '35', 'assets/unnamed-removebg-preview.png'),
 (2,'PC', 'PC Gamer ExtremeTech', 'O PC Gamer ExtremeTech é uma máquina poderosa projetada para jogos de alta qualidade. Equipado com um processador de última geração, placa de vídeo potente e uma grande quantidade de memória RAM, o ExtremeTech oferece desempenho excepcional. Seu design arrojado e sistema de refrigeração eficiente garantem uma experiência de jogo suave e sem problemas.', 3999.99, 10, 'assets/Computador-Completo-Intel-Core-I3-8GB-HD-500GB-Monitor-15-Digital-Corp_1662476385_gg-removebg-preview.png'),

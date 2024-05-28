@@ -20,19 +20,17 @@
    
        <main>
         <br><br>
-                <div class="card">
-                     <div class="card-body">
-                      <div class="cards"> 
-                      <div id="card">
+              <div class="">
+                <div class="text">
+                      <h5 id="tit">${produto.nome}</h5>
+                      <p id="marc">${produto.marca}</p>
                       <img id="imgP" src="${produto.img}" alt="${produto.nome}">
-                      <h5 >${produto.nome}</h5>
-                      <p >${produto.nomeCategoria}</p>
                       <p id="pre">Preço : ${produto.preco}</p>
-                      <p>${produto.descricao}</p>
-                      <a href="./Carrinho" id="btnCompra" class="btn btn-primary" carrinho="${produto.idProduto}">Comprar</a>
-                    </div>
-                    </div>
-                  </div>
+                      <a href="./Carrinho?solo=${produto.idProduto}" id="btnCompra" class="btn btn-primary">Comprar</a>
+                      <div class="descri">
+                        <p id="descri">Descrição do Produto</p>
+                        <p>${produto.descricao}</p> 
+                      </div>
                 </div>
           <br>
        </main>
@@ -40,5 +38,4 @@
        <jsp:include page="footer.jsp"></jsp:include>
     </body>
     <script src="https://kit.fontawesome.com/ffe7fbbd06.js" crossorigin="anonymous"></script>
-    <script src="js/carrinho.js"></script>
 </html>

@@ -16,9 +16,9 @@ public class ProdutoDAO {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
 
-            stmt = conexao.prepareStatement("INSERT INTO produto (categoria,nomeCategoria,nome,descricao,preco,estoque,img) VALUES (?,?,?,?,?,?,?)");
+            stmt = conexao.prepareStatement("INSERT INTO produto (categoria,marca,nome,descricao,preco,estoque,img) VALUES (?,?,?,?,?,?,?)");
             stmt.setInt(1, createProduto.getCategoria());
-            stmt.setString(2, createProduto.getNomeCategoria());
+            stmt.setString(2, createProduto.getMarca());
             stmt.setString(3, createProduto.getNome());
             stmt.setString(4, createProduto.getDescricao());
             stmt.setFloat(5, createProduto.getPreco());
@@ -51,7 +51,7 @@ public class ProdutoDAO {
                 produto.setIdProduto(rs.getInt("idProduto"));
                 produto.setNome(rs.getString("nome"));
                 produto.setCategoria(rs.getInt("categoria"));
-                produto.setNomeCategoria(rs.getString("nomeCategoria"));
+                produto.setMarca(rs.getString("marca"));
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setEstoque(rs.getInt("estoque"));
@@ -86,7 +86,7 @@ public class ProdutoDAO {
                 produto.setIdProduto(rs.getInt("idProduto"));
                 produto.setCategoria(rs.getInt("categoria"));
                 produto.setNome(rs.getString("nome"));
-                produto.setNomeCategoria(rs.getString("nomeCategoria"));
+                produto.setMarca(rs.getString("marca"));
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setEstoque(rs.getInt("estoque"));
@@ -119,7 +119,7 @@ public class ProdutoDAO {
                 prod.setIdProduto(rs.getInt("idProduto"));
                 prod.setNome(rs.getString("nome"));
                 prod.setCategoria(rs.getInt("categoria"));
-                prod.setNomeCategoria(rs.getString("nomeCategoria"));
+                prod.setMarca(rs.getString("marca"));
                 prod.setDescricao(rs.getString("descricao"));
                 prod.setPreco(rs.getFloat("preco"));
                 prod.setEstoque(rs.getInt("estoque"));
@@ -151,7 +151,7 @@ public class ProdutoDAO {
                 prod.setIdProduto(rs.getInt("idProduto"));
                 prod.setNome(rs.getString("nome"));
                 prod.setCategoria(rs.getInt("Categoria"));
-                prod.setNomeCategoria(rs.getString("nomeCategoria"));
+                prod.setMarca(rs.getString("marca"));
                 prod.setDescricao(rs.getString("descricao"));
                 prod.setPreco(rs.getFloat("preco"));
                 prod.setEstoque(rs.getInt("estoque"));
@@ -186,9 +186,9 @@ public class ProdutoDAO {
         try {
           Connection conexao = Conexao.conectar();
           PreparedStatement stmt = null;
-          stmt = conexao.prepareStatement("UPDATE produto SET categoria =?,nomeCategoria =?,nome =?,descricao =?,preco = ?,estoque = ?,img = ?   WHERE idProduto = ?");
+          stmt = conexao.prepareStatement("UPDATE produto SET categoria =?,marca =?,nome =?,descricao =?,preco = ?,estoque = ?,img = ?   WHERE idProduto = ?");
           stmt.setInt(1, editProduto.getCategoria());
-          stmt.setString(2, editProduto.getNomeCategoria());
+          stmt.setString(2, editProduto.getMarca());
           stmt.setString(3, editProduto.getNome());
           stmt.setString(4, editProduto.getDescricao());
           stmt.setFloat(5, editProduto.getPreco());
@@ -222,6 +222,7 @@ public class ProdutoDAO {
                 produto.setNome(rs.getString("nome"));
                 produto.setCategoria(rs.getInt("categoria"));
                 produto.setDescricao(rs.getString("descricao"));
+              //  produto.setSobre(rs.getString("sobre"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setImg(rs.getString("img"));
             } else {

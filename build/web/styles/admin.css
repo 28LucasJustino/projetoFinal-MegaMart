@@ -142,22 +142,16 @@ header {
 }
 
 .form {
-    width: 50vw;
-    height: 50vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background-color: #fff;
     padding: 3rem;
-    position: relative;
-    left: 50vh;
-    top: 5vw;
 }
 
 .cards{
     display: flex;
     flex-wrap: wrap;
+    justify-items: center;
     justify-content: space-between;
     padding: 1rem 0;
 }
@@ -227,4 +221,7 @@ header {
     text-decoration: none;
     font-weight: 500;
     color: #fff;
+}
+.footer{
+    margin-top: 17vh;
 }
