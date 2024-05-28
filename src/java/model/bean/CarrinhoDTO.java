@@ -1,5 +1,6 @@
 package model.bean;
 
+<<<<<<< HEAD
 public class CarrinhoDTO {
  private int idCarrinho;
  private int carrinhoUser;
@@ -57,4 +58,9 @@ public class CarrinhoDTO {
     public void setValorTotal(float valorTotal) {
         this.valorTotal = valorTotal;
     }
+=======
+
+public class CarrinhoDTO {
+ 
+>>>>>>> e6658c4d008e946c1167db9f0987f8772aad6917
 }

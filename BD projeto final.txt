@@ -24,6 +24,7 @@ CREATE TABLE produto (
     nome VARCHAR(45) NOT NULL,
     descricao TEXT NOT NULL,
     preco FLOAT(8,2),
+    sobre TINYTEXT NOT NULL,
     estoque INT NOT NULL,
     img VARCHAR(255),
 	KEY categoria_produtos (categoria),

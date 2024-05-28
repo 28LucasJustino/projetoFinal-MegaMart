@@ -25,6 +25,11 @@
                       <h5 id="tit">${produto.nome}</h5>
                       <p id="marc">${produto.marca}</p>
                       <img id="imgP" src="${produto.img}" alt="${produto.nome}">
+<<<<<<< HEAD
+=======
+                      <h5 >${produto.nome}</h5>
+                      <p >${produto.marca}</p>
+>>>>>>> e6658c4d008e946c1167db9f0987f8772aad6917
                       <p id="pre">Preço : ${produto.preco}</p>
                       <a href="./Carrinho?solo=${produto.idProduto}" id="btnCompra" class="btn btn-primary">Comprar</a>
                       <div class="descri">
