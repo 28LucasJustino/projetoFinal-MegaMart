@@ -24,13 +24,13 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="assets/zzzz.png" class="d-block w-100" alt="...">
+      <img src="assets/d8411492e8b44f1468b624f738e20af1.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="assets/4343ff.png" class="d-block w-100" alt="...">
+      <img src="assets/d8411492e8b44f1468b624f738e20af1.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="assets/ffffffffff.png" class="d-block w-100" alt="...">
+      <img src="assets/d8411492e8b44f1468b624f738e20af1.jpg" class="d-block w-100" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -45,18 +45,21 @@
 <br><br>   
 <div class="prod"> 
   <c:forEach var="produto" items="${produtos}">           
-  <a href="./Produtos?solo=${produto.idProduto}" class="card">    
+        <div class="card">    
            <div class="card-body">
             <div class="cards"> 
             <div id="card">
-            <img id="imgP" src="${produto.img}" alt="${produto.nome}">
+        <a href="./Produtos?solo=${produto.idProduto}"><img id="imgP" src="${produto.img}" alt="${produto.nome}"></a>
             <h5 >${produto.nome}</h5>
             <p >${produto.marca}</p>
             <p id="pre">Preço : ${produto.preco}</p>
+            <form action="sendToCart" method="post">
+             <button class="btnS" type="submit" value="${produto.idProduto}" name="addProduto">Adicionar ao <i class="fa-solid fa-shopping-cart me-1"></i></button>
+            </form>
           </div>
           </div>
         </div>
-    </a>
+    </div>
     </c:forEach> 
 </div> 
     </main>

@@ -52,7 +52,8 @@ public class HomeController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //inicio dos codigos do João Guilherme
+        
+        //codigo do João Guilherme
          UsuarioDAO uDao = new UsuarioDAO();
         Cookie[] cookies = request.getCookies();
         int idUsuario = 0;
@@ -67,6 +68,7 @@ public class HomeController extends HttpServlet {
             request.setAttribute("user", uDao.selecionarUsuarioPorId(idUsuario));
         }
         //fim
+        
         ProdutoDAO produtosDAO = new ProdutoDAO();
         CategoriasDAO categoriasDAO = new CategoriasDAO();
         List<CategoriasDTO> categorias = categoriasDAO.listarCategorias();
@@ -167,9 +169,9 @@ public class HomeController extends HttpServlet {
     // Salvar o produto com o caminho da imagem no banco
     ProdutoDAO produtosD = new ProdutoDAO();
     produtosD.create(newProduto);
-    response.sendRedirect("./Home");
+    response.sendRedirect("/Home");
     
-    
+    //codigo do João Guilherme
     request.setCharacterEncoding("UTF-8");
         Cookie[] cookies = request.getCookies();
         UsuarioDTO user = new UsuarioDTO();
@@ -188,14 +190,15 @@ public class HomeController extends HttpServlet {
                 }
             }
             if (user == null || user.getIdUsuario() == 0) {
-                response.sendRedirect("./Login");        
+                response.sendRedirect("/Login");        
             } else {
                 prod = pDao.selecionarPorId(Integer.parseInt(request.getParameter("addProduto")));
                 cart = cartDao.selecionarCarrinho(user);
                 cartDao.addProduto(prod, cart);
-                response.sendRedirect("./Home");
+                response.sendRedirect("/Home");
             }
         }
+         //fim
 }
 
     /**

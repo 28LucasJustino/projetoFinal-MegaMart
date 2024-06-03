@@ -20,18 +20,22 @@
                 <form action="buscar-produtos" method="get">
                     <input type="text" name="busca" type="search" placeholder="Digite o que voçê procura..." class="inB"><button class="btnB" ><i class="fa-solid fa-magnifying-glass"id="iconB"></i></button>
                     </form>
-            </div> 
+            </div>
             <div class="user">
                 <ul>
                 <li class="item"><a href="./Carrinho" class="link"><i class="fa-solid fa-cart-shopping" id="iconC"></i></a></li>
                 <li class="item"><a href="#" class="link"><i class="fa-solid fa-clock-rotate-left" id="iconC"></i></a></li> 
-                <li class="item"><a href="./Perfil" class="link"><i class="fa-solid fa-user" id="iconC"></i></a></li>  
+                <li class="item"><a href="./Perfil" class="link"><i class="fa-solid fa-user" id="iconC"></i></a></li> 
                 </ul> 
-                 </div>                   
+                 </div>  
+                 <div class="userM">
+                    <ul>
+                    <li class="item"><a href="#" class="link"><i class="fa-solid fa-list-ul" id="iconC"></i></a></li>    
+                    </ul>
+                </div>                  
           </nav>
           <div class="bcCate">
             <ul>
-                <li class="item"><a href="#" class="lin"><i class="fa-solid fa-list-ul"></i></a></li> 
                 <p>Atualmente logado como: ${user.nome}</p>
                 <c:forEach items="${categorias}" var="categoria" > 
                 <li class="item"><a href="./buscar-produtos?cat=${categoria.idCategoria}&busca=" class="link">${categoria.nome}</a></li>  

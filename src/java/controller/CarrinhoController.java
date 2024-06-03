@@ -40,11 +40,7 @@ public class CarrinhoController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String nextPage = "/WEB-INF/jsp/carrinho.jsp";
-       
-       RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-       dispatcher.forward(request, response);
-      /*    
+        //codigo do João Guilherme
         UsuarioDTO u = null;
         Cookie[] cookies = request.getCookies();
         for (Cookie cookie : cookies) {
@@ -53,7 +49,7 @@ public class CarrinhoController extends HttpServlet {
             }
         }
         if (u == null || u.getIdUsuario() <= 0) {
-            response.sendRedirect("./Login");
+            response.sendRedirect("/Login");
         } else {
             try {
                 List<ProdutoDTO > produtos = cDao.lerProdutos(u);
@@ -68,7 +64,7 @@ public class CarrinhoController extends HttpServlet {
             String nextPage = "/WEB-INF/jsp/carrinho.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
-        }*/
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -94,16 +90,16 @@ public class CarrinhoController extends HttpServlet {
         }
         if (url.equals("/esvaziarCarrinho")) {
             cDao.esvaziarCarrinho(u);
-            response.sendRedirect("./Carrinho");
+            response.sendRedirect("/Carrinho");
         } else if (url.equals("/removerItem")) {
             cDao.removerProduto(pDao.selecionarPorId(Integer.parseInt(request.getParameter("item"))), cDao.selecionarCarrinho(u));
-            response.sendRedirect("./Carrinho");
+            response.sendRedirect("/Carrinho");
         } else if (url.equals("/adicionarItem")) {
             cDao.adicionarProduto(pDao.selecionarPorId(Integer.parseInt(request.getParameter("item"))), cDao.selecionarCarrinho(u));
-            response.sendRedirect("./Carrinho");
+            response.sendRedirect("/Carrinho");
         }
     }
-
+    //fim
 
     /**
      * Handles the HTTP <code>POST</code> method.

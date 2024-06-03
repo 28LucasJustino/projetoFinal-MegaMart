@@ -11,7 +11,9 @@
     <jsp:include page="header.jsp"></jsp:include>
 
     <main>
+        <div class="perfil">
 
+        </div>
     </main>
     <jsp:include page="footer.jsp"></jsp:include>
 </body>

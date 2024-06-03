@@ -40,6 +40,7 @@ public class PerfilController extends HttpServlet {
          CategoriasDAO categoriasDAO = new CategoriasDAO();
         List<CategoriasDTO> categorias = categoriasDAO.listarCategorias();
         request.setAttribute("categorias", categorias);
+        //codigo do João Guilherme
         String url = request.getServletPath();
         UsuarioDAO uDao = new UsuarioDAO();
         Cookie[] cookies = request.getCookies();
@@ -59,20 +60,8 @@ public class PerfilController extends HttpServlet {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         }
-        
-
-         if (url.equals("/Logout")) {
-            for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("login")) {
-                    cookie.setMaxAge(0);
-                    response.addCookie(cookie);
-                }
-            }
-            System.out.println("aqui" + response.isCommitted());
-            response.sendRedirect("./Home");
-        } else {
-            processRequest(request, response);
-        }
+       
+         //codigo do João Guilherme
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -101,7 +90,20 @@ public class PerfilController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            processRequest(request, response);     
+        String url = request.getServletPath();
+        Cookie[] cookies = request.getCookies();
+           if (url.equals("/Logout")) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("login")) {
+                    cookie.setMaxAge(0);
+                    response.addCookie(cookie);
+                }
+            }
+            System.out.println("aqui" + response.isCommitted());
+            response.sendRedirect("/Home");
+        } else {
+            processRequest(request, response);
+        }
     }
 
     /**

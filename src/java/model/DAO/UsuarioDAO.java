@@ -41,7 +41,7 @@ public class UsuarioDAO {
             PreparedStatement stmt = null;
             ResultSet rs = null;
             
-            String query = "SELECT stats FROM usuario WHERE email = ? AND senha = ?";
+            String query = "SELECT idUsuario,stats FROM usuario WHERE email = ? AND senha = ?";
             stmt = conexao.prepareStatement(query);
             
             stmt.setString(1, user.getEmail());
@@ -49,7 +49,7 @@ public class UsuarioDAO {
             
             rs = stmt.executeQuery();
             if(rs.next()){
-                idUsuario = rs.getInt(1);
+                idUsuario = rs.getInt("idUsuario");
                 user.setStats(rs.getInt("stats"));
             }
             rs.close();

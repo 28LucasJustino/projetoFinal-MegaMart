@@ -80,6 +80,20 @@ header {
     border: none;
     background-color: transparent;
 }
+.userM{
+    display: none;
+}
+.user {
+    display: flex;
+    align-items: center;
+}
+.user ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    position: relative;
+    bottom: 2vw;
+}
 .item {
     margin: 0 15px;
 }
@@ -104,28 +118,6 @@ header {
     transform: scale(1.05);
     color: red;
 }
-.lin {
-    text-decoration: none;
-    font-size: 1.35rem;
-    color: #000000;
-    font-weight: 400;
-    cursor: pointer;
-}
-.lin:hover{
-    transform: scale(1.05);
-    color: red;
-}
-.user {
-    display: flex;
-    align-items: center;
-}
-.user ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    position: relative;
-    bottom: 2vw;
-}
 
 .bcCate{
  display: grid;
@@ -141,17 +133,28 @@ header {
     justify-content: space-between;
 }
 
+.prod{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.imgP{
+    display: grid;
+}
+
 #imgP{
     width: 30vw;
     position: relative;
-    left: 5vh;
+    left: 20vh;
 }
 
 .text{
+    display: grid;
     text-align: center;
     justify-content: center;
     align-items: center;
-      
+    position: relative;
+    right: 10vh;  
 }
 #tit{
     font-size: 50px;
@@ -163,7 +166,8 @@ header {
     font-size: 30px;
     color: red;
     position: relative;
-    left: 68vh;
+    top: 4vw;
+    left: 2vh;
 }
 #marc{
     font-size: 30px;
@@ -171,9 +175,11 @@ header {
 .btn.btn-primary{
     background-color: red;
     color: #000000;
-    width: 25vw; 
+    width: 26vw; 
     font-size: 35px;
     font-weight: 700;
+    position: relative;
+    left: 5vh;
 }
 .btn.btn-primary:hover{
     background-color: black;

@@ -40,6 +40,9 @@ header {
 .user {
  display: none;
 }
+.userM {
+    display: none;
+   }
 .bcCate{
 display: none;
 }

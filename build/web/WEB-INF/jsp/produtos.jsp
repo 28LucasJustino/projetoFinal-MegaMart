@@ -20,18 +20,29 @@
    
        <main>
         <br><br>
-              <div class="">
+              <div class="prod">
+                <div class="imgP">
+                    <img id="imgP" src="${produto.img}" alt="${produto.nome}">
+                </div>
                 <div class="text">
                       <h5 id="tit">${produto.nome}</h5>
                       <p id="marc">${produto.marca}</p>
-                      <img id="imgP" src="${produto.img}" alt="${produto.nome}">
                       <p id="pre">Preço : ${produto.preco}</p>
                       <a href="./Carrinho?solo=${produto.idProduto}" id="btnCompra" class="btn btn-primary">Comprar</a>
-                      <div class="descri">
-                        <p id="descri">Descrição do Produto</p>
-                        <p>${produto.descricao}</p> 
-                      </div>
                 </div>
+                </div>
+                <div class="descri">
+                    <p id="descri">Descrição do Produto</p>
+                    <p>${produto.descricao}</p> 
+                  </div>
+                  
+               <!-- <div class="ava">
+
+                  </div>
+                  <div class="rela">
+
+                  </div>-->   
+                  
           <br>
        </main>
        <br><br>
