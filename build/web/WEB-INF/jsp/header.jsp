@@ -23,15 +23,16 @@
             </div> 
             <div class="user">
                 <ul>
-                <li class="item"><a href="#" class="link"><i class="fa-solid fa-cart-shopping" id="iconC"></i></a></li>
+                <li class="item"><a href="./Carrinho" class="link"><i class="fa-solid fa-cart-shopping" id="iconC"></i></a></li>
                 <li class="item"><a href="#" class="link"><i class="fa-solid fa-clock-rotate-left" id="iconC"></i></a></li> 
-                <li class="item"><a href="./Login" class="link"><i class="fa-solid fa-user" id="iconC"></i></a></li>  
+                <li class="item"><a href="./Perfil" class="link"><i class="fa-solid fa-user" id="iconC"></i></a></li>  
                 </ul> 
                  </div>                   
           </nav>
           <div class="bcCate">
             <ul>
                 <li class="item"><a href="#" class="lin"><i class="fa-solid fa-list-ul"></i></a></li> 
+                <p>Atualmente logado como: ${user.nome}</p>
                 <c:forEach items="${categorias}" var="categoria" > 
                 <li class="item"><a href="./buscar-produtos?cat=${categoria.idCategoria}&busca=" class="link">${categoria.nome}</a></li>  
                 </c:forEach> 

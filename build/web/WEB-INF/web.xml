@@ -24,6 +24,14 @@
         <servlet-name>CadastroController</servlet-name>
         <servlet-class>controller.CadastroController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CarrinhoController</servlet-name>
+        <servlet-class>controller.CarrinhoController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PerfilController</servlet-name>
+        <servlet-class>controller.PerfilController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -63,6 +71,14 @@
     <servlet-mapping>
         <servlet-name>CadastroController</servlet-name>
         <url-pattern>/cad</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CarrinhoController</servlet-name>
+        <url-pattern>/Carrinho</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PerfilController</servlet-name>
+        <url-pattern>/Perfil</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

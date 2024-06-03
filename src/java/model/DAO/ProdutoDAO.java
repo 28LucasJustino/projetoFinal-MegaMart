@@ -40,7 +40,7 @@ public class ProdutoDAO {
             PreparedStatement stmt = null;
             ResultSet rs = null;
 
-            stmt = conexao.prepareStatement("SELECT * FROM produto WHERE nome LIKE ? OR nomeCategoria LIKE ?");
+            stmt = conexao.prepareStatement("SELECT * FROM produto WHERE nome LIKE ? OR marca LIKE ?");
      
             stmt.setString(1, Busca);
             stmt.setString(2, Busca);
@@ -233,5 +233,34 @@ public class ProdutoDAO {
         }
         
         return produto;
+    }
+ public ProdutoDTO selecionarPorId(int id) {
+        ProdutoDTO prod = new ProdutoDTO();
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+
+            stmt = conexao.prepareStatement("SELECT * FROM produto WHERE idProduto = ?");
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                prod.setIdProduto(rs.getInt("idProduto"));
+                prod.setNome(rs.getString("nome"));
+                prod.setCategoria(rs.getInt("Categoria"));
+                prod.setMarca(rs.getString("marca"));
+                prod.setDescricao(rs.getString("descricao"));
+                prod.setPreco(rs.getFloat("preco"));
+                prod.setEstoque(rs.getInt("estoque"));
+                prod.setImg(rs.getString("img"));
+            }
+            rs.close();
+            stmt.close();
+            conexao.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return prod;
     }
 }

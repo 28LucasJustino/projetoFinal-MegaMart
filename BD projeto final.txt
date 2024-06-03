@@ -11,31 +11,6 @@ CREATE TABLE usuario (
     telefone CHAR(15) NOT NULL,
     nascimento DATE NOT NULL,
 	stats INT NOT NULL DEFAULT 1);
-
-CREATE TABLE categoria (
-    idCategoria INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(45) 
-);
-
-CREATE TABLE produto (
-    idProduto INT AUTO_INCREMENT PRIMARY KEY,
-    categoria INT(10),
-    marca VARCHAR(45),
-    nome VARCHAR(45) NOT NULL,
-    descricao TEXT NOT NULL,
-    preco FLOAT(8,2),
-    sobre TINYTEXT NOT NULL,
-    estoque INT NOT NULL,
-    img VARCHAR(255),
-	KEY categoria_produtos (categoria),
-    CONSTRAINT categoria_produtos FOREIGN KEY (categoria) REFERENCES categoria (idCategoria));
-    
-CREATE TABLE pedidos (
-    idPedidos INT AUTO_INCREMENT PRIMARY KEY,
-    idUsuario INT NOT NULL,
-    data_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario));
-    
 CREATE TABLE endereco (
     idEndereco INT AUTO_INCREMENT PRIMARY KEY,
     idUsuario INT NOT NULL,
@@ -48,6 +23,47 @@ CREATE TABLE endereco (
     cep CHAR(8) NOT NULL,
     FOREIGN KEY (idUsuario) REFERENCES usuario (idUsuario)
 );
+CREATE TABLE categoria (
+    idCategoria INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(45) 
+);
+
+CREATE TABLE produto (
+    idProduto INT AUTO_INCREMENT PRIMARY KEY,
+    categoria INT(10),
+    marca VARCHAR(45),
+    nome VARCHAR(45) NOT NULL,
+    descricao TEXT NOT NULL,
+    desconto float(10,2) DEFAULT 0.00,
+    preco FLOAT,
+    sobre TINYTEXT NOT NULL,
+    estoque INT NOT NULL,
+    valorFinal FLOAT,
+    img VARCHAR(255),
+	KEY categoria_produtos (categoria),
+    CONSTRAINT categoria_produtos FOREIGN KEY (categoria) REFERENCES categoria (idCategoria));
+    
+CREATE TABLE pedido (
+    idPedido INT AUTO_INCREMENT PRIMARY KEY,
+	usuario int NOT NULL,
+	entrega int NOT NULL,
+	dataPedido date NOT NULL,
+	valorTotal float DEFAULT NULL,
+    formaPagamento varchar(20) DEFAULT NULL,
+    stats int DEFAULT 1,
+    KEY entrega (entrega),
+    KEY usuario (usuario),
+    CONSTRAINT entrega_pedido FOREIGN KEY (entrega) REFERENCES endereco (idEndereco),
+	CONSTRAINT user_pedido FOREIGN KEY (usuario) REFERENCES usuario (idUsuario));
+    
+    CREATE TABLE produtoPedidos (
+	idProdutoPedidos INT AUTO_INCREMENT PRIMARY KEY,
+    pedido int NOT NULL,
+    produto int NOT NULL,
+	KEY pedido_produtoPedidos (pedido),
+    KEY produto_produtoPedidos (produto),
+    CONSTRAINT produto_produtoPedidos FOREIGN KEY (produto) REFERENCES produto (idProduto),
+	CONSTRAINT pedido_produtoPedidos FOREIGN KEY (pedido) REFERENCES pedido (idPedido));
 
 CREATE TABLE carrinhoUser(
 	idCarrinhoUser INT AUTO_INCREMENT PRIMARY KEY,
@@ -63,7 +79,7 @@ CREATE TABLE carrinho (
     quantidade INT NOT NULL,
     valorTotal FLOAT(8,2),
     KEY carrinhoUser_carrinho (carrinhoUser),
-    CONSTRAINT usuario_carrinho FOREIGN KEY (carrinhoUser) REFERENCES carrinhoUser (idCarrinhoUser),
+    CONSTRAINT carrinhoUser_carrinho FOREIGN KEY (carrinhoUser) REFERENCES carrinhoUser (idCarrinhoUser),
     KEY produto_carrinho (produto),
     CONSTRAINT produto_carrinho FOREIGN KEY (produto) REFERENCES produto (idProduto));
   
@@ -104,21 +120,3 @@ INSERT INTO produto (categoria, marca, nome, descricao, preco, estoque,img) VALU
  insert into usuario(nome,senha,email,cpf,telefone,nascimento,stats)values
 ('Lucas','admin123','lucas@gmail.com','12344543565','1212345678','2004-05-19',2),
 ('Luk','123','luk@gmail.com','54356512344','4567812123','2006-11-14',1);
-
- 
-DELIMITER $$
-
-CREATE TRIGGER insert_pedidos
-AFTER INSERT ON pedidos
-FOR EACH ROW
-BEGIN
-    INSERT INTO checkout (idUsuario, idProduto, quantidade)
-    SELECT idUsuario, idProduto, quantidade
-    FROM carrinho
-    WHERE idUsuario = NEW.idUsuario AND idPedidos = NEW.idPedidos;
-
-    DELETE FROM carrinho
-    WHERE idUsuario = NEW.idUsuario AND idPedidos = NEW.idPedidos;
-END $$
-
-DELIMITER ;

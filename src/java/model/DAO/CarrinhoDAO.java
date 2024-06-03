@@ -73,7 +73,7 @@ public class CarrinhoDAO {
         }
         return c;
     }
-       public List<ProdutoDTO> listarProdutos(UsuarioDTO user) {
+       public List<ProdutoDTO> lerProdutos(UsuarioDTO user) {
         List<ProdutoDTO> produtos = new ArrayList();
         try {
             Connection conexao = Conexao.conectar();
@@ -105,5 +105,65 @@ public class CarrinhoDAO {
             e.printStackTrace();
         }
         return produtos;
+    }
+       public CarrinhoUserDTO selecionarCarrinho(UsuarioDTO u) {
+        CarrinhoUserDTO c = new CarrinhoUserDTO();
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+
+            stmt = conexao.prepareStatement("SELECT * FROM carrinho WHERE usuario = ?");
+            stmt.setInt(1, u.getIdUsuario());
+
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                c.setIdCarrinhoUser(rs.getInt("idCarrinhoUser"));
+                c.setUsuario(rs.getInt("usuario"));
+            }
+
+            rs.close();
+            stmt.close();
+            conexao.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return c;
+    }
+       public void esvaziarCarrinho(UsuarioDTO u) {
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+
+            stmt = conexao.prepareStatement("DELETE FROM carrinhoProduto WHERE carrinho = ?");
+            stmt.setInt(1, u.getIdUsuario());
+
+            stmt.executeUpdate();
+
+            stmt.close();
+            conexao.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+public void adicionarProduto(ProdutoDTO p, CarrinhoUserDTO c) {
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+
+            stmt = conexao.prepareStatement("INSERT INTO carrinhoproduto (carrinho, produto) VALUES (?, ?)");
+            stmt.setInt(1, c.getIdCarrinhoUser());
+            stmt.setInt(2, p.getIdProduto());
+
+            stmt.executeUpdate();
+
+            stmt.close();
+            conexao.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
     }
 }

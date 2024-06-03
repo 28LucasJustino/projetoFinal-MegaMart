@@ -8,12 +8,14 @@ public class ProdutoDTO {
     private String descricao;
     private float preco;
     private int estoque;
+    private float valorFinal;
+    private float desconto;
     private String img;
-    
+
     public ProdutoDTO() {
     }
 
-    public ProdutoDTO(int idProduto, String nome, int categoria, String marca, String descricao, float preco, int estoque, String img) {
+    public ProdutoDTO(int idProduto, String nome, int categoria, String marca, String descricao, float preco, int estoque, float valorFinal, float desconto, String img) {
         this.idProduto = idProduto;
         this.nome = nome;
         this.categoria = categoria;
@@ -21,6 +23,8 @@ public class ProdutoDTO {
         this.descricao = descricao;
         this.preco = preco;
         this.estoque = estoque;
+        this.valorFinal = valorFinal;
+        this.desconto = desconto;
         this.img = img;
     }
 
@@ -80,11 +84,27 @@ public class ProdutoDTO {
         this.estoque = estoque;
     }
 
+    public float getValorFinal() {
+        return valorFinal;
+    }
+
+    public void setValorFinal(float valorFinal) {
+        this.valorFinal = valorFinal;
+    }
+
+    public float getDesconto() {
+        return desconto;
+    }
+
+    public void setDesconto(float desconto) {
+        this.desconto = desconto;
+    }
+
     public String getImg() {
         return img;
     }
 
     public void setImg(String img) {
         this.img = img;
-    }  
+    }
 }

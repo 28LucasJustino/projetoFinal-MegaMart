@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -67,28 +68,38 @@ public class LoginController extends HttpServlet {
         if (url.equals("/log")) {
             String nextLogin = "/WEB-INF/jsp/login.jsp";
             UsuarioDTO user = new UsuarioDTO();
+            UsuarioDAO userD = new UsuarioDAO();
             user.setEmail(request.getParameter("email"));
             user.setSenha(request.getParameter("senha"));
         try {
-            UsuarioDAO userD = new UsuarioDAO();
-            user = userD.buscarLogin(user);
-            if (user.getIdUsuario() > 0) {
-                if (user.getStats() == 2) {
+            if (userD.buscarLogin(user) != -1) {
+                    boolean cookieExiste = false;
+                    for (Cookie cookie : request.getCookies()) {
+                        if (cookie.getName().equals("login")) {
+                            cookieExiste = true;
+                            cookie.setValue(Integer.toString(userD.buscarLogin(user)));
+                        }
+                    }
+                    if (!cookieExiste) {
+                        Cookie cookieLogin = new Cookie("login", Integer.toString(userD.buscarLogin(user)));
+                        response.addCookie(cookieLogin);
+                    }                
+                   if (user.getStats() == 2) {
                     // redirecionar para página de admin
-                    response.sendRedirect("./cadastrar-produto");
+                    response.sendRedirect("./Cadastrar-produto");
                 } else {
                     // redirecionar para página de usuario
                     response.sendRedirect("./Home");
                 }
-            } else {
-                request.setAttribute("Erro ao realizar Login", true);
-                String nextPage = "/WEB-INF/jsp/login.jsp";
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-                dispatcher.forward(request, response);
-            }
+                } else {
+                   nextLogin = "/WEB-INF/jsp/login.jsp";
+                   request.setAttribute("Erro ao realizar Login", true);
+                   RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextLogin);
+                   dispatcher.forward(request, response);
+                }
             } catch (Exception e) {
                 nextLogin = "/WEB-INF/jsp/login.jsp";
-                request.setAttribute("errorMessage", "Usuário ou senha inválidos");
+                request.setAttribute("Erro ao realizar Login", true);
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextLogin);
                 dispatcher.forward(request, response);
             }
@@ -103,5 +114,4 @@ public class LoginController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }

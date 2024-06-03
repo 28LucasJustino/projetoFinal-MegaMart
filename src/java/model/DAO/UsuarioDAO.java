@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import model.bean.UsuarioDTO;
 
@@ -33,44 +34,22 @@ public class UsuarioDAO {
         }
 
     }
-
-    public Boolean login(String email, String senha) {
-        Boolean validar = false;
-        try {
-            Connection conexao = Conexao.conectar();
-            PreparedStatement stmt = null;
-            ResultSet rs = null;
-   
-            stmt = conexao.prepareStatement("SELECT * FROM usuario WHERE email = ? AND senha = ?");
-            stmt.setString(1, email);
-            stmt.setString(2, senha);
-            rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                validar = true;
-            }
-
-            rs.close();
-            stmt.close();
-            conexao.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return validar;
-    }
-    public UsuarioDTO buscarLogin(UsuarioDTO user) {
+    public int buscarLogin(UsuarioDTO user) {
+        int idUsuario = -1;
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
             ResultSet rs = null;
             
-            stmt = conexao.prepareStatement("SELECT idUsuario, stats FROM usuario WHERE email = ? AND senha = ?");
+            String query = "SELECT stats FROM usuario WHERE email = ? AND senha = ?";
+            stmt = conexao.prepareStatement(query);
+            
             stmt.setString(1, user.getEmail());
             stmt.setString(2, user.getSenha());
             
             rs = stmt.executeQuery();
             if(rs.next()){
-                user.setIdUsuario(rs.getInt("idUsuario"));
+                idUsuario = rs.getInt(1);
                 user.setStats(rs.getInt("stats"));
             }
             rs.close();
@@ -80,6 +59,44 @@ public class UsuarioDAO {
             e.printStackTrace();
         }
         
-        return user;
-    }   
+      return idUsuario;
+    } 
+    public UsuarioDTO selecionarUsuarioPorId(int id) {
+        UsuarioDTO u = new UsuarioDTO();
+        if (id == -1) {
+            return u;
+        }
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+
+            stmt = conexao.prepareStatement("SELECT * FROM usuario WHERE idUsuario = ?");
+            stmt.setInt(1, id);
+
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                u.setIdUsuario(rs.getInt("idUsuario"));
+                u.setNome(rs.getString("nome"));
+                u.setEmail(rs.getString("email"));
+                u.setTelefone(rs.getString("telefone"));
+                u.setCpf(rs.getString("cpf"));
+                u.setNascimento(rs.getDate("nascimento"));
+                u.setStats(rs.getInt("stats"));
+
+            } else {
+                System.out.println("Usuario não localizado.");
+                u = null;
+            }
+
+            rs.close();
+            stmt.close();
+            conexao.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return u;
+    }
 }
