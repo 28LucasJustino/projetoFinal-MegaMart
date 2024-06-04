@@ -80,6 +80,20 @@ header {
     border: none;
     background-color: transparent;
 }
+.userM{
+    display: none;
+}
+.user {
+    display: flex;
+    align-items: center;
+}
+.user ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    position: relative;
+    bottom: 2vw;
+}
 .item {
     margin: 0 15px;
 }
@@ -104,28 +118,6 @@ header {
     transform: scale(1.05);
     color: red;
 }
-.lin {
-    text-decoration: none;
-    font-size: 1.35rem;
-    color: #000000;
-    font-weight: 400;
-    cursor: pointer;
-}
-.lin:hover{
-    transform: scale(1.05);
-    color: red;
-}
-.user {
-    display: flex;
-    align-items: center;
-}
-.user ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    position: relative;
-    bottom: 2vw;
-}
 
 .bcCate{
  display: grid;
@@ -137,6 +129,6 @@ header {
 }
 .bcCate ul{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     justify-content: space-between;
 }

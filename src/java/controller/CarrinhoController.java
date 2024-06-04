@@ -16,8 +16,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.DAO.CarrinhoDAO;
+import model.DAO.CategoriasDAO;
 import model.DAO.ProdutoDAO;
 import model.DAO.UsuarioDAO;
+import model.bean.CategoriasDTO;
 import model.bean.ProdutoDTO;
 import model.bean.UsuarioDTO;
 
@@ -40,7 +42,12 @@ public class CarrinhoController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        CategoriasDAO categoriasDAO = new CategoriasDAO();
+        List<CategoriasDTO> categorias = categoriasDAO.listarCategorias();
+        request.setAttribute("categorias", categorias);
         //codigo do João Guilherme
+        request.setCharacterEncoding("UTF-8");
+        String nextPage = "/WEB-INF/jsp/carrinho.jsp";
         UsuarioDTO u = null;
         Cookie[] cookies = request.getCookies();
         for (Cookie cookie : cookies) {
@@ -49,7 +56,7 @@ public class CarrinhoController extends HttpServlet {
             }
         }
         if (u == null || u.getIdUsuario() <= 0) {
-            response.sendRedirect("/Login");
+            response.sendRedirect("./Login");
         } else {
             try {
                 List<ProdutoDTO > produtos = cDao.lerProdutos(u);
@@ -61,7 +68,7 @@ public class CarrinhoController extends HttpServlet {
             }
         }
        if (!response.isCommitted()) {
-            String nextPage = "/WEB-INF/jsp/carrinho.jsp";
+            
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         }
@@ -88,16 +95,17 @@ public class CarrinhoController extends HttpServlet {
                 u = uDao.selecionarUsuarioPorId(Integer.parseInt(cookie.getValue()));
             }
         }
-        if (url.equals("/esvaziarCarrinho")) {
+        if (url.equals("./esvaziarCarrinho")) {
             cDao.esvaziarCarrinho(u);
-            response.sendRedirect("/Carrinho");
+            response.sendRedirect("./Carrinho");
         } else if (url.equals("/removerItem")) {
             cDao.removerProduto(pDao.selecionarPorId(Integer.parseInt(request.getParameter("item"))), cDao.selecionarCarrinho(u));
-            response.sendRedirect("/Carrinho");
-        } else if (url.equals("/adicionarItem")) {
+            response.sendRedirect("./Carrinho");
+        } else if (url.equals("./adicionarItem")) {
             cDao.adicionarProduto(pDao.selecionarPorId(Integer.parseInt(request.getParameter("item"))), cDao.selecionarCarrinho(u));
-            response.sendRedirect("/Carrinho");
+            response.sendRedirect("./Carrinho");
         }
+        processRequest(request, response);
     }
     //fim
 

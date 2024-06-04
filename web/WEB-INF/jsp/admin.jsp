@@ -51,10 +51,6 @@
                                 <input id="estoque" type="text" name="estoque"  placeholder="   Quantidade em Estoque" required>
                             </div>
                             <div class="inputs">
-                                <label for="sobre"><i class="fa-solid fa-comment-dots"></i>Sobre</label>
-                                <textarea  id="descricao" name="descricao" class="tab" rows="6"></textarea>
-                            </div>
-                            <div class="inputs">
                                 <label for="descricao"><i class="fa-solid fa-message"></i>Descrição</label>
                                 <textarea  id="descricao" name="descricao" class="tab" rows="6"></textarea>
                             </div>

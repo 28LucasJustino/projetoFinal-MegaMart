@@ -136,42 +136,42 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String url = request.getServletPath();
+        if(url.equals("/Cadastrar-produto")) {
          ProdutoDTO newProduto = new ProdutoDTO();
         newProduto.setNome(request.getParameter("nome"));
-        newProduto.setNome(request.getParameter("nome"));
+       // newProduto.setNome(request.getParameter("marca"));
         newProduto.setCategoria(Integer.parseInt(request.getParameter("categoria")));
         newProduto.setDescricao(request.getParameter("descricao"));
         newProduto.setDescricao(request.getParameter("descricao"));
         newProduto.setEstoque(Integer.parseInt(request.getParameter("estoque")));
         newProduto.setPreco(Float.parseFloat(request.getParameter("preco")));
         Part filePart = request.getPart("img");
-    String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // Corrige problemas com o navegador IE
+    String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); 
     if (fileName != null && !fileName.isEmpty()) {
-        String basePath = getServletContext().getRealPath("/") + "assets"; // Caminho para a pasta assets
+        String basePath = getServletContext().getRealPath("/") + "assets"; 
         File uploads = new File(basePath);
         if (!uploads.exists()) {
-            uploads.mkdirs(); // Cria o diretório se não existir
+            uploads.mkdirs(); 
         }
         File file = new File(uploads, fileName);
 
         try (InputStream input = filePart.getInputStream()) {
             Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception e) {
-            e.printStackTrace(); // Trate as exceções de forma adequada
+            e.printStackTrace(); 
         }
-
-        // Configurando apenas o caminho relativo da imagem no banco de dados
         newProduto.setImg("assets/" + fileName);
     } else {
         newProduto.setImg(null);
     }
 
-    // Salvar o produto com o caminho da imagem no banco
     ProdutoDAO produtosD = new ProdutoDAO();
     produtosD.create(newProduto);
-    response.sendRedirect("/Home");
-    
+    response.sendRedirect("./Home");
+            }
     //codigo do João Guilherme
+   
     request.setCharacterEncoding("UTF-8");
         Cookie[] cookies = request.getCookies();
         UsuarioDTO user = new UsuarioDTO();
@@ -180,7 +180,6 @@ public class HomeController extends HttpServlet {
         CarrinhoDAO cartDao = new CarrinhoDAO();
         ProdutoDTO prod = new ProdutoDTO();
         ProdutoDAO pDao = new ProdutoDAO();
-        String url = request.getServletPath();
         if (url.equals("/sendToCart")) {
             if (cookies != null) {
                 for (Cookie cookie : cookies) {
@@ -190,17 +189,16 @@ public class HomeController extends HttpServlet {
                 }
             }
             if (user == null || user.getIdUsuario() == 0) {
-                response.sendRedirect("/Login");        
+                response.sendRedirect("./Login");        
             } else {
                 prod = pDao.selecionarPorId(Integer.parseInt(request.getParameter("addProduto")));
                 cart = cartDao.selecionarCarrinho(user);
                 cartDao.addProduto(prod, cart);
-                response.sendRedirect("/Home");
+                response.sendRedirect("./Home");
             }
         }
          //fim
 }
-
     /**
      * Returns a short description of the servlet.
      *

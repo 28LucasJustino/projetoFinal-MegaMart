@@ -18,20 +18,7 @@
    
        <main>
         <br><br>
-                <div class="card">
-                     <div class="card-body">
-                      <div class="cards"> 
-                      <div id="card">
-                      <img id="imgP" src="${produto.img}" alt="${produto.nome}">
-                      <h5 >${produto.nome}</h5>
-                      <p >${produto.nomeCategoria}</p>
-                      <p id="pre">Preço : ${produto.preco}</p>
-                      <p>${produto.descricao}</p>
-                      <a href="#" class="btn btn-primary" carrinho="${produto.idProduto}">Finalizar Compra</a>
-                    </div>
-                    </div>
-                  </div>
-                </div>
+              
           <br>
        </main>
        <br><br>
