@@ -36,7 +36,6 @@ CREATE TABLE produto (
     descricao TEXT NOT NULL,
     desconto float(10,2) DEFAULT 0.00,
     preco FLOAT,
-    sobre TINYTEXT NOT NULL,
     estoque INT NOT NULL,
     valorFinal FLOAT,
     img VARCHAR(255),
@@ -93,7 +92,7 @@ CREATE TABLE checkout (
     FOREIGN KEY (idProduto) REFERENCES produto(idProduto));
  
  INSERT INTO categoria (idCategoria,nome) VALUES
-(1,'Celular'),(2,'PC'),(3,'Console'),(4,'TV'),(5,'Games'),(6,'Impresorra'),(7,'Notebook'),(8,'Tablet'),(9,'Fones de Ouvido');
+(1,'Celular'),(2,'PC'),(3,'Console'),(4,'TV'),(5,'Games'),(6,'Impresorra'),(7,'Notebook'),(8,'Tablet'),(9,'Acessorio'),(10,'Cadeira');
 
 INSERT INTO produto (categoria, marca, nome, descricao, preco, estoque,img) VALUES
 (1,'Celular','Smartphone Zod X', 'O Smartphone Zod X Ã© um dispositivo revolucionÃ¡rio que combina a portabilidade de um smartphone com a praticidade de um tablet. Com sua tela dobrÃ¡vel de Ãºltima geraÃ§Ã£o, vocÃª pode desfrutar de uma experiÃªncia Ãºnica de visualizaÃ§Ã£o e produtividade. AlÃ©m disso, possui um poderoso processador, cÃ¢meras de alta qualidade e uma bateria de longa duraÃ§Ã£o.', '4000.00', '10', 'assets/19681-removebg-preview.png'),
