@@ -132,3 +132,8 @@ header {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     justify-content: space-between;
 }
+
+main{
+    color: #ffff;
+    height: 100vh;
+}

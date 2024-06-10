@@ -15,7 +15,7 @@
 
     <main>
         <div class="perfil">
-
+            <div class="in"></div>
         </div>
     </main>
     <jsp:include page="footer.jsp"></jsp:include>
