@@ -60,8 +60,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    left: 50vh;
 }
 .card-login{
     width: 60%;

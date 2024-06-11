@@ -19,7 +19,7 @@
         <jsp:include page="header.jsp"></jsp:include>
     </header>
    <br><br>
-        <div class=".loginBody">
+        <div class="loginBody">
             <form action="log" id="logar" class="login" method="post"> 
                 <div class="card-login">
                     <h1>Login</h1>

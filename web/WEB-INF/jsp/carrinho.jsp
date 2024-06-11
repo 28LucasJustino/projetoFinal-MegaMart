@@ -18,11 +18,21 @@
         <jsp:include page="header.jsp"></jsp:include>
    
        <main>
-        <br><br>
-              
-          <br>
+        <div class="carrinho">
+            <h3>Carrinho de Compras</h3>
+            <div class="cardP">
+             <div class="prod">
+
+             </div>
+            </div>
+            <div class="info">
+
+            </div>
+            <button></button>
+        </div>
        </main>
-       <br><br>
+
        <jsp:include page="footer.jsp"></jsp:include>
     </body>
+    <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
 </html>

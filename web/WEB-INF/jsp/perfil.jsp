@@ -15,9 +15,17 @@
 
     <main>
         <div class="perfil">
-            <div class="in"></div>
+            <div class="lateral">
+                <i class="fa-solid fa-user-gear"></i>
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <i class="fa-solid fa-circle-left"></i>
+            </div>
+            <div class="perfilDados">
+                
+            </div>
         </div>
     </main>
     <jsp:include page="footer.jsp"></jsp:include>
 </body>
+<script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
 </html>

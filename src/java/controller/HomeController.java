@@ -39,7 +39,9 @@ import model.bean.UsuarioDTO;
  */
 @MultipartConfig
 public class HomeController extends HttpServlet {
-
+        UsuarioDAO userDao = new UsuarioDAO();
+        ProdutoDAO produtosDAO = new ProdutoDAO();
+        CategoriasDAO categoriasDAO = new CategoriasDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -52,9 +54,7 @@ public class HomeController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        //codigo do João Guilherme
-         UsuarioDAO uDao = new UsuarioDAO();
+         
         Cookie[] cookies = request.getCookies();
         int idUsuario = 0;
         if (cookies != null) {
@@ -65,12 +65,9 @@ public class HomeController extends HttpServlet {
             }
         }
         if (idUsuario > 0) {
-            request.setAttribute("user", uDao.selecionarUsuarioPorId(idUsuario));
+            request.setAttribute("user", userDao.selecionarUsuarioPorId(idUsuario));
         }
-        //fim
-        
-        ProdutoDAO produtosDAO = new ProdutoDAO();
-        CategoriasDAO categoriasDAO = new CategoriasDAO();
+         
         List<CategoriasDTO> categorias = categoriasDAO.listarCategorias();
         request.setAttribute("categorias", categorias);
         String url = request.getServletPath();
@@ -170,9 +167,7 @@ public class HomeController extends HttpServlet {
     produtosD.create(newProduto);
     response.sendRedirect("./Home");
             }
-    //codigo do João Guilherme
-   
-    request.setCharacterEncoding("UTF-8");
+  
         Cookie[] cookies = request.getCookies();
         UsuarioDTO user = new UsuarioDTO();
         CarrinhoUserDTO cart = new CarrinhoUserDTO();
@@ -197,7 +192,7 @@ public class HomeController extends HttpServlet {
                 response.sendRedirect("./Home");
             }
         }
-         //fim
+        
 }
     /**
      * Returns a short description of the servlet.

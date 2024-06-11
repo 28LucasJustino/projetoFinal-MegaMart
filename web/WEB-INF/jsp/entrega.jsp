@@ -11,9 +11,47 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="shortcut icon" href="assets/png-transparent-red-m-and-crown-illustration-letter-m-alphabet-logo-m-blue-text-heart-thumbnail-removebg-preview.png" type="image/x-icon">
+        <link rel="stylesheet" href="">
         <title>MegaMart- Entrega</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <jsp:include page="header.jsp"></jsp:include>
+
+        <main>
+            <div class="cadE">
+                <div class="card">
+                    <div class="inputs">
+                        <input type="number" name="cpe" placeholder="Cep" required><i
+                        class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="inputs">
+                        <input type="text" name="rua" placeholder="Rua" required><i
+                        class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="inputs">
+                        <input type="text" name="complemento" placeholder="Complemneto" required><i
+                        class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="inputs">
+                        <input type="number" name="numero" placeholder="Numero" required><i
+                        class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="inputs">
+                        <input type="text" name="bairo" placeholder="Bairo" required><i
+                        class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="inputs">
+                        <input type="text" name="cidade" placeholder="Cidade" required><i
+                        class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="inputs">
+                        <input type="text" name="estado" placeholder="Estado" required><i
+                        class="fa-solid fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <jsp:include page="footer.jsp"></jsp:include>
     </body>
 </html>

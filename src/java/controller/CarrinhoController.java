@@ -28,9 +28,9 @@ import model.bean.UsuarioDTO;
  * @author Marce
  */
 public class CarrinhoController extends HttpServlet {
-        CarrinhoDAO cDao = new CarrinhoDAO();
-        UsuarioDAO uDao = new UsuarioDAO();
-        ProdutoDAO pDao = new ProdutoDAO();
+        CarrinhoDAO carrinhoDao = new CarrinhoDAO();
+        UsuarioDAO userDao = new UsuarioDAO();
+        ProdutoDAO prodDao = new ProdutoDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -45,21 +45,20 @@ public class CarrinhoController extends HttpServlet {
         CategoriasDAO categoriasDAO = new CategoriasDAO();
         List<CategoriasDTO> categorias = categoriasDAO.listarCategorias();
         request.setAttribute("categorias", categorias);
-        //codigo do João Guilherme
-        request.setCharacterEncoding("UTF-8");
+
         String nextPage = "/WEB-INF/jsp/carrinho.jsp";
-        UsuarioDTO u = null;
+        UsuarioDTO user = null;
         Cookie[] cookies = request.getCookies();
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("login") && !cookie.getValue().equals("")) {
-                u = uDao.selecionarUsuarioPorId(Integer.parseInt(cookie.getValue()));
+                user = userDao.selecionarUsuarioPorId(Integer.parseInt(cookie.getValue()));
             }
         }
-        if (u == null || u.getIdUsuario() <= 0) {
+        if (user == null || user.getIdUsuario() <= 0) {
             response.sendRedirect("./Login");
         } else {
             try {
-                List<ProdutoDTO > produtos = cDao.lerProdutos(u);
+                List<ProdutoDTO > produtos = carrinhoDao.carrinhoProduto(user);
                 Float valorFinal = 0f;
                 request.setAttribute("produtos", produtos);
                 request.setAttribute("valorFinal", valorFinal);
@@ -86,28 +85,26 @@ public class CarrinhoController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
         String url = request.getServletPath();
         Cookie[] cookies = request.getCookies();
-        UsuarioDTO u = null;
+        UsuarioDTO user = null;
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("login") && !cookie.getValue().equals("")) {
-                u = uDao.selecionarUsuarioPorId(Integer.parseInt(cookie.getValue()));
+                user = userDao.selecionarUsuarioPorId(Integer.parseInt(cookie.getValue()));
             }
         }
         if (url.equals("./esvaziarCarrinho")) {
-            cDao.esvaziarCarrinho(u);
+            carrinhoDao.esvaziarCarrinho(user);
             response.sendRedirect("./Carrinho");
         } else if (url.equals("/removerItem")) {
-            cDao.removerProduto(pDao.selecionarPorId(Integer.parseInt(request.getParameter("item"))), cDao.selecionarCarrinho(u));
+            carrinhoDao.removerProduto(prodDao.selecionarPorId(Integer.parseInt(request.getParameter("item"))), carrinhoDao.selecionarCarrinho(user));
             response.sendRedirect("./Carrinho");
         } else if (url.equals("./adicionarItem")) {
-            cDao.adicionarProduto(pDao.selecionarPorId(Integer.parseInt(request.getParameter("item"))), cDao.selecionarCarrinho(u));
+            carrinhoDao.adicionarProduto(prodDao.selecionarPorId(Integer.parseInt(request.getParameter("item"))), carrinhoDao.selecionarCarrinho(user));
             response.sendRedirect("./Carrinho");
         }
         processRequest(request, response);
     }
-    //fim
 
     /**
      * Handles the HTTP <code>POST</code> method.

@@ -73,15 +73,15 @@ public class CarrinhoDAO {
         }
         return c;
     }
-       public List<ProdutoDTO> lerProdutos(UsuarioDTO user) {
+       public List<ProdutoDTO> carrinhoProduto(UsuarioDTO user) {
         List<ProdutoDTO> produtos = new ArrayList();
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
             ResultSet rs = null;
 
-            stmt = conexao.prepareStatement("SELECT p.* FROM carrinhoProduto AS cp JOIN produto AS p ON cp.produto = p.idProduto"
-                    + " JOIN carrinho AS c ON cp.carrinho = c.idCarrinho JOIN usuario AS u ON c.usuario = u.idUsuario WHERE u.idUsuario = ?");
+            stmt = conexao.prepareStatement("SELECT p.* FROM carrinho AS c JOIN produto AS p ON c.produto = p.idProduto"
+                    + " JOIN carrinhoUser AS cu ON cup.carrinho = cu.idCarrinhoUser JOIN usuario AS u ON cu.usuario = u.idUsuario WHERE u.idUsuario = ?");
             stmt.setInt(1, user.getIdUsuario());
 
             rs = stmt.executeQuery();

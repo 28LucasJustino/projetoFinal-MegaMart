@@ -37,7 +37,6 @@
           </nav>
           <div class="bcCate">
             <ul>
-                <p>Atualmente logado como: ${user.nome}</p>
                 <c:forEach items="${categorias}" var="categoria" > 
                 <li class="item"><a href="./buscar-produtos?cat=${categoria.idCategoria}&busca=" class="link">${categoria.nome}</a></li>  
                 </c:forEach> 

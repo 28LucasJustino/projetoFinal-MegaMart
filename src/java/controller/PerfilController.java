@@ -40,8 +40,7 @@ public class PerfilController extends HttpServlet {
          CategoriasDAO categoriasDAO = new CategoriasDAO();
         List<CategoriasDTO> categorias = categoriasDAO.listarCategorias();
         request.setAttribute("categorias", categorias);
-        //codigo do João Guilherme
-        String url = request.getServletPath();
+       
         UsuarioDAO uDao = new UsuarioDAO();
         Cookie[] cookies = request.getCookies();
         UsuarioDTO u = null;
@@ -61,7 +60,7 @@ public class PerfilController extends HttpServlet {
             dispatcher.forward(request, response);
         }
        
-         //codigo do João Guilherme
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
