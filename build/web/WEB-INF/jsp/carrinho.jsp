@@ -19,12 +19,16 @@
    
        <main>
         <div class="carrinho">
-            <div class="info">
-                
+            <h3>Carrinho de Compras</h3>
+            <div class="cardP">
+             <div class="prod">
+
+             </div>
             </div>
-            <div class="prod">
+            <div class="info">
 
             </div>
+            <button></button>
         </div>
        </main>
 
