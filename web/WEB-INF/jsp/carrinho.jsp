@@ -20,15 +20,30 @@
        <main>
         <div class="carrinho">
             <h3>Carrinho de Compras</h3>
-            <div class="cardP">
              <div class="prod">
-
-             </div>
+                <c:choose>
+                    <c:when test="${fn:length(produtos) < 1}">
+                        <div>
+                            <span>Carrinho vazio!</span>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <c:forEach items="${produtos}" var="produto">
+                        
+                        </c:forEach>
+                    </c:otherwise>
+                </c:choose>
+ 
             </div>
             <div class="info">
 
             </div>
-            <button></button>
+            <div class="btnF">
+                <p>Total da Compra</p>
+                <fmt:formatNumber type="currency" value="${produto.valorFinal}" />
+                <button>Finalizar Compra</button>
+            </div>
+            
         </div>
        </main>
 
