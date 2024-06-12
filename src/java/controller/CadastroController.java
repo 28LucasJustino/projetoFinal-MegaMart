@@ -21,7 +21,8 @@ import model.bean.UsuarioDTO;
  * @author Marce
  */
 public class CadastroController extends HttpServlet {
-
+        UsuarioDTO user = new UsuarioDTO();
+        UsuarioDAO valida = new UsuarioDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -68,9 +69,7 @@ public class CadastroController extends HttpServlet {
        String url = request.getServletPath();
     if (url.equals("/cad")) {
         String nextPage = "/WEB-INF/jsp/login.jsp";
-        UsuarioDTO user = new UsuarioDTO();
-        UsuarioDAO valida = new UsuarioDAO();
-
+        
         user.setNome(request.getParameter("nome"));
         user.setEmail(request.getParameter("email"));
         user.setSenha(request.getParameter("senha"));
@@ -79,17 +78,17 @@ public class CadastroController extends HttpServlet {
         user.setNascimento(Date.valueOf(request.getParameter("nascimento")));
         
         try {              
-          
+             
             if(user.getNome().trim().equals("") || (user.getEmail().trim().equals("")) || (user.getSenha().trim().equals(""))){
                 nextPage = "/WEB-INF/jsp/cadastro.jsp";
-                   request.setAttribute("Erro ao realizar Cadastro", true);
-                    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
+                request.setAttribute("Erro ao realizar Cadastro", true);
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+                dispatcher.forward(request, response);
             } else{
                 request.setAttribute("Cadastro Realizado com Sucesso", true);
                 valida.create(user); 
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
+                dispatcher.forward(request, response);
             }
             
         } catch (Exception e) {

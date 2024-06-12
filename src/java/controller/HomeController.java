@@ -83,14 +83,14 @@ public class HomeController extends HttpServlet {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else if (url.equals("/buscar-produtos")) {
-            String busca = request.getParameter("busca") != null? request.getParameter("busca") : "";
+            String busca = request.getParameter("busca") == null? request.getParameter("busca") : "";
             if(busca.trim().equals("")) {
                 String categoria = request.getParameter("cat");
-                List<ProdutoDTO> produtos = produtosDAO.buscarCategoria(Integer.parseInt(categoria));
+                List<ProdutoDTO> produtos = produtosDAO.buscarCate(Integer.parseInt(categoria));
                 request.setAttribute("produtos", produtos);
             } else {
                 busca = "%"+busca+"%";
-                List<ProdutoDTO> produtos = produtosDAO.buscarProduto(busca);
+                List<ProdutoDTO> produtos = produtosDAO.buscarProd(busca);
                 request.setAttribute("produtos", produtos);
             }
             String nextPage = "/WEB-INF/jsp/index.jsp";

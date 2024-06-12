@@ -23,6 +23,7 @@
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
+  <br>
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="assets/d8411492e8b44f1468b624f738e20af1.jpg" class="d-block w-100" alt="...">

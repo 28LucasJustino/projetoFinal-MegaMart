@@ -16,9 +16,9 @@
     <main>
         <div class="perfil">
             <div class="lateral">
-                <i class="fa-solid fa-user-gear"></i>
-                <i class="fa-solid fa-clock-rotate-left"></i>
-                <i class="fa-solid fa-circle-left"></i>
+                <a href=""><i class="fa-solid fa-user-gear"></i></a>
+                <a href=""><i class="fa-solid fa-clock-rotate-left"></i></a>
+                <a href=""><i class="fa-solid fa-circle-left"></i></a>
             </div>
             <div class="perfilDados">
                 

@@ -30,7 +30,7 @@ public class CategoriasDAO {
                 categorias.add(categoriaAtual);
             }
         } catch(SQLException e) {
-            
+            e.printStackTrace();
         }
         
         return categorias;

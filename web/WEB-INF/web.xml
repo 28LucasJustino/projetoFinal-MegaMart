@@ -46,6 +46,10 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
+        <url-pattern>/buscar-categorias</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
         <url-pattern>/Cadastrar-produto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

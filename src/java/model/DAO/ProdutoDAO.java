@@ -33,8 +33,8 @@ public class ProdutoDAO {
         }
 
     } 
-     public List<ProdutoDTO> buscarProduto(String Busca) {
-       List<ProdutoDTO> resultadoBusca = new ArrayList();
+     public List<ProdutoDTO> buscarProd(String Busca) {
+       List<ProdutoDTO> resultBuscaP = new ArrayList();
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
@@ -47,16 +47,16 @@ public class ProdutoDAO {
             
             rs = stmt.executeQuery(); 
             while (rs.next()) {
-                ProdutoDTO produto = new ProdutoDTO();
-                produto.setIdProduto(rs.getInt("idProduto"));
-                produto.setNome(rs.getString("nome"));
-                produto.setCategoria(rs.getInt("categoria"));
-                produto.setMarca(rs.getString("marca"));
-                produto.setDescricao(rs.getString("descricao"));
-                produto.setPreco(rs.getFloat("preco"));
-                produto.setEstoque(rs.getInt("estoque"));
-                produto.setImg(rs.getString("img"));
-                resultadoBusca.add(produto);
+                ProdutoDTO prod = new ProdutoDTO();
+                prod.setIdProduto(rs.getInt("idProduto"));
+                prod.setNome(rs.getString("nome"));
+                prod.setCategoria(rs.getInt("categoria"));
+                prod.setMarca(rs.getString("marca"));
+                prod.setDescricao(rs.getString("descricao"));
+                prod.setPreco(rs.getFloat("preco"));
+                prod.setEstoque(rs.getInt("estoque"));
+                prod.setImg(rs.getString("img"));
+                resultBuscaP.add(prod);
             
             }
             rs.close();
@@ -66,11 +66,11 @@ public class ProdutoDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return resultadoBusca;
+        return resultBuscaP;
     }
      
-     public List<ProdutoDTO> buscarCategoria(int categoria) {
-       List<ProdutoDTO> resultadoBusca = new ArrayList();
+     public List<ProdutoDTO> buscarCate(int categoria) {
+       List<ProdutoDTO> resultBuscaC = new ArrayList();
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
@@ -82,16 +82,16 @@ public class ProdutoDAO {
             rs = stmt.executeQuery();
      
             while (rs.next()) {
-                ProdutoDTO produto = new ProdutoDTO();
-                produto.setIdProduto(rs.getInt("idProduto"));
-                produto.setCategoria(rs.getInt("categoria"));
-                produto.setNome(rs.getString("nome"));
-                produto.setMarca(rs.getString("marca"));
-                produto.setDescricao(rs.getString("descricao"));
-                produto.setPreco(rs.getFloat("preco"));
-                produto.setEstoque(rs.getInt("estoque"));
-                produto.setImg(rs.getString("img"));
-                resultadoBusca.add(produto);
+                ProdutoDTO prodC = new ProdutoDTO();
+                prodC.setIdProduto(rs.getInt("idProduto"));
+                prodC.setCategoria(rs.getInt("categoria"));
+                prodC.setNome(rs.getString("nome"));
+                prodC.setMarca(rs.getString("marca"));
+                prodC.setDescricao(rs.getString("descricao"));
+                prodC.setPreco(rs.getFloat("preco"));
+                prodC.setEstoque(rs.getInt("estoque"));
+                prodC.setImg(rs.getString("img"));
+                resultBuscaC.add(prodC);
             }
             rs.close();
             stmt.close();
@@ -101,7 +101,7 @@ public class ProdutoDAO {
             e.printStackTrace();
         }
 
-        return resultadoBusca;
+        return resultBuscaC;
     }
       public List<ProdutoDTO> listarProdutos() {
         List<ProdutoDTO> produtos = new ArrayList<>();
