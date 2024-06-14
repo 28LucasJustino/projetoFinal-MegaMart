@@ -14,6 +14,7 @@ CREATE TABLE usuario (
 CREATE TABLE endereco (
     idEndereco INT AUTO_INCREMENT PRIMARY KEY,
     idUsuario INT NOT NULL,
+    mome VARCHAR(45) NOT NULL,
     rua VARCHAR(100) NOT NULL,
     numero VARCHAR(10) NOT NULL,
     complemento VARCHAR(100),
