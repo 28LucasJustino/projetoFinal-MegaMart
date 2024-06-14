@@ -134,22 +134,24 @@ header {
 }
 
 .cadE{
-    display: flex;
-    flex-direction: column;
     background-color: #fff;
     padding: 3rem;
+    overflow: hidden;
 }
-
-.cadE .card{
-    display: flex;
-    flex-direction: column;
+.titulo{
+    position: relative;
+    left: 80vh;
+}
+.card{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-items: center;
     justify-content: space-between;
     padding: 1rem 0;
     align-items: center;
 }
 .cadE .card .inputs{
-    display: flex;
+    display: grid;
     margin-bottom: 1.1rem;
 }
 
@@ -165,4 +167,25 @@ header {
 .inputs input:hover {
     background-color: #eeeeee75;
     outline: 1px solid red;
+}
+
+.btnF{
+    width: 80%;
+    padding: 16px 0px;
+    margin: 25px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color:#fff;
+    background-color: red;
+    cursor: pointer;
+    box-shadow: 0 10px 40px -12px red;
+}
+.btnF:hover{
+    transform: scale(1.05);
+    background-color:red;
+
 }
