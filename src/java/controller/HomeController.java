@@ -211,13 +211,14 @@ public class HomeController extends HttpServlet {
     response.sendRedirect("./HomeAdmin");
             }
       if(url.equals("/editarProduto")) {
-         ProdutoDTO newProduto = new ProdutoDTO();
-        newProduto.setNome(request.getParameter("nome"));
-        newProduto.setMarca(request.getParameter("marca"));
-        newProduto.setCategoria(Integer.parseInt(request.getParameter("categoria")));
-        newProduto.setDescricao(request.getParameter("descricao"));      
-        newProduto.setPreco(Float.parseFloat(request.getParameter("preco")));
-        newProduto.setEstoque(Integer.parseInt(request.getParameter("estoque")));
+         ProdutoDTO editProduto = new ProdutoDTO();
+        editProduto.setNome(request.getParameter("nome"));
+        editProduto.setMarca(request.getParameter("marca"));
+        editProduto.setCategoria(Integer.parseInt(request.getParameter("categoria")));
+        editProduto.setDescricao(request.getParameter("descricao"));      
+        editProduto.setPreco(Float.parseFloat(request.getParameter("preco")));
+        editProduto.setDesconto(Float.parseFloat(request.getParameter("desconto")));
+        editProduto.setEstoque(Integer.parseInt(request.getParameter("estoque")));
         Part filePart = request.getPart("img");
     String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); 
     if (fileName != null && !fileName.isEmpty()) {
@@ -233,19 +234,16 @@ public class HomeController extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace(); 
         }
-        newProduto.setImg("assets/" + fileName);
+        editProduto.setImg("assets/" + fileName);
     } else {
-        newProduto.setImg(null);
+        editProduto.setImg(null);
     }
-
-    ProdutoDAO produtosD = new ProdutoDAO();
-    produtosD.edit(newProduto);
+    produtosDAO.edit(editProduto);
     response.sendRedirect("./HomeAdmin");
             }      
       if(url.equals("/dropProduto")) {
           ProdutoDTO newProduto = new ProdutoDTO();
-          ProdutoDAO produtosD = new ProdutoDAO();
-          produtosD.drop(newProduto);
+          produtosDAO.drop(newProduto);
           response.sendRedirect("./HomeAdmin");
       }
 }

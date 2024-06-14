@@ -16,7 +16,8 @@
     </head>
     <body>
         <jsp:include page="headerAdmin.jsp"></jsp:include>
-        <main>
+        <main>  
+            <!-- 
             <div class="prod">
                 <div class="imgP">
                     <img id="imgP" src="${produto.img}" alt="${produto.nome}"> 
@@ -33,51 +34,62 @@
                     <p id="descri">Descrição do Produto</p>
                     <p>${produto.descricao}</p> 
                   </div>
-            <br><br>
+            <br><br>-->
             <div class="form">
-                <form action="cadastrarProduto" method="post" enctype="multipart/form-data">
-                        <div class="cards">
-                            <div class="inputs">
-                                <label for="nome"><i class="fa-brands fa-product-hunt"></i> Nome do Produto</label>
-                                <input type="text" id="nome" name="nome" placeholder="  Nome do Produto" required>
-                            </div>
-                            <div class="inputs">
-                                <label for="categoria"><i class="fa-solid fa-list"></i>Categoria do Produto</label>
-                                <select  id="categoria" name="categoria">
-                                    <option value="1">Celular</option>
-                                    <option value="2">PC</option>
-                                    <option value="3">Console</option>
-                                    <option value="4">TV</option>
-                                    <option value="5">Games</option>
-                                    <option value="6">Impresorra</option>
-                                    <option value="7">Notebook</option>
-                                    <option value="8">Tablet</option>
-                                    <option value="9">Fones de Ouvido</option>
-                                </select>
-                            </div>
-                            
-                            <div class="inputs">
-                                <label for="Preco"><i class="fa-solid fa-money-bill"></i>Preço do Produto</label>
-                                <input  id="preco" type="text" name="preco"  placeholder="  Preço do Produto" onkeypress="float(event)" required>
-                            </div>
-                            <div class="inputs">
-                                <label for="estoque"><i class="fa-solid fa-box"></i>Estoque</label>
-                                <input id="estoque" type="text" name="estoque"  placeholder="   Quantidade em Estoque" required>
-                            </div>
-                            <div class="inputs">
-                                <label for="descricao"><i class="fa-solid fa-message"></i>Descrição</label>
-                                <textarea  id="descricao" name="descricao" class="tab" rows="6"></textarea>
-                            </div>
-                            <div class="inputs">
-                                <input type="file" id="image" name="img" placeholder="  Nome do Produto">
-                            </div>
+                <form action="editarProduto" method="post" enctype="multipart/form-data">
+                    <div class="cards">
+                        <h5 id="tit">${produto.nome}</h5> 
+                        <div class="inputs">
+                            <label for="nome" id="lab"><i class="fa-brands fa-product-hunt"></i> Nome do Produto</label>
+                            <input type="text" class="inpt" id="nome" name="nome" placeholder="  Nome do Produto" required>
                         </div>
-
-                        <div class="continue-button">
-                            <button type="submit" class="btnLogin">Confirmar</button>
+                        <div class="inputs">
+                            <label for="categoria" id="lab"><i class="fa-solid fa-list"></i>Categoria do Produto</label>
+                            <select  id="categoria" name="categoria">
+                                <option value="1">Celular</option>
+                                <option value="2">PC</option>
+                                <option value="3">Console</option>
+                                <option value="4">TV</option>
+                                <option value="5">Games</option>
+                                <option value="6">Impresorra</option>
+                                <option value="7">Notebook</option>
+                                <option value="8">Tablet</option>
+                                <option value="9">Acessorio</option>
+                                <option value="10">Cadeira</option>
+                            </select>
                         </div>
-                    </form>
-                </div>
+                        <div class="inputs">
+                            <label for="marca" id="lab"><i class="fa-solid fa-building"></i> Marca do Produto</label>
+                            <input type="text" class="inpt" id="marca" name="marca" placeholder="  Marca do Produto" required>
+                        </div>
+                        <br>
+                        <div class="inputs">
+                            <label for="Preco" id="lab"><i class="fa-solid fa-money-bill"></i>Preço do Produto</label>
+                            <input  class="inpt" id="preco" type="text" name="preco"  placeholder="  Preço do Produto" onkeypress="float(event)" required>
+                        </div>
+                        <br>
+                        <div class="inputs">
+                            <label for="Desconto" id="lab"><i class="fa-solid fa-percent"></i>Desconto do Produto</label>
+                            <input  id="desconto" class="inpt" type="text" name="desconto"  placeholder="  Desconto do Produto" onkeypress="float(event)" required>
+                        </div>
+                        <br>
+                        <div class="inputs">
+                            <label for="estoque" id="lab"><i class="fa-solid fa-box"></i>Estoque</label>
+                            <input id="estoque" class="inpt" type="number" name="estoque"  placeholder="Quantidade em Estoque" required>
+                        </div>
+                        <br>
+                        <div class="inputs">
+                            <label for="descricao" id="lab"><i class="fa-solid fa-message"></i>Descrição</label>
+                            <textarea  id="descricao" name="descricao" class="tab" rows="6"></textarea>
+                        </div>
+                        <br>
+                        <div class="inputs">
+                            <input type="file" class="btnImg" id="image" name="img" placeholder="  Nome do Produto">
+                        </div>
+                        <button type="submit" class="btnLogin">Confirmar</button>
+                    </div>
+                </form>
+            </div>
         </main>
         <br><br> <br><br><br><br>
         

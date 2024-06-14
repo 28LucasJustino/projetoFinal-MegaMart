@@ -225,6 +225,7 @@ public class ProdutoDAO {
           stmt.setFloat(5, editProduto.getPreco());
           stmt.setInt(6, editProduto.getEstoque());
           stmt.setString(7, editProduto.getImg());
+          stmt.setInt(8, editProduto.getIdProduto());
           
           stmt.executeUpdate();
           

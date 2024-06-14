@@ -20,35 +20,39 @@
         <main>
             <div class="cadE">
                 <div class="card">
+                    <label for="Numero">Numer</label>
                     <div class="inputs">
-                        <input type="number" name="cpe" placeholder="Cep" required><i
-                        class="fa-solid fa-user"></i>
+                        <input type="number" name="cep" placeholder="Cep" required>
                     </div>
+                    <label for="Numero">Numer</label>
                     <div class="inputs">
-                        <input type="text" name="rua" placeholder="Rua" required><i
-                        class="fa-solid fa-user"></i>
+                        <input type="text" name="rua" placeholder="Rua" required>
                     </div>
+                    <label for="Numero">Numer</label>
                     <div class="inputs">
-                        <input type="text" name="complemento" placeholder="Complemneto" required><i
-                        class="fa-solid fa-user"></i>
+                        <input type="text" name="complemento" placeholder="Complemento" required>
                     </div>
+                    <label for="Numero">Numer</label>
                     <div class="inputs">
-                        <input type="number" name="numero" placeholder="Numero" required><i
-                        class="fa-solid fa-user"></i>
+                        <input type="number" name="numero" placeholder="Numero" required>
                     </div>
+                    <label for="Numero">Numer</label>
                     <div class="inputs">
-                        <input type="text" name="bairo" placeholder="Bairo" required><i
-                        class="fa-solid fa-user"></i>
+                        <input type="text" name="baori" placeholder="B A O R I" required>
                     </div>
+                    <label for="Numero">Numer</label>
                     <div class="inputs">
-                        <input type="text" name="cidade" placeholder="Cidade" required><i
-                        class="fa-solid fa-user"></i>
+                        <input type="text" name="cidade" placeholder="Cidade" required>
                     </div>
+                    <label for="Numero">Numer</label>
                     <div class="inputs">
-                        <input type="text" name="estado" placeholder="Estado" required><i
-                        class="fa-solid fa-user"></i>
+                        <input type="text" name="estado" placeholder="Estado"required>
                     </div>
+                    <form action="" method="">
+                    <button class="BtnF" type="submit">Confirmar Entrega</button>
+                    </form>
                 </div>
+                <a href="./Carrinho"><i class="fa-solid fa-circle-left"></i>Voltar</a>
             </div>
         </main>
 

@@ -132,69 +132,88 @@ header {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     justify-content: space-between;
 }
-.prod{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+
+.form {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 3rem;
 }
 
-.imgP{
-    display: grid;
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
 }
 
-#imgP{
-    width: 30vw;
-    position: relative;
-    left: 20vh;
+.inputs {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.1rem;
 }
 
-.text{
-    display: grid;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    right: 10vh;  
+.inputs input {
+    margin: 0.6rem 0;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgb(90, 87, 87) ;
+    font-size: 0.8rem;
+    cursor: text;
 }
-#tit{
-    font-size: 50px;
-   
+.tab{
+    width: 16vw;
 }
-#pre{
-    width: 30vw;
-    font-weight: 700;
-    font-size: 30px;
-    color: red;
-    position: relative;
-    top: 4vw;
-    left: 2vh;
+.inputs input:hover {
+    background-color: #eeeeee75;
+    outline: 1px solid red;
 }
-#marc{
-    font-size: 30px;
-}
-.btn.btn-primary{
+.btnLogin{
+    width: 90%;
+    padding: 16px 0px;
+    margin: 25px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color:#fff;
     background-color: red;
-    color: #000000;
-    width: 26vw; 
-    font-size: 35px;
-    font-weight: 700;
-    position: relative;
-    left: 5vh;
+    cursor: pointer;
+    box-shadow: 0 10px 40px -12px red;
 }
-.btn.btn-primary:hover{
-    background-color: black;
-    color: red;
+.btnLogin a{
+    text-decoration: none;
+    font-size: 0.93rem;
+    font-weight: 500;
+    color:  rgb(0, 0, 0);
+}
+.btnLogin:hover{
+    transform: scale(1.05);
+    background-color:red;
+
+}
+.login-button #btnL {
+    border: none;
+    background-color:red;
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.descri{
-    width: 75vw;
-    height: 25vh;
-    text-align: center;
-    font-size: 30px;
-    position: relative;
-    left: 24vh;
-    margin-top: 5vw;
+.login-button :hover {
+    transform: scale(1.0);
+    background-color:red;
 }
 
-#descri{
-    font-weight: 700;
+.login-button #btnL #aL {
+    text-decoration: none;
+    font-weight: 500;
+    color: #fff;
+}
+.footer{
+    margin-top: 17vh;
 }
