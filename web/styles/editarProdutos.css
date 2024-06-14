@@ -132,3 +132,69 @@ header {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     justify-content: space-between;
 }
+.prod{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.imgP{
+    display: grid;
+}
+
+#imgP{
+    width: 30vw;
+    position: relative;
+    left: 20vh;
+}
+
+.text{
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 10vh;  
+}
+#tit{
+    font-size: 50px;
+   
+}
+#pre{
+    width: 30vw;
+    font-weight: 700;
+    font-size: 30px;
+    color: red;
+    position: relative;
+    top: 4vw;
+    left: 2vh;
+}
+#marc{
+    font-size: 30px;
+}
+.btn.btn-primary{
+    background-color: red;
+    color: #000000;
+    width: 26vw; 
+    font-size: 35px;
+    font-weight: 700;
+    position: relative;
+    left: 5vh;
+}
+.btn.btn-primary:hover{
+    background-color: black;
+    color: red;
+}
+
+.descri{
+    width: 75vw;
+    height: 25vh;
+    text-align: center;
+    font-size: 30px;
+    position: relative;
+    left: 24vh;
+    margin-top: 5vw;
+}
+
+#descri{
+    font-weight: 700;
+}

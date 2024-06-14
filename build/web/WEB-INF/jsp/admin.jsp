@@ -15,7 +15,8 @@
         <title>MegaMart- Admin</title>
     </head>
     <body>  
-            <jsp:include page="header.jsp"></jsp:include>
+        <jsp:include page="headerAdmin.jsp"></jsp:include>
+
         <main>
             <br><br>
             <div class="form">
@@ -36,7 +37,8 @@
                                     <option value="6">Impresorra</option>
                                     <option value="7">Notebook</option>
                                     <option value="8">Tablet</option>
-                                    <option value="9">Fones de Ouvido</option>
+                                    <option value="9">Acessorio</option>
+                                    <option value="10">Cadeira</option>
                                 </select>
                             </div>
                             <div class="inputs">
@@ -48,8 +50,12 @@
                                 <input  id="preco" type="text" name="preco"  placeholder="  Preço do Produto" onkeypress="float(event)" required>
                             </div>
                             <div class="inputs">
+                                <label for="Desconto"><i class="fa-solid fa-money-bill"></i>Desconto do Produto</label>
+                                <input  id="desconto" type="text" name="desconto"  placeholder="  Desconto do Produto" onkeypress="float(event)" required>
+                            </div>
+                            <div class="inputs">
                                 <label for="estoque"><i class="fa-solid fa-box"></i>Estoque</label>
-                                <input id="estoque" type="text" name="estoque"  placeholder="   Quantidade em Estoque" required>
+                                <input id="estoque" type="number" name="estoque"  placeholder="   Quantidade em Estoque" required>
                             </div>
                             <div class="inputs">
                                 <label for="descricao"><i class="fa-solid fa-message"></i>Descrição</label>

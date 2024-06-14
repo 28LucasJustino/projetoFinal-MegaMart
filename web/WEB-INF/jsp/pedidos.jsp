@@ -10,6 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="../../styles/pedidos">
         <link rel="shortcut icon" href="assets/png-transparent-red-m-and-crown-illustration-letter-m-alphabet-logo-m-blue-text-heart-thumbnail-removebg-preview.png" type="image/x-icon">
         <title>MegaMart- Pedidos</title>
     </head>
@@ -20,4 +21,5 @@
         </main>
         <jsp:include page="footer.jsp"></jsp:include>
     </body>
+    <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
 </html>

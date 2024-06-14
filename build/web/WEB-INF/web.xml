@@ -32,6 +32,10 @@
         <servlet-name>PerfilController</servlet-name>
         <servlet-class>controller.PerfilController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CheckoutController</servlet-name>
+        <servlet-class>controller.CheckoutController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -42,11 +46,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
-        <url-pattern>/buscar-produtos</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>HomeController</servlet-name>
-        <url-pattern>/buscar-categorias</url-pattern>
+        <url-pattern>/buscarProdutos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
@@ -56,7 +56,27 @@
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/cadastrarProduto</url-pattern>
     </servlet-mapping>
-        <servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/HomeAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/Editar-produtos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/Descontos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/editarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/dropProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/sendToCart</url-pattern>
     </servlet-mapping>
@@ -90,7 +110,23 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PerfilController</servlet-name>
-        <url-pattern>/Perfil</url-pattern>
+        <url-pattern>/Pedidos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckoutController</servlet-name>
+        <url-pattern>/Checkout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckoutController</servlet-name>
+        <url-pattern>/Entrega</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckoutController</servlet-name>
+        <url-pattern>/cadEntrega</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckoutController</servlet-name>
+        <url-pattern>/Pagamento</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

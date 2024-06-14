@@ -25,7 +25,8 @@ import model.bean.UsuarioDTO;
  * @author Marce
  */
 public class PerfilController extends HttpServlet {
-
+UsuarioDAO uDao = new UsuarioDAO();
+CategoriasDAO categoriasDAO = new CategoriasDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -37,11 +38,9 @@ public class PerfilController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         CategoriasDAO categoriasDAO = new CategoriasDAO();
+        String url = request.getServletPath();
         List<CategoriasDTO> categorias = categoriasDAO.listarCategorias();
         request.setAttribute("categorias", categorias);
-       
-        UsuarioDAO uDao = new UsuarioDAO();
         Cookie[] cookies = request.getCookies();
         UsuarioDTO u = null;
         if (cookies != null) {
@@ -59,8 +58,11 @@ public class PerfilController extends HttpServlet {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         }
-       
-        
+        if(url.equals("/Pedidos")) {
+            String nextPage = "/WEB-INF/jsp/pedidos.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

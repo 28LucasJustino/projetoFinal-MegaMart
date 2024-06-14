@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="shortcut icon" href="assets/png-transparent-red-m-and-crown-illustration-letter-m-alphabet-logo-m-blue-text-heart-thumbnail-removebg-preview.png" type="image/x-icon">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="styles/entrega.css">
         <title>MegaMart- Entrega</title>
     </head>
     <body>

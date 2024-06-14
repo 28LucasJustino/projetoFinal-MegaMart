@@ -76,13 +76,32 @@ public class HomeController extends HttpServlet {
             String nextPage = "/WEB-INF/jsp/admin.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
+        } else if(url.equals("/Editar-produtos")){
+            String nextPage = "/WEB-INF/jsp/editarProduto.jsp";
+            int idProduto = Integer.parseInt(request.getParameter("solo"));
+            ProdutoDTO produto = produtosDAO.produtoSolo(idProduto);
+            request.setAttribute("produto", produto); 
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
         } else if(url.equals("/Home")){
             List<ProdutoDTO> produtos = produtosDAO.listarProdutos();
             request.setAttribute("produtos", produtos);
             String nextPage = "/WEB-INF/jsp/index.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
-        } else if (url.equals("/buscar-produtos")) {
+            } else if(url.equals("/Descontos")){
+            List<ProdutoDTO> produtos = produtosDAO.listarProdutos();
+            request.setAttribute("produtos", produtos);
+            String nextPage = "/WEB-INF/jsp/desconto.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        } else if(url.equals("/HomeAdmin")){
+            List<ProdutoDTO> produtos = produtosDAO.listarTudo();
+            request.setAttribute("produtos", produtos);
+            String nextPage = "/WEB-INF/jsp/homeAdmin.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        } else if (url.equals("/buscarProdutos")) {
             String busca = request.getParameter("busca") == null? request.getParameter("busca") : "";
             if(busca.trim().equals("")) {
                 String categoria = request.getParameter("cat");
@@ -134,15 +153,39 @@ public class HomeController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String url = request.getServletPath();
-        if(url.equals("/Cadastrar-produto")) {
+        Cookie[] cookies = request.getCookies();
+        UsuarioDTO user = new UsuarioDTO();
+        CarrinhoUserDTO cart = new CarrinhoUserDTO();
+        UsuarioDAO userDao = new UsuarioDAO();
+        CarrinhoDAO cartDao = new CarrinhoDAO();
+        ProdutoDTO prod = new ProdutoDTO();
+        ProdutoDAO pDao = new ProdutoDAO();
+        if (url.equals("/sendToCart")) {
+            if (cookies != null) {
+                for (Cookie cookie : cookies) {
+                    if (cookie.getName().equals("login") && !cookie.getValue().equals("")) {
+                        user = userDao.selecionarUsuarioPorId(Integer.parseInt(cookie.getValue()));
+                    }
+                }
+            }
+            if (user == null || user.getIdUsuario() == 0) {
+                response.sendRedirect("./Login");        
+            } else {
+                prod = pDao.produtoSolo(Integer.parseInt(request.getParameter("addProduto")));
+                cart = cartDao.selecionarCarrinho(user);
+                cartDao.addProduto(prod, cart);
+                response.sendRedirect("./Home");
+            }
+        }        
+        if(url.equals("/cadastrarProduto")) {
          ProdutoDTO newProduto = new ProdutoDTO();
         newProduto.setNome(request.getParameter("nome"));
-       // newProduto.setNome(request.getParameter("marca"));
+        newProduto.setMarca(request.getParameter("marca"));
         newProduto.setCategoria(Integer.parseInt(request.getParameter("categoria")));
-        newProduto.setDescricao(request.getParameter("descricao"));
-        newProduto.setDescricao(request.getParameter("descricao"));
-        newProduto.setEstoque(Integer.parseInt(request.getParameter("estoque")));
+        newProduto.setDescricao(request.getParameter("descricao"));      
         newProduto.setPreco(Float.parseFloat(request.getParameter("preco")));
+        newProduto.setDesconto(Float.parseFloat(request.getParameter("desconto")));
+        newProduto.setEstoque(Integer.parseInt(request.getParameter("estoque")));
         Part filePart = request.getPart("img");
     String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); 
     if (fileName != null && !fileName.isEmpty()) {
@@ -165,34 +208,46 @@ public class HomeController extends HttpServlet {
 
     ProdutoDAO produtosD = new ProdutoDAO();
     produtosD.create(newProduto);
-    response.sendRedirect("./Home");
+    response.sendRedirect("./HomeAdmin");
             }
-  
-        Cookie[] cookies = request.getCookies();
-        UsuarioDTO user = new UsuarioDTO();
-        CarrinhoUserDTO cart = new CarrinhoUserDTO();
-        UsuarioDAO userDao = new UsuarioDAO();
-        CarrinhoDAO cartDao = new CarrinhoDAO();
-        ProdutoDTO prod = new ProdutoDTO();
-        ProdutoDAO pDao = new ProdutoDAO();
-        if (url.equals("/sendToCart")) {
-            if (cookies != null) {
-                for (Cookie cookie : cookies) {
-                    if (cookie.getName().equals("login") && !cookie.getValue().equals("")) {
-                        user = userDao.selecionarUsuarioPorId(Integer.parseInt(cookie.getValue()));
-                    }
-                }
-            }
-            if (user == null || user.getIdUsuario() == 0) {
-                response.sendRedirect("./Login");        
-            } else {
-                prod = pDao.selecionarPorId(Integer.parseInt(request.getParameter("addProduto")));
-                cart = cartDao.selecionarCarrinho(user);
-                cartDao.addProduto(prod, cart);
-                response.sendRedirect("./Home");
-            }
+      if(url.equals("/editarProduto")) {
+         ProdutoDTO newProduto = new ProdutoDTO();
+        newProduto.setNome(request.getParameter("nome"));
+        newProduto.setMarca(request.getParameter("marca"));
+        newProduto.setCategoria(Integer.parseInt(request.getParameter("categoria")));
+        newProduto.setDescricao(request.getParameter("descricao"));      
+        newProduto.setPreco(Float.parseFloat(request.getParameter("preco")));
+        newProduto.setEstoque(Integer.parseInt(request.getParameter("estoque")));
+        Part filePart = request.getPart("img");
+    String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); 
+    if (fileName != null && !fileName.isEmpty()) {
+        String basePath = getServletContext().getRealPath("/") + "assets"; 
+        File uploads = new File(basePath);
+        if (!uploads.exists()) {
+            uploads.mkdirs(); 
         }
-        
+        File file = new File(uploads, fileName);
+
+        try (InputStream input = filePart.getInputStream()) {
+            Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        } catch (Exception e) {
+            e.printStackTrace(); 
+        }
+        newProduto.setImg("assets/" + fileName);
+    } else {
+        newProduto.setImg(null);
+    }
+
+    ProdutoDAO produtosD = new ProdutoDAO();
+    produtosD.edit(newProduto);
+    response.sendRedirect("./HomeAdmin");
+            }      
+      if(url.equals("/dropProduto")) {
+          ProdutoDTO newProduto = new ProdutoDTO();
+          ProdutoDAO produtosD = new ProdutoDAO();
+          produtosD.drop(newProduto);
+          response.sendRedirect("./HomeAdmin");
+      }
 }
     /**
      * Returns a short description of the servlet.

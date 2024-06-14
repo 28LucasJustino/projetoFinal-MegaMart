@@ -11,11 +11,28 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="shortcut icon" href="assets/png-transparent-red-m-and-crown-illustration-letter-m-alphabet-logo-m-blue-text-heart-thumbnail-removebg-preview.png" type="image/x-icon">
+        <link rel="stylesheet" href="styles/editarProdutos.css">
         <title>MegaMart- Editar Produto</title>
     </head>
     <body>
-        <jsp:include page="header.jsp"></jsp:include>
+        <jsp:include page="headerAdmin.jsp"></jsp:include>
         <main>
+            <div class="prod">
+                <div class="imgP">
+                    <img id="imgP" src="${produto.img}" alt="${produto.nome}"> 
+                    <input type="file" id="image" name="img" placeholder="  Nome do Produto">
+                </div>
+                <div class="text">
+                      <h5 id="tit">${produto.nome}</h5> 
+                      <input type="text" id="nome" name="nome" placeholder="  Nome do Produto" required>
+                      <p id="marc">${produto.marca}</p>
+                      <p id="pre">Preço : ${produto.preco}</p>
+                </div>
+                </div>
+                <div class="descri">
+                    <p id="descri">Descrição do Produto</p>
+                    <p>${produto.descricao}</p> 
+                  </div>
             <br><br>
             <div class="form">
                 <form action="cadastrarProduto" method="post" enctype="multipart/form-data">

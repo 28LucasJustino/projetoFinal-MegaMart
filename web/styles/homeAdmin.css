@@ -132,3 +132,45 @@ header {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     justify-content: space-between;
 }
+
+
+.prod{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-between;
+    justify-items: center;
+}
+
+.card{
+    margin-bottom: 2vw;
+    display: flex;
+    width: 17vw;
+    height: 13vh;
+    text-decoration: none;
+}
+
+#card{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#imgP{
+    width: 13vw;
+}
+#pre{
+    font-weight: 500;
+    color: red;
+}
+.btnS{
+    background-color: red;
+    color: #000000;
+    width: 100%;
+}
+.btnS:hover{
+    background-color: black;
+    color: red;
+}

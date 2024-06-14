@@ -7,30 +7,25 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Base64;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.DAO.CarrinhoDAO;
 import model.DAO.CategoriasDAO;
 import model.DAO.ProdutoDAO;
 import model.DAO.UsuarioDAO;
 import model.bean.CategoriasDTO;
-import model.bean.ProdutoDTO;
-import model.bean.UsuarioDTO;
 
 /**
  *
  * @author Marce
  */
-public class CarrinhoController extends HttpServlet {
-        CarrinhoDAO carrinhoDao = new CarrinhoDAO();
+public class CheckoutController extends HttpServlet {
         UsuarioDAO userDao = new UsuarioDAO();
-        ProdutoDAO prodDao = new ProdutoDAO();
+        ProdutoDAO produtosDAO = new ProdutoDAO();
+        CategoriasDAO categoriasDAO = new CategoriasDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -42,32 +37,15 @@ public class CarrinhoController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        CategoriasDAO categoriasDAO = new CategoriasDAO();
         List<CategoriasDTO> categorias = categoriasDAO.listarCategorias();
         request.setAttribute("categorias", categorias);
-
-        String nextPage = "/WEB-INF/jsp/carrinho.jsp";
-        UsuarioDTO user = null;
-        Cookie[] cookies = request.getCookies();
-        for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("login") && !cookie.getValue().equals("")) {
-                user = userDao.selecionarUsuarioPorId(Integer.parseInt(cookie.getValue()));
-            }
-        }
-        if (user == null || user.getIdUsuario() <= 0) {
-            response.sendRedirect("./Login");
-        } else {
-            try {
-                List<ProdutoDTO > produtos = carrinhoDao.carrinhoProduto(user);
-                Float valorFinal = 0f;
-                request.setAttribute("produtos", produtos);
-                request.setAttribute("valorFinal", valorFinal);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-       if (!response.isCommitted()) {
-            
+        String url = request.getServletPath();
+        if(url.equals("/Entrega")) {
+            String nextPage = "/WEB-INF/jsp/entrega.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        } else if(url.equals("/Pagamento")) {
+            String nextPage = "/WEB-INF/jsp/formaPagamento.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         }
@@ -85,24 +63,6 @@ public class CarrinhoController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String url = request.getServletPath();
-        Cookie[] cookies = request.getCookies();
-        UsuarioDTO user = null;
-        for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("login") && !cookie.getValue().equals("")) {
-                user = userDao.selecionarUsuarioPorId(Integer.parseInt(cookie.getValue()));
-            }
-        }
-        if (url.equals("./esvaziarCarrinho")) {
-            carrinhoDao.esvaziarCarrinho(user);
-            response.sendRedirect("./Carrinho");
-        } else if (url.equals("/removerItem")) {
-            carrinhoDao.removerProduto(prodDao.produtoSolo(Integer.parseInt(request.getParameter("item"))), carrinhoDao.selecionarCarrinho(user));
-            response.sendRedirect("./Carrinho");
-        } else if (url.equals("./adicionarItem")) {
-            carrinhoDao.adicionarProduto(prodDao.produtoSolo(Integer.parseInt(request.getParameter("item"))), carrinhoDao.selecionarCarrinho(user));
-            response.sendRedirect("./Carrinho");
-        }
         processRequest(request, response);
     }
 

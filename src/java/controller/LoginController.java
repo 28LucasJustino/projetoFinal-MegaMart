@@ -86,7 +86,7 @@ public class LoginController extends HttpServlet {
                     }                
                    if (user.getStats() == 2) {
                     // redirecionar para página de admin
-                    response.sendRedirect("./Cadastrar-produto");
+                    response.sendRedirect("./HomeAdmin");
                 } else {
                     // redirecionar para página de usuario
                     response.sendRedirect("./Home");
