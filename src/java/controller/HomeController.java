@@ -103,7 +103,10 @@ public class HomeController extends HttpServlet {
             dispatcher.forward(request, response);
         } else if (url.equals("/buscarProdutos")) {
             String busca = request.getParameter("busca") != null? request.getParameter("busca") : "";
-            if(busca.trim().equals("")) {
+            if(busca == null) {
+                List<ProdutoDTO> produtos = produtosDAO.listarProdutos();
+                request.setAttribute("produtos", produtos);
+            } else if (busca.trim().equals("")) {
                 String categoria = request.getParameter("cat");
                 List<ProdutoDTO> produtos = produtosDAO.buscarCate(Integer.parseInt(categoria));
                 request.setAttribute("produtos", produtos);

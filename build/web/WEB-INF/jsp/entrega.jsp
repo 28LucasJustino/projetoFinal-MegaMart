@@ -26,13 +26,13 @@
                 </div>
                 <div class="card">
                     <div class="inputs">
-                        <label for="nome">Nome</label>
-                        <input type="text" name="nome" placeholder="Nome" required>
-                    </div>
-                    <div class="inputs">
                         <label for="cep">CEP</label>
                         <input type="number" name="cep" placeholder="Cep" required>
                     </div> 
+                    <div class="inputs">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" placeholder="Nome" required>
+                    </div>
                     <div class="inputs">
                         <label for="rua">Rua</label>
                         <input type="text" name="rua" placeholder="Rua" required>
@@ -84,4 +84,5 @@
 
         <jsp:include page="footer.jsp"></jsp:include>
     </body>
+    <script src="js/endereçoAPI.js"></script>
 </html>
