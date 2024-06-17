@@ -13,7 +13,7 @@ CREATE TABLE usuario (
 	stats INT NOT NULL DEFAULT 1);
 CREATE TABLE endereco (
     idEndereco INT AUTO_INCREMENT PRIMARY KEY,
-    idUsuario INT NOT NULL,
+    usuario INT NOT NULL,
     mome VARCHAR(45) NOT NULL,
     rua VARCHAR(100) NOT NULL,
     numero VARCHAR(10) NOT NULL,
@@ -22,8 +22,9 @@ CREATE TABLE endereco (
     cidade VARCHAR(50) NOT NULL,
     estado CHAR(2) NOT NULL,
     cep CHAR(8) NOT NULL,
-    FOREIGN KEY (idUsuario) REFERENCES usuario (idUsuario)
-);
+    KEY usuario_endereco (usuario),
+    CONSTRAINT usuario_endereco FOREIGN KEY (usuario) REFERENCES usuario (idUsuario));
+    
 CREATE TABLE categoria (
     idCategoria INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(45) 

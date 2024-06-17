@@ -14,9 +14,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.DAO.CategoriasDAO;
+import model.DAO.EnderecoDAO;
 import model.DAO.ProdutoDAO;
 import model.DAO.UsuarioDAO;
 import model.bean.CategoriasDTO;
+import model.bean.EnderecoDTO;
 
 /**
  *
@@ -77,7 +79,22 @@ public class CheckoutController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String url = request.getServletPath();
+        if(url.equals("/cadEntrega")) {
+         EnderecoDTO newEndereco = new EnderecoDTO();
+        newEndereco.setNome(request.getParameter("nome"));
+        newEndereco.setRua(request.getParameter("rua"));
+        newEndereco.setBairro(request.getParameter("bairro"));
+        newEndereco.setCep(Integer.parseInt(request.getParameter("cep")));
+        newEndereco.setEstado(request.getParameter("estado")); 
+        newEndereco.setCidade(request.getParameter("cidade")); 
+        newEndereco.setComplemento(request.getParameter("complemento")); 
+        newEndereco.setNumero(Integer.parseInt(request.getParameter("numero")));
+        
+        EnderecoDAO endD = new EnderecoDAO();
+        endD.create(newEndereco);
+        response.sendRedirect("./Entrega");
+            }
     }
 
     /**

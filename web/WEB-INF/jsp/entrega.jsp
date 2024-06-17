@@ -18,9 +18,11 @@
         <jsp:include page="header.jsp"></jsp:include>
 
         <main>
+            <br>
             <div class="cadE">
+                <form action="cadEntrega" method="post">
                 <div class="titulo">
-                    <p><i class="fa-solid fa-house" id="iconH"></i>Endereço de Entrega</p>
+                    <p id="net"><i class="fa-solid fa-house" id="iconH"></i>Endereço de Entrega</p>
                 </div>
                 <div class="card">
                     <div class="inputs">
@@ -44,8 +46,8 @@
                         <input type="number" name="numero" placeholder="Numero" required>
                     </div>
                     <div class="inputs">
-                        <label for="Numero">B A O R I</label>
-                        <input type="text" name="baori" placeholder="B A O R I" required>
+                        <label for="Numero">Bairro</label>
+                        <input type="text" name="bairro" placeholder="Bairro" required>
                     </div>
                     <div class="inputs">
                         <label for="cidade">Cidade</label>
@@ -53,22 +55,30 @@
                     </div>
                     <div class="inputs">
                         <label for="estado">Estado</label>
-                        <input type="text" name="estado" placeholder="Estado"required>
+                        <input type="text" name="estado" placeholder="Estado" minlength="2" maxlength="2" required>
                     </div>
                 </div>
                 <div class="bodyFrete">
                     <div class="loby">
+                        <p id="net"><i class="fa-solid fa-truck" id="iconH"></i>Método de Entrega</p>
+                        <div class="fretes">
+                           <input type="radio">
+                           <p>Jadlog - de 1 a 6 dias úteis R$ 0,00</p>
+                        </div>
                         <div class="fretes">
                             <input type="radio">
-                        </div>
-
-                    </div>
+                            <p>Jadlog - de 1 a 6 dias úteis R$ 0,00</p>
+                         </div>
+                         <div class="fretes">
+                            <input type="radio">
+                            <p>Jadlog - de 1 a 6 dias úteis R$ 0,00</p>
+                         </div>
                 </div>
-
-                <form action="" method="">
-                    <button class="btnF" type="submit">Confirmar Entrega</button>
-                    </form>
-                <a href="./Carrinho"><i class="fa-solid fa-circle-left"></i>Voltar</a>
+                        <button class="btnF">Confirmar Entrega</button>
+                       
+                </div>
+                <a id="volt" href="./Carrinho"><i class="fa-solid fa-circle-left"></i>Voltar para Carrinho</a>
+            </form>
             </div>
         </main>
 

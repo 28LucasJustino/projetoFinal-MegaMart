@@ -22,12 +22,13 @@
             <div class="form">
                 <form action="cadastrarProduto" method="post" enctype="multipart/form-data">
                         <div class="cards">
+                            <p id="text">Cadastro Produto</p>
+                            <label for="nome" id="lab"><i class="fa-brands fa-product-hunt"></i> Nome do Produto</label>
                             <div class="inputs">
-                                <label for="nome" id="lab"><i class="fa-brands fa-product-hunt"></i> Nome do Produto</label>
                                 <input type="text" class="inpt" id="nome" name="nome" placeholder="  Nome do Produto" required>
                             </div>
+                            <label for="categoria" id="lab"><i class="fa-solid fa-list"></i>Categoria do Produto</label>
                             <div class="inputs">
-                                <label for="categoria" id="lab"><i class="fa-solid fa-list"></i>Categoria do Produto</label>
                                 <select  id="categoria" name="categoria">
                                     <option value="1">Celular</option>
                                     <option value="2">PC</option>
@@ -41,28 +42,28 @@
                                     <option value="10">Cadeira</option>
                                 </select>
                             </div>
+                            <label for="marca" id="lab"><i class="fa-solid fa-building"></i> Marca do Produto</label>
                             <div class="inputs">
-                                <label for="marca" id="lab"><i class="fa-solid fa-building"></i> Marca do Produto</label>
                                 <input type="text" class="inpt" id="marca" name="marca" placeholder="  Marca do Produto" required>
                             </div>
                             <br>
+                            <label for="Preco" id="lab"><i class="fa-solid fa-money-bill"></i>Preço do Produto</label>
                             <div class="inputs">
-                                <label for="Preco" id="lab"><i class="fa-solid fa-money-bill"></i>Preço do Produto</label>
                                 <input  class="inpt" id="preco" type="text" name="preco"  placeholder="  Preço do Produto" onkeypress="float(event)" required>
                             </div>
                             <br>
+                            <label for="Desconto" id="lab"><i class="fa-solid fa-percent"></i>Desconto do Produto</label>
                             <div class="inputs">
-                                <label for="Desconto" id="lab"><i class="fa-solid fa-percent"></i>Desconto do Produto</label>
                                 <input  id="desconto" class="inpt" type="text" name="desconto"  placeholder="  Desconto do Produto" onkeypress="float(event)" required>
                             </div>
                             <br>
+                            <label for="estoque" id="lab"><i class="fa-solid fa-box"></i>Estoque</label>
                             <div class="inputs">
-                                <label for="estoque" id="lab"><i class="fa-solid fa-box"></i>Estoque</label>
                                 <input id="estoque" class="inpt" type="number" name="estoque"  placeholder="Quantidade em Estoque" required>
                             </div>
                             <br>
+                            <label for="descricao" id="lab"><i class="fa-solid fa-message"></i>Descrição</label>
                             <div class="inputs">
-                                <label for="descricao" id="lab"><i class="fa-solid fa-message"></i>Descrição</label>
                                 <textarea  id="descricao" name="descricao" class="tab" rows="6"></textarea>
                             </div>
                             <br>

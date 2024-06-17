@@ -134,23 +134,25 @@ header {
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
     background-color: #fff;
     padding: 3rem;
+    overflow: hidden;
 }
 
 .cards{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-items: center;
     justify-content: space-between;
     padding: 1rem 0;
+    align-items: center;
 }
-
+#text{
+    position: relative;
+    bottom: 3vw;
+}
 .inputs {
     display: flex;
-    flex-direction: column;
     margin-bottom: 1.1rem;
 }
 

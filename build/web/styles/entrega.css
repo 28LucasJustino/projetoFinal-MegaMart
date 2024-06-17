@@ -142,6 +142,13 @@ header {
     position: relative;
     left: 80vh;
 }
+#iconH{
+ color: red;
+}
+#net{
+    font-size: 800;
+    font-weight: 25px;
+}
 .card{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -170,8 +177,8 @@ header {
 }
 
 .btnF{
-    width: 80%;
-    padding: 16px 0px;
+    width: 50%;
+    padding: 14px 0px;
     margin: 25px;
     border: none;
     border-radius: 8px;
@@ -183,9 +190,31 @@ header {
     background-color: red;
     cursor: pointer;
     box-shadow: 0 10px 40px -12px red;
+    position: relative;
+    left: 40vh;
 }
 .btnF:hover{
     transform: scale(1.05);
     background-color:red;
 
+}
+
+.bodyFrete{
+    background-color: #fff;
+    padding: 3rem;
+    overflow: hidden; 
+}
+
+.loby {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    align-items: center;
+}
+
+#volt {
+    text-decoration: none;
+    color: black;
 }
