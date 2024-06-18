@@ -91,9 +91,21 @@ CategoriasDAO categoriasDAO = new CategoriasDAO();
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String url = request.getServletPath();
         Cookie[] cookies = request.getCookies();
-           if (url.equals("/Logout")) {
+        Cookie login = new Cookie("login", "null");
+        int id = -1;
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("login")) {
+                login = cookie;
+                id = Integer.parseInt(cookie.getValue());
+            }
+        }
+        UsuarioDTO user = uDao.selecionarUsuarioPorId(id);
+        
+            
+        if (url.equals("/logout")) {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("login")) {
                     cookie.setMaxAge(0);
@@ -101,7 +113,7 @@ CategoriasDAO categoriasDAO = new CategoriasDAO();
                 }
             }
             System.out.println("aqui" + response.isCommitted());
-            response.sendRedirect("/Home");
+            response.sendRedirect("./Home");
         } else {
             processRequest(request, response);
         }

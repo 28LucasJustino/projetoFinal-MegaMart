@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 import model.bean.UsuarioDTO;
 
@@ -84,6 +83,7 @@ public class UsuarioDAO {
                 u.setCpf(rs.getString("cpf"));
                 u.setNascimento(rs.getDate("nascimento"));
                 u.setStats(rs.getInt("stats"));
+                u.setFotoPerfil(rs.getString("fotoPerfil"));
 
             } else {
                 System.out.println("Usuario não localizado.");

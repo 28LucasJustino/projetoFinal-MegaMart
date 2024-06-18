@@ -11,11 +11,12 @@ public class UsuarioDTO {
    private String telefone;
    private Date nascimento;
    private int stats;
+   private String fotoPerfil;
 
     public UsuarioDTO() {
     }
 
-    public UsuarioDTO(int idUsuario, String nome, String senha, String email, String cpf, String telefone, Date nascimento, int stats) {
+    public UsuarioDTO(int idUsuario, String nome, String senha, String email, String cpf, String telefone, Date nascimento, int stats, String fotoPerfil) {
         this.idUsuario = idUsuario;
         this.nome = nome;
         this.senha = senha;
@@ -24,6 +25,7 @@ public class UsuarioDTO {
         this.telefone = telefone;
         this.nascimento = nascimento;
         this.stats = stats;
+        this.fotoPerfil = fotoPerfil;
     }
 
     public int getIdUsuario() {
@@ -89,4 +91,12 @@ public class UsuarioDTO {
     public void setStats(int stats) {
         this.stats = stats;
     }
+
+    public String getFotoPerfil() {
+        return fotoPerfil;
+    }
+
+    public void setFotoPerfil(String fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
+    }  
 }

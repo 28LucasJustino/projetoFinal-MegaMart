@@ -133,7 +133,65 @@ header {
     justify-content: space-between;
 }
 
-main{
-    color: #ffff;
-    height: 100vh;
+.perfil{
+    padding: 15px;    
+}
+.gout{
+    text-decoration: none;
+    color: black;
+}
+#gout{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+#gout:hover{
+    transform: scale(1.05);
+    color: red;
+}
+.gout:hover{
+    transform: scale(1.05);
+    color: red;
+}
+.btnL{
+    color: black;
+    border: none;
+    background-color: transparent;
+}
+.btnL:hover{
+    transform: scale(1.05);
+    color: red;
+}
+.mt-3{
+    position: relative;
+    top: 5vw;
+    right: 16vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.sidebar{
+    background-color: #333;
+    color: white;
+    height: 100%;
+}
+
+.sidebar a{
+    margin-left: 10px;
+    display: block;
+    color: white;
+    padding-bottom: 10px;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.content{
+    background-color: whitesmoke;
 }

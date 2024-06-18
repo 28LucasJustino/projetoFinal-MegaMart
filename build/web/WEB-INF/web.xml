@@ -110,6 +110,10 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PerfilController</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PerfilController</servlet-name>
         <url-pattern>/Pedidos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
