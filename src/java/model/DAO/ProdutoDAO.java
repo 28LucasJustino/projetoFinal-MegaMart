@@ -122,8 +122,10 @@ public class ProdutoDAO {
                 prod.setCategoria(rs.getInt("categoria"));
                 prod.setMarca(rs.getString("marca"));
                 prod.setDescricao(rs.getString("descricao"));
+                prod.setDesconto(rs.getFloat("desconto"));
                 prod.setPreco(rs.getFloat("preco"));
                 prod.setEstoque(rs.getInt("estoque"));
+                prod.setValorFinal(rs.getFloat("valorFinal"));
                 prod.setImg(rs.getString("img"));
                 produtos.add(prod);
             }           

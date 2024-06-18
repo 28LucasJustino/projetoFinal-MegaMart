@@ -21,41 +21,31 @@
             <br>
             <div class="cadE">
                 <form action="cadEntrega" method="post">
-                <div class="titulo">
-                    <p id="net"><i class="fa-solid fa-house" id="iconH"></i>Endereço de Entrega</p>
-                </div>
+                    <p id="net" class="tit"><i class="fa-solid fa-house" id="iconH"></i>Endereço de Entrega</p>
                 <div class="card">
                     <div class="inputs">
                         <label for="cep">CEP</label>
-                        <input type="number" name="cep" placeholder="Cep" required>
+                        <input type="number" name="cep" id="cep" placeholder="Cep" required>
                     </div> 
                     <div class="inputs">
-                        <label for="nome">Nome</label>
-                        <input type="text" name="nome" placeholder="Nome" required>
-                    </div>
-                    <div class="inputs">
                         <label for="rua">Rua</label>
-                        <input type="text" name="rua" placeholder="Rua" required>
+                        <input type="text" name="rua" id="rua" placeholder="Rua" required>
                     </div>
                     <div class="inputs">
-                        <label for="complemento">Complemento</label>
-                        <input type="text" name="complemento" placeholder="Complemento" required>
+                        <label for="Numero">Bairro</label>
+                        <input type="text" name="bairro" id="bairro" placeholder="Bairro" required>
+                    </div>
+                    <div class="inputs">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" name="cidade" id="cidade" placeholder="Cidade" required>
+                    </div>
+                    <div class="inputs">
+                        <label for="estado">Estado</label>
+                        <input type="text" name="estado" id="estado" placeholder="Estado" minlength="2" maxlength="2" required>
                     </div>
                     <div class="inputs">
                         <label for="Numero">Numero</label>
                         <input type="number" name="numero" placeholder="Numero" required>
-                    </div>
-                    <div class="inputs">
-                        <label for="Numero">Bairro</label>
-                        <input type="text" name="bairro" placeholder="Bairro" required>
-                    </div>
-                    <div class="inputs">
-                        <label for="cidade">Cidade</label>
-                        <input type="text" name="cidade" placeholder="Cidade" required>
-                    </div>
-                    <div class="inputs">
-                        <label for="estado">Estado</label>
-                        <input type="text" name="estado" placeholder="Estado" minlength="2" maxlength="2" required>
                     </div>
                 </div>
                 <div class="bodyFrete">

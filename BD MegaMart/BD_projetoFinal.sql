@@ -133,7 +133,8 @@ DROP TABLE IF EXISTS `endereco`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `endereco` (
   `idEndereco` int(11) NOT NULL AUTO_INCREMENT,
-  `idUsuario` int(11) NOT NULL,
+  `usuario` int(11) NOT NULL,
+  `mome` varchar(45) NOT NULL,
   `rua` varchar(100) NOT NULL,
   `numero` varchar(10) NOT NULL,
   `complemento` varchar(100) DEFAULT NULL,
@@ -142,8 +143,8 @@ CREATE TABLE `endereco` (
   `estado` char(2) NOT NULL,
   `cep` char(8) NOT NULL,
   PRIMARY KEY (`idEndereco`),
-  KEY `idUsuario` (`idUsuario`),
-  CONSTRAINT `endereco_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`)
+  KEY `usuario_endereco` (`usuario`),
+  CONSTRAINT `usuario_endereco` FOREIGN KEY (`usuario`) REFERENCES `usuario` (`idUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -266,8 +267,9 @@ CREATE TABLE `usuario` (
   `telefone` char(15) NOT NULL,
   `nascimento` date NOT NULL,
   `stats` int(11) NOT NULL DEFAULT 1,
+  `fotoPerfil` varchar(255) DEFAULT '',
   PRIMARY KEY (`idUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -276,7 +278,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Lucas','admin123','lucas@gmail.com','12344543565','1212345678','2004-05-19',2),(2,'Luk','123','luk@gmail.com','54356512344','4567812123','2006-11-14',1),(3,'zzzzzz','123','zzzz@gmail.com','152.352.352-35','(62) 46646-4353','2006-12-20',1);
+INSERT INTO `usuario` VALUES (1,'Lucas','admin123','lucas@gmail.com','12344543565','1212345678','2004-05-19',2,'assets/png-clipart-computer-icons-login-user-profile-others-computer-logo-removebg-preview.png'),(2,'Luk','123','luk@gmail.com','54356512344','4567812123','2006-11-14',1,'assets/png-clipart-computer-icons-login-user-profile-others-computer-logo-removebg-preview.png');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -289,4 +291,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-04 17:33:50
+-- Dump completed on 2024-06-18 13:57:02

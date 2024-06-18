@@ -194,4 +194,6 @@ header {
 
 .content{
     background-color: whitesmoke;
+    position: relative;
+    top: 2vw;
 }
