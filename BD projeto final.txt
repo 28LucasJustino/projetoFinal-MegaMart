@@ -1,4 +1,7 @@
+drop database bd_projetofinal7;
+create database bd_projetofinal7;
 use bd_projetofinal7;
+
 
 CREATE TABLE usuario (
     idUsuario INT AUTO_INCREMENT PRIMARY KEY,
@@ -67,18 +70,18 @@ CREATE TABLE pedido (
 
 CREATE TABLE carrinho (
   idCarrinho INT(11) AUTO_INCREMENT PRIMARY KEY,
-  usuario INY(11) DEFAULT NULL,
-  KEY `usuario` (`usuario`),
-  CONSTRAINT `carrinho_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `usuario` (`idUsuario`));
+  usuario INT(11) DEFAULT NULL,
+  KEY usuario (usuario),
+  CONSTRAINT carrinho_ibfk_1 FOREIGN KEY (usuario) REFERENCES usuario (idUsuario));
 
-CREATE TABLE `carrinhoproduto` (
+CREATE TABLE carrinhoproduto (
   idCarrinhoProduto INT(11) AUTO_INCREMENT PRIMARY KEY,
   carrinho INT(11) NOT NULL,
   produto INT(11) NOT NULL,
-  KEY `carrinho` (`carrinho`),
-  KEY `produto` (`produto`),
-  CONSTRAINT `carrinhoproduto_ibfk_1` FOREIGN KEY (`carrinho`) REFERENCES `carrinho` (`idCarrinho`),
-  CONSTRAINT `carrinhoproduto_ibfk_2` FOREIGN KEY (`produto`) REFERENCES `produto` (`idProduto`));
+  KEY carrinho (carrinho),
+  KEY produto (produto),
+  CONSTRAINT carrinhoproduto_ibfk_1 FOREIGN KEY (carrinho) REFERENCES carrinho (idCarrinho),
+  CONSTRAINT carrinhoproduto_ibfk_2 FOREIGN KEY (produto) REFERENCES produto (idProduto));
   
 CREATE TABLE checkout (
     idCheckout INT AUTO_INCREMENT PRIMARY KEY,
