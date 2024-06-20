@@ -46,31 +46,32 @@ public class CarrinhoController extends HttpServlet {
         List<CategoriasDTO> categorias = categoriasDAO.listarCategorias();
         request.setAttribute("categorias", categorias);
 
+        UsuarioDTO u = new UsuarioDTO();
         String nextPage = "/WEB-INF/jsp/carrinho.jsp";
-        UsuarioDTO user = null;
+
         Cookie[] cookies = request.getCookies();
-        for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("login") && !cookie.getValue().equals("")) {
-                user = userDao.selecionarUsuarioPorId(Integer.parseInt(cookie.getValue()));
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("login") && !cookie.getValue().equals("")) {
+                    u = userDao.selecionarUsuarioPorId(Integer.parseInt(cookie.getValue()));
+                }
             }
         }
-        if (user == null || user.getIdUsuario() <= 0) {
-            response.sendRedirect("./Login");
-        } else {
-            try {
-                List<ProdutoDTO > produtos = carrinhoDao.carrinhoProduto(user);
-                Float valorFinal = 0f;
-                request.setAttribute("produtos", produtos);
-                request.setAttribute("valorFinal", valorFinal);
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (!(u.getIdUsuario() == 0)) {
+            List<ProdutoDTO> produtos = carrinhoDao.listarProdutos(u);
+            Float valorTotal = 0.0f;
+            for (int i = 0; i < produtos.size(); i++) {
+                produtos.get(i).getImg();
+                valorTotal += produtos.get(i).getValorFinal();
             }
-        }
-       if (!response.isCommitted()) {
-            
+            request.setAttribute("valorTotal", valorTotal);
+            request.setAttribute("carrinho", produtos);
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
+        } else {
+            response.sendRedirect("./Login");
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -93,14 +94,11 @@ public class CarrinhoController extends HttpServlet {
                 user = userDao.selecionarUsuarioPorId(Integer.parseInt(cookie.getValue()));
             }
         }
-        if (url.equals("./esvaziarCarrinho")) {
-            carrinhoDao.esvaziarCarrinho(user);
-            response.sendRedirect("./Carrinho");
-        } else if (url.equals("/removerItem")) {
-            carrinhoDao.removerProduto(prodDao.produtoSolo(Integer.parseInt(request.getParameter("item"))), carrinhoDao.selecionarCarrinho(user));
+        if (url.equals("/removerItem")) {
+            carrinhoDao.removerProduto(prodDao.produtoSolo(Integer.parseInt(request.getParameter("item"))), carrinhoDao.getCarrinho(user));
             response.sendRedirect("./Carrinho");
         } else if (url.equals("./adicionarItem")) {
-            carrinhoDao.adicionarProduto(prodDao.produtoSolo(Integer.parseInt(request.getParameter("item"))), carrinhoDao.selecionarCarrinho(user));
+            carrinhoDao.addProduto(prodDao.produtoSolo(Integer.parseInt(request.getParameter("item"))), carrinhoDao.getCarrinho(user));
             response.sendRedirect("./Carrinho");
         }
         processRequest(request, response);

@@ -1,21 +1,15 @@
 package model.bean;
 
 public class CarrinhoDTO {
- private int idCarrinho;
- private int carrinhoUser;
- private int produto;
- private int quantidade;
- private float valorTotal;
+  private int idCarrinho;
+  private int usuario;
 
     public CarrinhoDTO() {
     }
 
-    public CarrinhoDTO(int idCarrinho, int carrinhoUser, int produto, int quantidade, float valorTotal) {
+    public CarrinhoDTO(int idCarrinho, int usuario) {
         this.idCarrinho = idCarrinho;
-        this.carrinhoUser = carrinhoUser;
-        this.produto = produto;
-        this.quantidade = quantidade;
-        this.valorTotal = valorTotal;
+        this.usuario = usuario;
     }
 
     public int getIdCarrinho() {
@@ -26,35 +20,11 @@ public class CarrinhoDTO {
         this.idCarrinho = idCarrinho;
     }
 
-    public int getCarrinhoUser() {
-        return carrinhoUser;
+    public int getUsuario() {
+        return usuario;
     }
 
-    public void setCarrinhoUser(int carrinhoUser) {
-        this.carrinhoUser = carrinhoUser;
-    }
-
-    public int getProduto() {
-        return produto;
-    }
-
-    public void setProduto(int produto) {
-        this.produto = produto;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public float getValorTotal() {
-        return valorTotal;
-    }
-
-    public void setValorTotal(float valorTotal) {
-        this.valorTotal = valorTotal;
-    }
+    public void setUsuario(int usuario) {
+        this.usuario = usuario;
+    } 
 }

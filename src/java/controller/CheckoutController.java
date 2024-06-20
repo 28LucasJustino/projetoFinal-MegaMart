@@ -82,13 +82,11 @@ public class CheckoutController extends HttpServlet {
         String url = request.getServletPath();
         if(url.equals("/cadEntrega")) {
          EnderecoDTO newEndereco = new EnderecoDTO();
-        newEndereco.setNome(request.getParameter("nome"));
         newEndereco.setRua(request.getParameter("rua"));
         newEndereco.setBairro(request.getParameter("bairro"));
         newEndereco.setCep(Integer.parseInt(request.getParameter("cep")));
         newEndereco.setEstado(request.getParameter("estado")); 
         newEndereco.setCidade(request.getParameter("cidade")); 
-        newEndereco.setComplemento(request.getParameter("complemento")); 
         newEndereco.setNumero(Integer.parseInt(request.getParameter("numero")));
         
         EnderecoDAO endD = new EnderecoDAO();

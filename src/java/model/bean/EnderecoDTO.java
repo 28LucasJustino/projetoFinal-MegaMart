@@ -3,10 +3,8 @@ package model.bean;
 public class EnderecoDTO {
     private int idEndereco;
     private int usuario_end;
-    private String nome;
     private String rua;
     private int numero;
-    private String complemento;
     private String bairro;
     private String cidade;
     private String estado;
@@ -15,13 +13,11 @@ public class EnderecoDTO {
     public EnderecoDTO() {
     }
 
-    public EnderecoDTO(int idEndereco, int usuario_end, String nome, String rua, int numero, String complemento, String bairro, String cidade, String estado, int cep) {
+    public EnderecoDTO(int idEndereco, int usuario_end, String rua, int numero, String bairro, String cidade, String estado, int cep) {
         this.idEndereco = idEndereco;
         this.usuario_end = usuario_end;
-        this.nome = nome;
         this.rua = rua;
         this.numero = numero;
-        this.complemento = complemento;
         this.bairro = bairro;
         this.cidade = cidade;
         this.estado = estado;
@@ -44,14 +40,6 @@ public class EnderecoDTO {
         this.usuario_end = usuario_end;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getRua() {
         return rua;
     }
@@ -66,14 +54,6 @@ public class EnderecoDTO {
 
     public void setNumero(int numero) {
         this.numero = numero;
-    }
-
-    public String getComplemento() {
-        return complemento;
-    }
-
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
     }
 
     public String getBairro() {
@@ -107,6 +87,4 @@ public class EnderecoDTO {
     public void setCep(int cep) {
         this.cep = cep;
     }
-
-    
 }

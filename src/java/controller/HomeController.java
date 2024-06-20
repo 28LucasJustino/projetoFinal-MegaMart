@@ -27,7 +27,7 @@ import model.DAO.CarrinhoDAO;
 import model.DAO.CategoriasDAO;
 import model.DAO.ProdutoDAO;
 import model.DAO.UsuarioDAO;
-import model.bean.CarrinhoUserDTO;
+import model.bean.CarrinhoProdutoDTO;
 import model.bean.CategoriasDTO;
 import model.bean.ProdutoDTO;
 import model.bean.UsuarioDTO;
@@ -42,6 +42,11 @@ public class HomeController extends HttpServlet {
         UsuarioDAO userDao = new UsuarioDAO();
         ProdutoDAO produtosDAO = new ProdutoDAO();
         CategoriasDAO categoriasDAO = new CategoriasDAO();
+        ProdutoDTO prod = new ProdutoDTO();
+        CarrinhoProdutoDTO cart = new CarrinhoProdutoDTO();
+        UsuarioDTO user = new UsuarioDTO();
+        ProdutoDAO pDao = new ProdutoDAO();  
+        CarrinhoDAO cartDao = new CarrinhoDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -157,13 +162,6 @@ public class HomeController extends HttpServlet {
             throws ServletException, IOException {
         String url = request.getServletPath();
         Cookie[] cookies = request.getCookies();
-        UsuarioDTO user = new UsuarioDTO();
-        CarrinhoUserDTO cart = new CarrinhoUserDTO();
-        UsuarioDAO userDao = new UsuarioDAO();
-        CarrinhoDAO cartDao = new CarrinhoDAO();
-        ProdutoDTO prod = new ProdutoDTO();
-        ProdutoDAO pDao = new ProdutoDAO();
-        if (url.equals("/sendToCart")) {
             if (cookies != null) {
                 for (Cookie cookie : cookies) {
                     if (cookie.getName().equals("login") && !cookie.getValue().equals("")) {
@@ -171,15 +169,18 @@ public class HomeController extends HttpServlet {
                     }
                 }
             }
-            if (user == null || user.getIdUsuario() == 0) {
-                response.sendRedirect("./Login");        
+        if (url.equals("/adicionarcarrinho")) {
+            int idProduto = Integer.parseInt(request.getParameter("produtoSelecionado"));
+            System.out.println("PRODUTO"+idProduto+".");
+            if (user != null) {       
+               cartDao.addProduto(pDao.produtoSolo(idProduto), cartDao.getCarrinho(user));
+               response.sendRedirect("./Home");
             } else {
-                prod = pDao.produtoSolo(Integer.parseInt(request.getParameter("addProduto")));
-                cart = cartDao.selecionarCarrinho(user);
-                cartDao.addProduto(prod, cart);
-                response.sendRedirect("./Home");
+                response.sendRedirect("./Login");
             }
-        }        
+            
+        }
+        
         if(url.equals("/cadastrarProduto")) {
          ProdutoDTO newProduto = new ProdutoDTO();
         newProduto.setNome(request.getParameter("nome"));
@@ -249,7 +250,7 @@ public class HomeController extends HttpServlet {
           produtosDAO.drop(newProduto);
           response.sendRedirect("./HomeAdmin");
       }
-}
+    }
     /**
      * Returns a short description of the servlet.
      *

@@ -8,20 +8,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.bean.CarrinhoDTO;
-import model.bean.CarrinhoUserDTO;
+import model.bean.CarrinhoProdutoDTO;
 import model.bean.ProdutoDTO;
 import model.bean.UsuarioDTO;
 
 
 public class CarrinhoDAO {
-    public void addProduto(ProdutoDTO produto, CarrinhoUserDTO carrinho) {
+    public void addProduto(ProdutoDTO p, CarrinhoDTO c) {
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
 
-            stmt = conexao.prepareStatement("INSERT INTO carrinho ( carrinhoUser, produto) VALUES (?, ?)");
-            stmt.setInt(1, carrinho.getIdCarrinhoUser());
-            stmt.setInt(2, produto.getIdProduto());
+            stmt = conexao.prepareStatement("INSERT INTO carrinhoproduto (carrinho, produto) VALUES (?, ?)");
+            stmt.setInt(1, c.getIdCarrinho());
+            stmt.setInt(2, p.getIdProduto());
 
             stmt.executeUpdate();
 
@@ -31,14 +31,14 @@ public class CarrinhoDAO {
             e.printStackTrace();
         }
     }
-    public void removerProduto(ProdutoDTO dropProd, CarrinhoUserDTO dropCarr) {
+     public void removerProduto(ProdutoDTO p, CarrinhoDTO c) {
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
 
-            stmt = conexao.prepareStatement("DELETE FROM carrinho WHERE carrinhoUser = ? AND produto = ?");
-            stmt.setInt(1, dropCarr.getIdCarrinhoUser());
-            stmt.setInt(2, dropProd.getIdProduto());
+            stmt = conexao.prepareStatement("DELETE FROM carrinhoproduto WHERE carrinho = ? AND produto = ?");
+            stmt.setInt(1, c.getIdCarrinho());
+            stmt.setInt(2, p.getIdProduto());
 
             stmt.executeUpdate();
 
@@ -48,41 +48,17 @@ public class CarrinhoDAO {
             e.printStackTrace();
         }
     }
-    public CarrinhoUserDTO getCarrinho(UsuarioDTO user) {
-        CarrinhoUserDTO c = new CarrinhoUserDTO();
-        try {
-            Connection conexao = Conexao.conectar();
-            PreparedStatement stmt = null;
-            ResultSet rs = null;
 
-            stmt = conexao.prepareStatement("SELECT * FROM carrinho WHERE usuario = ?");
-            stmt.setInt(1, user.getIdUsuario());
-
-            rs = stmt.executeQuery();
-            if (rs.next()) {
-                c.setIdCarrinhoUser(rs.getInt("idCarrinhoUser"));
-                c.setUsuario(rs.getInt("usuario"));
-            }
-
-            rs.close();
-            stmt.close();
-            conexao.close();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return c;
-    }
-       public List<ProdutoDTO> carrinhoProduto(UsuarioDTO user) {
+    public List<ProdutoDTO> listarProdutos(UsuarioDTO u) {
         List<ProdutoDTO> produtos = new ArrayList();
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
             ResultSet rs = null;
 
-            stmt = conexao.prepareStatement("SELECT p.* FROM carrinho AS c JOIN produto AS p ON c.produto = p.idProduto"
-                    + " JOIN carrinhoUser AS cu ON cup.carrinho = cu.idCarrinhoUser JOIN usuario AS u ON cu.usuario = u.idUsuario WHERE u.idUsuario = ?");
-            stmt.setInt(1, user.getIdUsuario());
+            stmt = conexao.prepareStatement("SELECT p.* FROM carrinhoProduto AS cp JOIN produto AS p ON cp.produto = p.idProduto"
+                    + " JOIN carrinho AS c ON cp.carrinho = c.idCarrinho JOIN usuario AS u ON c.usuario = u.idUsuario WHERE u.idUsuario = ?");
+            stmt.setInt(1, u.getIdUsuario());
 
             rs = stmt.executeQuery();
             while (rs.next()) {
@@ -94,7 +70,7 @@ public class CarrinhoDAO {
                 prod.setDescricao(rs.getString("descricao"));
                 prod.setPreco(rs.getFloat("preco"));
                 prod.setEstoque(rs.getInt("estoque"));
-                prod.setImg(rs.getString("img"));        
+                prod.setImg(rs.getString("img"));
                 produtos.add(prod);
             }
 
@@ -106,8 +82,9 @@ public class CarrinhoDAO {
         }
         return produtos;
     }
-       public CarrinhoUserDTO selecionarCarrinho(UsuarioDTO u) {
-        CarrinhoUserDTO c = new CarrinhoUserDTO();
+
+    public CarrinhoDTO getCarrinho(UsuarioDTO u) {
+        CarrinhoDTO c = new CarrinhoDTO();
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
@@ -118,7 +95,7 @@ public class CarrinhoDAO {
 
             rs = stmt.executeQuery();
             if (rs.next()) {
-                c.setIdCarrinhoUser(rs.getInt("idCarrinhoUser"));
+                c.setIdCarrinho(rs.getInt("idCarrinho"));
                 c.setUsuario(rs.getInt("usuario"));
             }
 
@@ -130,40 +107,5 @@ public class CarrinhoDAO {
             e.printStackTrace();
         }
         return c;
-    }
-       public void esvaziarCarrinho(UsuarioDTO u) {
-        try {
-            Connection conexao = Conexao.conectar();
-            PreparedStatement stmt = null;
-
-            stmt = conexao.prepareStatement("DELETE FROM carrinhoProduto WHERE carrinho = ?");
-            stmt.setInt(1, u.getIdUsuario());
-
-            stmt.executeUpdate();
-
-            stmt.close();
-            conexao.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-public void adicionarProduto(ProdutoDTO p, CarrinhoUserDTO c) {
-        try {
-            Connection conexao = Conexao.conectar();
-            PreparedStatement stmt = null;
-
-            stmt = conexao.prepareStatement("INSERT INTO carrinhoproduto (carrinho, produto) VALUES (?, ?)");
-            stmt.setInt(1, c.getIdCarrinhoUser());
-            stmt.setInt(2, p.getIdProduto());
-
-            stmt.executeUpdate();
-
-            stmt.close();
-            conexao.close();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-
-        }
-    }
+    }    
 }

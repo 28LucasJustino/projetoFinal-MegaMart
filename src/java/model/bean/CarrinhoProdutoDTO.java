@@ -1,30 +1,40 @@
 package model.bean;
 
-public class CarrinhoUserDTO {
-   private int idCarrinhoUser;
-   private int usuario;
+public class CarrinhoProdutoDTO {
+    private int idCarrinhoProduto;
+    private int carrinho;
+    private int produto;
 
-    public CarrinhoUserDTO() {
+    public CarrinhoProdutoDTO() {
     }
 
-    public CarrinhoUserDTO(int idCarrinhoUser, int usuario) {
-        this.idCarrinhoUser = idCarrinhoUser;
-        this.usuario = usuario;
+    public CarrinhoProdutoDTO(int idCarrinhoProduto, int carrinho, int produto) {
+        this.idCarrinhoProduto = idCarrinhoProduto;
+        this.carrinho = carrinho;
+        this.produto = produto;
     }
 
-    public int getIdCarrinhoUser() {
-        return idCarrinhoUser;
+    public int getIdCarrinhoProduto() {
+        return idCarrinhoProduto;
     }
 
-    public void setIdCarrinhoUser(int idCarrinhoUser) {
-        this.idCarrinhoUser = idCarrinhoUser;
+    public void setIdCarrinhoProduto(int idCarrinhoProduto) {
+        this.idCarrinhoProduto = idCarrinhoProduto;
     }
 
-    public int getUsuario() {
-        return usuario;
+    public int getCarrinho() {
+        return carrinho;
     }
 
-    public void setUsuario(int usuario) {
-        this.usuario = usuario;
+    public void setCarrinho(int carrinho) {
+        this.carrinho = carrinho;
     }
+
+    public int getProduto() {
+        return produto;
+    }
+
+    public void setProduto(int produto) {
+        this.produto = produto;
+    } 
 }

@@ -65,25 +65,21 @@ CREATE TABLE pedido (
     CONSTRAINT produto_produtoPedidos FOREIGN KEY (produto) REFERENCES produto (idProduto),
 	CONSTRAINT pedido_produtoPedidos FOREIGN KEY (pedido) REFERENCES pedido (idPedido));
 
-CREATE TABLE carrinhoUser(
-	idCarrinhoUser INT AUTO_INCREMENT PRIMARY KEY,
-    usuario INT DEFAULT NULL,
-    KEY usuario_carrinho (usuario),
-    CONSTRAINT carrinhoUser FOREIGN KEY (usuario) REFERENCES usuario (idUsuario));
-
 CREATE TABLE carrinho (
-    idCarrinho INT AUTO_INCREMENT PRIMARY KEY,
-    carrinhoUser INT NOT NULL,
-    produto INT NOT NULL,
-    pedidos INT NOT NULL,
-    quantidade INT NOT NULL,
-    valorTotal FLOAT(8,2),
-    KEY carrinhoUser_carrinho (carrinhoUser),
-    CONSTRAINT carrinhoUser_carrinho FOREIGN KEY (carrinhoUser) REFERENCES carrinhoUser (idCarrinhoUser),
-    KEY produto_carrinho (produto),
-    CONSTRAINT produto_carrinho FOREIGN KEY (produto) REFERENCES produto (idProduto));
-  
+  idCarrinho INT(11) AUTO_INCREMENT PRIMARY KEY,
+  usuario INY(11) DEFAULT NULL,
+  KEY `usuario` (`usuario`),
+  CONSTRAINT `carrinho_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `usuario` (`idUsuario`));
 
+CREATE TABLE `carrinhoproduto` (
+  idCarrinhoProduto INT(11) AUTO_INCREMENT PRIMARY KEY,
+  carrinho INT(11) NOT NULL,
+  produto INT(11) NOT NULL,
+  KEY `carrinho` (`carrinho`),
+  KEY `produto` (`produto`),
+  CONSTRAINT `carrinhoproduto_ibfk_1` FOREIGN KEY (`carrinho`) REFERENCES `carrinho` (`idCarrinho`),
+  CONSTRAINT `carrinhoproduto_ibfk_2` FOREIGN KEY (`produto`) REFERENCES `produto` (`idProduto`));
+  
 CREATE TABLE checkout (
     idCheckout INT AUTO_INCREMENT PRIMARY KEY,
     idUsuario INT NOT NULL,
