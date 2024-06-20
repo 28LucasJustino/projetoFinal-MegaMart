@@ -64,6 +64,15 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col-md-3">
+                                            <h5>CPF</h5>
+                                        </div>
+                                        <div class="col-md-9 text-secondary">
+                                            ${user.cpf}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-3">
                                             <h5>Data de Nacimento</h5>
                                         </div>
                                         <div class="col-md-9 text-secondary">

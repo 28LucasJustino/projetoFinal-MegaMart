@@ -169,8 +169,8 @@ public class HomeController extends HttpServlet {
                     }
                 }
             }
-        if (url.equals("/adicionarcarrinho")) {
-            int idProduto = Integer.parseInt(request.getParameter("produtoSelecionado"));
+        if (url.equals("/mandarParaCarrinho")) {
+            int idProduto = Integer.parseInt(request.getParameter("addProduto"));
             System.out.println("PRODUTO"+idProduto+".");
             if (user != null) {       
                cartDao.addProduto(pDao.produtoSolo(idProduto), cartDao.getCarrinho(user));
@@ -250,6 +250,7 @@ public class HomeController extends HttpServlet {
           produtosDAO.drop(newProduto);
           response.sendRedirect("./HomeAdmin");
       }
+      processRequest(request, response);
     }
     /**
      * Returns a short description of the servlet.

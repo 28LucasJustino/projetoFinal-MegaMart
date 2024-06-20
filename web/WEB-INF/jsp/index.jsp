@@ -54,7 +54,7 @@
             <h5 >${produto.nome}</h5>
             <p >${produto.marca}</p>
             <p id="pre">Preço : ${produto.preco}</p>
-            <form action="sendToCart" method="post">
+            <form action="mandarParaCarrinho" method="post">
              <button class="btnS" type="submit" value="${produto.idProduto}" name="addProduto">Adicionar ao <i class="fa-solid fa-shopping-cart me-1"></i></button>
             </form>
           </div>

@@ -1,6 +1,7 @@
-drop database bd_projetofinal7;
-create database bd_projetofinal7;
-use bd_projetofinal7;
+
+drop database bd_projetofinal;
+create database bd_projetofinal;
+use bd_projetofinal;
 
 
 CREATE TABLE usuario (
@@ -12,7 +13,7 @@ CREATE TABLE usuario (
     telefone CHAR(15) NOT NULL,
     nascimento DATE NOT NULL,
 	stats INT NOT NULL DEFAULT 1,
-    fotoPerfil VARCHAR(255) DEFAULT '');
+    fotoPerfil VARCHAR(255) DEFAULT 'assets/png-clipart-computer-icons-login-user-profile-others-computer-logo-removebg-preview.png');
 CREATE TABLE endereco (
     idEndereco INT AUTO_INCREMENT PRIMARY KEY,
     usuario INT NOT NULL,
@@ -71,17 +72,17 @@ CREATE TABLE pedido (
 CREATE TABLE carrinho (
   idCarrinho INT(11) AUTO_INCREMENT PRIMARY KEY,
   usuario INT(11) DEFAULT NULL,
-  KEY usuario (usuario),
-  CONSTRAINT carrinho_ibfk_1 FOREIGN KEY (usuario) REFERENCES usuario (idUsuario));
+  KEY carrinho_usuario (usuario),
+  CONSTRAINT carrinho_usuario FOREIGN KEY (usuario) REFERENCES usuario (idUsuario));
 
 CREATE TABLE carrinhoproduto (
   idCarrinhoProduto INT(11) AUTO_INCREMENT PRIMARY KEY,
   carrinho INT(11) NOT NULL,
   produto INT(11) NOT NULL,
-  KEY carrinho (carrinho),
-  KEY produto (produto),
-  CONSTRAINT carrinhoproduto_ibfk_1 FOREIGN KEY (carrinho) REFERENCES carrinho (idCarrinho),
-  CONSTRAINT carrinhoproduto_ibfk_2 FOREIGN KEY (produto) REFERENCES produto (idProduto));
+  KEY carrinho_carrinhoProd (carrinho),
+  KEY carrinho_produto (produto),
+  CONSTRAINT carrinho_carrinhoProd FOREIGN KEY (carrinho) REFERENCES carrinho (idCarrinho),
+  CONSTRAINT carrinho_produto FOREIGN KEY (produto) REFERENCES produto (idProduto));
   
 CREATE TABLE checkout (
     idCheckout INT AUTO_INCREMENT PRIMARY KEY,
@@ -91,7 +92,21 @@ CREATE TABLE checkout (
     FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
     FOREIGN KEY (idProduto) REFERENCES produto(idProduto));
  
- INSERT INTO categoria (idCategoria,nome) VALUES
+DELIMITER $$
+CREATE TRIGGER criarCarrinho
+AFTER INSERT ON usuario
+FOR EACH ROW
+BEGIN
+    INSERT INTO carrinho (usuario) VALUES (NEW.idUsuario);
+END $$
+
+DELIMITER ;
+
+insert into usuario(nome,senha,email,cpf,telefone,nascimento,stats,fotoPerfil)values
+('Lucas','admin123','lucas@gmail.com','574.535.346-35','(12) 31425-6346','2004-05-19',2,'assets/png-clipart-computer-icons-login-user-profile-others-computer-logo-removebg-preview.png'),
+('Luk','123','luk@gmail.com','936.432.151-31','(15) 24534-1423','2006-11-14',1,'assets/png-clipart-computer-icons-login-user-profile-others-computer-logo-removebg-preview.png');
+
+INSERT INTO categoria (idCategoria,nome) VALUES
 (1,'Celular'),(2,'PC'),(3,'Console'),(4,'TV'),(5,'Games'),(6,'Impresorra'),(7,'Notebook'),(8,'Tablet'),(9,'Acessorio'),(10,'Cadeira');
 
 INSERT INTO produto (categoria, marca, nome, descricao, desconto, preco, estoque, valorFinal, img) VALUES
@@ -115,7 +130,3 @@ INSERT INTO produto (categoria, marca, nome, descricao, desconto, preco, estoque
 (1,'Celular', 'Smartphone Speed 5G', 'O Smartphone Speed 5G é um dos primeiros dispositivos compatíveis com a tecnologia 5G. Com velocidades de download ultrarrápidas, você pode navegar na web, transmitir vídeos e jogar sem interrupções.', 0.00, 999.99, 25, 999.99, 'assets/294108-removebg-preview.png'),
 (2,'PC', 'All-in-One MultiTouch', 'O PC All-in-One MultiTouch é um computador versátil com tela sensível ao toque. Ideal para uso em casa ou no escritório, ele oferece um design elegante e sem cabos, ocupando pouco espaço.', 0.00, 5999.99, 7, 5999.99, 'assets/Computador-Completo-Digital-Corp-Intel-I5-8GB-SSD-240-Monitor-19_1658231292_gg-removebg-preview.png'),
 (1,'Celular', 'Smartphone Master X', 'O Smartphone Master X é um dispositivo avançado com desempenho excepcional. Equipado com um processador de última geração, câmeras de alta resolução e uma bateria de longa duração, o Master X oferece uma experiência premium.', 0.00, 1799.99, 20, 1799.99, 'assets/png-clipart-samsung-galaxy-s6-edge-samsung-galaxy-s7-edge-smartphone-samsung-gadget-mobile-phone-removebg-preview.png');
-
- insert into usuario(nome,senha,email,cpf,telefone,nascimento,stats,fotoPerfil)values
-('Lucas','admin123','lucas@gmail.com','12344543565','1212345678','2004-05-19',2,'assets/png-clipart-computer-icons-login-user-profile-others-computer-logo-removebg-preview.png'),
-('Luk','123','luk@gmail.com','54356512344','4567812123','2006-11-14',1,'assets/png-clipart-computer-icons-login-user-profile-others-computer-logo-removebg-preview.png');

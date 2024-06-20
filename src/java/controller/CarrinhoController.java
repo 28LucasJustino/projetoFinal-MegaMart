@@ -11,6 +11,7 @@ import java.util.Base64;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,10 +28,12 @@ import model.bean.UsuarioDTO;
  *
  * @author Marce
  */
+@MultipartConfig
 public class CarrinhoController extends HttpServlet {
         CarrinhoDAO carrinhoDao = new CarrinhoDAO();
         UsuarioDAO userDao = new UsuarioDAO();
         ProdutoDAO prodDao = new ProdutoDAO();
+        
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -45,8 +48,8 @@ public class CarrinhoController extends HttpServlet {
         CategoriasDAO categoriasDAO = new CategoriasDAO();
         List<CategoriasDTO> categorias = categoriasDAO.listarCategorias();
         request.setAttribute("categorias", categorias);
-
         UsuarioDTO u = new UsuarioDTO();
+        
         String nextPage = "/WEB-INF/jsp/carrinho.jsp";
 
         Cookie[] cookies = request.getCookies();
@@ -57,7 +60,7 @@ public class CarrinhoController extends HttpServlet {
                 }
             }
         }
-        if (!(u.getIdUsuario() == 0)) {
+        if (u!= null && u.getIdUsuario() > 0) {
             List<ProdutoDTO> produtos = carrinhoDao.listarProdutos(u);
             Float valorTotal = 0.0f;
             for (int i = 0; i < produtos.size(); i++) {
@@ -86,21 +89,6 @@ public class CarrinhoController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String url = request.getServletPath();
-        Cookie[] cookies = request.getCookies();
-        UsuarioDTO user = null;
-        for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("login") && !cookie.getValue().equals("")) {
-                user = userDao.selecionarUsuarioPorId(Integer.parseInt(cookie.getValue()));
-            }
-        }
-        if (url.equals("/removerItem")) {
-            carrinhoDao.removerProduto(prodDao.produtoSolo(Integer.parseInt(request.getParameter("item"))), carrinhoDao.getCarrinho(user));
-            response.sendRedirect("./Carrinho");
-        } else if (url.equals("./adicionarItem")) {
-            carrinhoDao.addProduto(prodDao.produtoSolo(Integer.parseInt(request.getParameter("item"))), carrinhoDao.getCarrinho(user));
-            response.sendRedirect("./Carrinho");
-        }
         processRequest(request, response);
     }
 
@@ -115,7 +103,18 @@ public class CarrinhoController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String url = request.getServletPath();
+        Cookie[] cookies = request.getCookies();
+        UsuarioDTO u = new UsuarioDTO();
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("login") && !cookie.getValue().equals("")) {
+                u = userDao.selecionarUsuarioPorId(Integer.parseInt(cookie.getValue()));
+            }
+        }
+        if (url.equals("/dropProd")) {
+            carrinhoDao.removerProduto(prodDao.produtoSolo(Integer.parseInt(request.getParameter("prod"))), carrinhoDao.getCarrinho(u));
+            response.sendRedirect("./Carrinho");
+        }
     }
 
     /**

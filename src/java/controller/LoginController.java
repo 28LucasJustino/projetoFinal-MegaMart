@@ -73,17 +73,10 @@ public class LoginController extends HttpServlet {
             user.setSenha(request.getParameter("senha"));
         try {
             if (userD.buscarLogin(user) != -1) {
-                    boolean cookieExiste = false;
-                    for (Cookie cookie : request.getCookies()) {
-                        if (cookie.getName().equals("login")) {
-                            cookieExiste = true;
-                            cookie.setValue(Integer.toString(userD.buscarLogin(user)));
-                        }
-                    }
-                    if (!cookieExiste) {
-                        Cookie cookieLogin = new Cookie("login", Integer.toString(userD.buscarLogin(user)));
-                        response.addCookie(cookieLogin);
-                    }                
+                   Cookie cookie = new Cookie("login",Integer.toString(userD.buscarLogin(user)));
+                   cookie.setValue(Integer.toString(userD.buscarLogin(user)));
+                   response.addCookie(cookie);
+         
                    if (user.getStats() == 2) {
                     // redirecionar para página de admin
                     response.sendRedirect("./HomeAdmin");
