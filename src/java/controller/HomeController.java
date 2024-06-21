@@ -108,10 +108,7 @@ public class HomeController extends HttpServlet {
             dispatcher.forward(request, response);
         } else if (url.equals("/buscarProdutos")) {
             String busca = request.getParameter("busca") != null? request.getParameter("busca") : "";
-            if(busca == null) {
-                List<ProdutoDTO> produtos = produtosDAO.listarProdutos();
-                request.setAttribute("produtos", produtos);
-            } else if (busca.trim().equals("")) {
+           if (busca.trim().equals("")) {
                 String categoria = request.getParameter("cat");
                 List<ProdutoDTO> produtos = produtosDAO.buscarCate(Integer.parseInt(categoria));
                 request.setAttribute("produtos", produtos);
@@ -172,11 +169,11 @@ public class HomeController extends HttpServlet {
         if (url.equals("/mandarParaCarrinho")) {
             int idProduto = Integer.parseInt(request.getParameter("addProduto"));
             System.out.println("PRODUTO"+idProduto+".");
-            if (user != null) {       
-               cartDao.addProduto(pDao.produtoSolo(idProduto), cartDao.getCarrinho(user));
-               response.sendRedirect("./Home");
+            if (user == null) {       
+               response.sendRedirect("./Login");
             } else {
-                response.sendRedirect("./Login");
+               cartDao.addProduto(pDao.produtoSolo(idProduto), cartDao.idUserCarrinho(user));
+               response.sendRedirect("./Home");
             }
             
         }

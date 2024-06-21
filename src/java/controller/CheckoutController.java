@@ -50,6 +50,10 @@ public class CheckoutController extends HttpServlet {
             String nextPage = "/WEB-INF/jsp/formaPagamento.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
+        } else if(url.equals("/Checkout")) {
+            String nextPage = "/WEB-INF/jsp/checkoutFinal.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
         }
     }
 

@@ -105,6 +105,10 @@
         <url-pattern>/Carrinho</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>CarrinhoController</servlet-name>
+        <url-pattern>/dropProd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>PerfilController</servlet-name>
         <url-pattern>/Perfil</url-pattern>
     </servlet-mapping>
@@ -131,6 +135,10 @@
     <servlet-mapping>
         <servlet-name>CheckoutController</servlet-name>
         <url-pattern>/Pagamento</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckoutController</servlet-name>
+        <url-pattern>/Checkout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

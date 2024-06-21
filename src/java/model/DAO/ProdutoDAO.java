@@ -54,8 +54,10 @@ public class ProdutoDAO {
                 prod.setCategoria(rs.getInt("categoria"));
                 prod.setMarca(rs.getString("marca"));
                 prod.setDescricao(rs.getString("descricao"));
+                prod.setDesconto(rs.getFloat("desconto"));
                 prod.setPreco(rs.getFloat("preco"));
                 prod.setEstoque(rs.getInt("estoque"));
+                prod.setValorFinal(rs.getFloat("valorFinal"));
                 prod.setImg(rs.getString("img"));
                 resultBuscaP.add(prod);
             
@@ -85,12 +87,14 @@ public class ProdutoDAO {
             while (rs.next()) {
                 ProdutoDTO prodC = new ProdutoDTO();
                 prodC.setIdProduto(rs.getInt("idProduto"));
-                prodC.setCategoria(rs.getInt("categoria"));
                 prodC.setNome(rs.getString("nome"));
+                prodC.setCategoria(rs.getInt("categoria"));
                 prodC.setMarca(rs.getString("marca"));
                 prodC.setDescricao(rs.getString("descricao"));
+                prodC.setDesconto(rs.getFloat("desconto"));
                 prodC.setPreco(rs.getFloat("preco"));
                 prodC.setEstoque(rs.getInt("estoque"));
+                prodC.setValorFinal(rs.getFloat("valorFinal"));
                 prodC.setImg(rs.getString("img"));
                 resultBuscaC.add(prodC);
             }

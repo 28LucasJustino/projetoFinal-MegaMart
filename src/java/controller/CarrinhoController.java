@@ -112,7 +112,7 @@ public class CarrinhoController extends HttpServlet {
             }
         }
         if (url.equals("/dropProd")) {
-            carrinhoDao.removerProduto(prodDao.produtoSolo(Integer.parseInt(request.getParameter("prod"))), carrinhoDao.getCarrinho(u));
+            carrinhoDao.removerProduto(prodDao.produtoSolo(Integer.parseInt(request.getParameter("prod"))), carrinhoDao.idUserCarrinho(u));
             response.sendRedirect("./Carrinho");
         }
     }

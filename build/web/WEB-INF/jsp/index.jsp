@@ -25,7 +25,7 @@
   <br>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="assets/d8411492e8b44f1468b624f738e20af1.jpg" class="d-block w-100" alt="...">
+      <a href="./Descontos"><img src="assets/d8411492e8b44f1468b624f738e20af1.jpg" class="d-block w-100" alt="..."></a>
     </div>
     <div class="carousel-item">
       <img src="assets/d8411492e8b44f1468b624f738e20af1.jpg" class="d-block w-100" alt="...">

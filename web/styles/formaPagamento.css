@@ -132,3 +132,24 @@ header {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     justify-content: space-between;
 }
+
+.MetodoPag{
+    align-items: center;
+    overflow: hidden;
+}
+.metod{
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.btnL{
+    display: grid;
+    color: black;
+    border: none;
+    background-color: transparent;
+}
+.btnL:hover{
+    transform: scale(1.05);
+    color: red;
+}

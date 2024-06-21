@@ -68,8 +68,10 @@ public class CarrinhoDAO {
                 prod.setCategoria(rs.getInt("categoria"));
                 prod.setMarca(rs.getString("marca"));
                 prod.setDescricao(rs.getString("descricao"));
+                prod.setDesconto(rs.getFloat("desconto"));
                 prod.setPreco(rs.getFloat("preco"));
                 prod.setEstoque(rs.getInt("estoque"));
+                prod.setValorFinal(rs.getFloat("valorFinal"));
                 prod.setImg(rs.getString("img"));
                 produtos.add(prod);
             }
@@ -83,7 +85,7 @@ public class CarrinhoDAO {
         return produtos;
     }
 
-    public CarrinhoDTO getCarrinho(UsuarioDTO u) {
+    public CarrinhoDTO idUserCarrinho(UsuarioDTO u) {
         CarrinhoDTO c = new CarrinhoDTO();
         try {
             Connection conexao = Conexao.conectar();
