@@ -68,6 +68,7 @@ public class CarrinhoController extends HttpServlet {
                 valorTotal += produtos.get(i).getValorFinal();
             }
             request.setAttribute("valorTotal", valorTotal);
+            System.out.println(valorTotal);
             request.setAttribute("carrinho", produtos);
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);

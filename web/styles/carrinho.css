@@ -133,51 +133,28 @@ header {
     justify-content: space-between;
 }
 
-.divisao-compras {
-    display: flex;
-}
-
-.carrinho {
-    display: flex;
-    justify-content: space-between;
+.carrinho-body{
+    position: relative;
+    top: 6vw;
     align-items: center;
-    padding: 0 5vw;
+    justify-content: center;
 }
 
-.carrinho div {
+.shop {
     display: flex;
-    gap: 20vh
 }
 
-.carrinho label {
-    margin-top: 5px
-}
-
-.carrinho button {
-    background-color: red;
-    border: none;
-    border-radius: 5px;
-    width: 8vw;
-    height: 5vh;
-
-}
-
-.carrinho button:hover {
-    transform: scale(1.1);
-
-}
-
-.compras {
+.carts {
     display: flex;
     justify-content: space-between;
     gap: 1vw;
 }
 
-.compras input {
+.carts input {
     cursor: pointer;
 }
 
-.produtos {
+.prods {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -188,7 +165,7 @@ header {
     height: 13vh;
 }
 
-.produtos img {
+.prods img {
     height: 11vh;
     width: vw;
     padding-left: 9px;
@@ -198,10 +175,6 @@ header {
     margin: 20px;
     display: flex;
     flex-direction: column;
-}
-
-label {
-    font-weight: 300;
 }
 
 .formExcluir {
@@ -214,4 +187,38 @@ label {
 .formExcluir button {
     border: none;
     background-color: transparent;
+}
+.pags {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5vw;
+}
+
+.pags div {
+    display: flex;
+    gap: 20vh
+}
+
+.pags label {
+    margin-top: 5px
+}
+
+.pags button {
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    width: 8vw;
+    height: 5vh;
+
+}
+
+.pags button:hover {
+    transform: scale(1.1);
+
+}
+
+.footer{
+    position: relative;
+    top: 17.9vw;
 }

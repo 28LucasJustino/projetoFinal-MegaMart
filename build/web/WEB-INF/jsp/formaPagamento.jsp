@@ -56,6 +56,7 @@
         </main>
         <br><br><br>
         <jsp:include page="footer.jsp"></jsp:include>
+        <script src="js/pagamento.js"></script>
     </body>
-    <script src="js/pagamento.js"></script>
+  
 </html>
