@@ -185,7 +185,6 @@ public class HomeController extends HttpServlet {
         newProduto.setCategoria(Integer.parseInt(request.getParameter("categoria")));
         newProduto.setDescricao(request.getParameter("descricao"));      
         newProduto.setPreco(Float.parseFloat(request.getParameter("preco")));
-        newProduto.setDesconto(Float.parseFloat(request.getParameter("desconto")));
         newProduto.setEstoque(Integer.parseInt(request.getParameter("estoque")));
         Part filePart = request.getPart("img");
     String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); 

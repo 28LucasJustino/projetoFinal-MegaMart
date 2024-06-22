@@ -16,15 +16,14 @@ public class ProdutoDAO {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
 
-            stmt = conexao.prepareStatement("INSERT INTO produto (categoria,marca,nome,descricao,desconto,preco,estoque,img) VALUES (?,?,?,?,?,?,?,?)");
+            stmt = conexao.prepareStatement("INSERT INTO produto (categoria,marca,nome,descricao,preco,estoque,img) VALUES (?,?,?,?,?,?,?)");
             stmt.setInt(1, createProduto.getCategoria());
             stmt.setString(2, createProduto.getMarca());
             stmt.setString(3, createProduto.getNome());
             stmt.setString(4, createProduto.getDescricao());
-            stmt.setFloat(5, createProduto.getDesconto());
-            stmt.setFloat(6, createProduto.getPreco());
-            stmt.setInt(7, createProduto.getEstoque());
-            stmt.setString(8, createProduto.getImg());
+            stmt.setFloat(5, createProduto.getPreco());
+            stmt.setInt(6, createProduto.getEstoque());
+            stmt.setString(7, createProduto.getImg());
             stmt.executeUpdate();
 
             stmt.close();

@@ -52,11 +52,6 @@
                                 <input  class="inpt" id="preco" type="text" name="preco"  placeholder="  Preço do Produto" onkeypress="float(event)" required>
                             </div>
                             <br>
-                            <label for="Desconto" id="lab"><i class="fa-solid fa-percent"></i>Desconto do Produto</label>
-                            <div class="inputs">
-                                <input  id="desconto" class="inpt" type="text" name="desconto"  placeholder="  Desconto do Produto" onkeypress="float(event)" required>
-                            </div>
-                            <br>
                             <label for="estoque" id="lab"><i class="fa-solid fa-box"></i>Estoque</label>
                             <div class="inputs">
                                 <input id="estoque" class="inpt" type="number" name="estoque"  placeholder="Quantidade em Estoque" required>
