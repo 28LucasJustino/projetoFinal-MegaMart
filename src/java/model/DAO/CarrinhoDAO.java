@@ -71,7 +71,7 @@ public class CarrinhoDAO {
                 prod.setDesconto(rs.getFloat("desconto"));
                 prod.setPreco(rs.getFloat("preco"));
                 prod.setEstoque(rs.getInt("estoque"));
-                prod.setValorFinal(rs.getFloat("valorFinal"));
+                prod.setValorTotal(rs.getFloat("valorTotal"));
                 prod.setImg(rs.getString("img"));
                 produtos.add(prod);
             }

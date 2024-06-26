@@ -152,7 +152,7 @@ header {
     text-decoration: none;
 }
 
-#card{
+.cards{
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -161,9 +161,18 @@ header {
 #imgP{
     width: 13vw;
 }
-#pre{
+.pre, .pre-antigo{
     font-weight: 500;
     color: red;
+}
+
+.pre-antigo {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.preco {
+    height: 5rem;
 }
 .btnS{
     background-color: red;

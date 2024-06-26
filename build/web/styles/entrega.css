@@ -146,7 +146,7 @@ header {
 .tit{
     align-items: center;
     position: relative;
-    left: 40%;
+    left: 45%;
     bottom: 5px;
     font-size: 25px;
     font-size: 800;
@@ -216,14 +216,25 @@ header {
     color: red;
     display: flex;
 }
-
+.metod #p{
+    position: relative;
+    right: 7vh;
+}
+.metod #c{
+    position: relative;
+    left: 7vh;
+}
 #cartao{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 60px;
 }
 
-#cartao .inputs input{
+#cartao .inputsPag input{
+    width: 300px;
+    display: flex;
     margin: 0.6rem 0;
     padding: 0.8rem 1.2rem;
     border: none;
@@ -232,7 +243,7 @@ header {
     font-size: 0.8rem;
     cursor: text;
 }
-#cartao .inputs input:hover {
+#cartao .inputsPag input:hover {
     background-color: #eeeeee75;
     outline: 1px solid red;
 }
@@ -252,6 +263,8 @@ header {
     background-color: red;
     cursor: pointer;
     box-shadow: 0 10px 40px -12px red;
+    position: relative;
+    right: 2vh;
 }
 .btnFinalizar:hover{
     transform: scale(1.05);

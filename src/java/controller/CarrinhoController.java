@@ -65,7 +65,7 @@ public class CarrinhoController extends HttpServlet {
             Float valorTotal = 0.0f;
             for (int i = 0; i < produtos.size(); i++) {
                 produtos.get(i).getImg();
-                valorTotal += produtos.get(i).getValorFinal();
+                valorTotal += produtos.get(i).getValorTotal();
             }
             request.setAttribute("valorTotal", valorTotal);
             System.out.println(valorTotal);

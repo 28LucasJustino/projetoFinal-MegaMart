@@ -32,7 +32,7 @@
                                                     <img src="${produto.img}" alt="${produto.nome}">
                                                     <div class="labels">
                                                         <h2>${produto.nome}</h2>
-                                                        <fmt:formatNumber value="${produto.valorFinal}" type="currency"/>
+                                                        <fmt:formatNumber value="${produto.valorTotal}" type="currency"/>
                                                     </div>
                                                     <form class="formExcluir" action="dropProd" method="post">
                                                         <button type="submit" name="prod"

@@ -54,15 +54,15 @@
             <p id="net" class="tit"></i>Método de Pagamento</p>
                 <br>
                     <div class="metod">
-                        <button class="btnPag" type="submit" onclick="pix()"><i class="fa-brands fa-pix"></i></button>
-                        <button class="btnPag" type="submit" onclick="cartao()"><i class="fa-solid fa-credit-card"></i></button>
+                        <button class="btnPag" id="p" type="submit" onclick="pix()"><i class="fa-brands fa-pix"></i></button>
+                        <button class="btnPag" id="c" type="submit" onclick="cartao()"><i class="fa-solid fa-credit-card"></i></button>
                     </div>
                 <div class="cartao d-none" id="cartao">
                     
-                    <p id="net" class="tit"><i class="fa-solid fa-credit-card" id="iconH"></i>Insira seu Cartão</p>
+                    <p><i class="fa-solid fa-credit-card" id="iconH"></i>Insira seu Cartão</p>
                     
                     <form action="pagamentoCartao" method="post" id="Pagamento">
-                        <div class="inputs">
+                        <div class="inputsPag">
                             <label for="">Numero Cartão</label>
                             <input type="text" id="numeroCartao" placeholder="0000 0000 0000 0000" required>
                             <label for="">CVC</label>
@@ -91,6 +91,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
         <script>
         $('#numero').mask('0000');
+        $('#cvc').mask('0000');
+        $('#numeroCartao').mask('0000 0000 0000 0000');
         </script>
         <script src="js/endereçoAPI.js"></script>
         <script src="js/pagamento.js"></script>

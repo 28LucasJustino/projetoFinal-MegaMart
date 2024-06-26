@@ -186,7 +186,8 @@ header {
 
 #edit{
     position: relative;
-    left: 56vh; 
+    left: 40vh; 
+    top: -20vh;
 }
 .inputs{
     width: 12vw;

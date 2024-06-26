@@ -1,6 +1,7 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@page pageEncoding="UTF-8"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -49,16 +50,20 @@
         <div class="card">    
            <div class="card-body">
             <div class="cards"> 
-            <div id="card"><input type="hidden" value="${produto.idProduto}">
-              
+           
         <a href="./Produtos?solo=${produto.idProduto}"><img id="imgP" src="${produto.img}" alt="${produto.nome}"></a>
             <h5 >${produto.nome}</h5>
             <p >${produto.marca}</p>
-            <p id="pre">Preço : ${produto.preco}</p>
+            <div class="preco">
+              <c:if test="${produto.valorTotal < produto.preco}">
+                <p class="pre-antigo">De : <fmt:formatNumber value="${produto.valorTotal}" type="currency"/></p>
+                </c:if>
+            <p class="pre">Por : <fmt:formatNumber value="${produto.preco}" type="currency"/></p>
+            </div>
             <form action="mandarParaCarrinho" method="post">
              <button class="btnS" type="submit" value="${produto.idProduto}" name="addProduto">Adicionar ao <i class="fa-solid fa-shopping-cart me-1"></i></button>
             </form>
-          </div>
+        
           </div>
         </div>
     </div>

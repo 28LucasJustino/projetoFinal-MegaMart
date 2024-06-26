@@ -56,7 +56,7 @@ public class ProdutoDAO {
                 prod.setDesconto(rs.getFloat("desconto"));
                 prod.setPreco(rs.getFloat("preco"));
                 prod.setEstoque(rs.getInt("estoque"));
-                prod.setValorFinal(rs.getFloat("valorFinal"));
+                prod.setValorTotal(rs.getFloat("valorTotal"));
                 prod.setImg(rs.getString("img"));
                 resultBuscaP.add(prod);
             
@@ -93,7 +93,7 @@ public class ProdutoDAO {
                 prodC.setDesconto(rs.getFloat("desconto"));
                 prodC.setPreco(rs.getFloat("preco"));
                 prodC.setEstoque(rs.getInt("estoque"));
-                prodC.setValorFinal(rs.getFloat("valorFinal"));
+                prodC.setValorTotal(rs.getFloat("valorTotal"));
                 prodC.setImg(rs.getString("img"));
                 resultBuscaC.add(prodC);
             }
@@ -128,7 +128,7 @@ public class ProdutoDAO {
                 prod.setDesconto(rs.getFloat("desconto"));
                 prod.setPreco(rs.getFloat("preco"));
                 prod.setEstoque(rs.getInt("estoque"));
-                prod.setValorFinal(rs.getFloat("valorFinal"));
+                prod.setValorTotal(rs.getFloat("valorTotal"));
                 prod.setImg(rs.getString("img"));
                 produtos.add(prod);
             }           
