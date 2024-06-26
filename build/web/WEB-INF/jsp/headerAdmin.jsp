@@ -18,6 +18,7 @@
             </div>
             <div class="user">
                 <ul>
+                <li class="item"><a href="./Carrinho" class="link"><i class="fa-solid fa-cart-shopping" id="iconC"></i></a></li> 
                 <li class="item"><a href="./Cadastrar-produto" class="link"><i class="fa-solid fa-plus" id="iconC"></i></a></li> 
                 <li class="item"><a href="./Perfil" class="link"><i class="fa-solid fa-user" id="iconC"></i></a></li> 
                 </ul> 

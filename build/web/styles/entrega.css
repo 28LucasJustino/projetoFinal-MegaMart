@@ -143,18 +143,13 @@ header {
 #iconH{
  color: red;
 }
-#net{
-    font-size: 800;
-    font-weight: 25px;
-    align-items: center;
-    position: relative;
-    bottom: 5px;
-}
 .tit{
     align-items: center;
     position: relative;
-    left: 46%;
+    left: 40%;
     bottom: 5px;
+    font-size: 25px;
+    font-size: 800;
 }
 .card{
     display: grid;
@@ -163,6 +158,8 @@ header {
     justify-content: space-between;
     padding: 1rem 0;
     align-items: center;
+    background-color: transparent;
+    border: none;
 }
 .inputs{
     display: grid;
@@ -183,10 +180,10 @@ header {
     outline: 1px solid red;
 }
 
-.btnF{
-    width: 350px;
-    padding: 14px 0px;
-    margin: 25px;
+.btnEnd{
+    width: 300px;
+    padding: 10px 0px;
+    margin: 20px;
     border: none;
     border-radius: 8px;
     outline: none;
@@ -199,30 +196,65 @@ header {
     cursor: pointer;
     box-shadow: 0 10px 40px -12px red;
     position: relative;
-    left: 70vh;
+    left: 62vh;
 }
-.btnF:hover{
+.btnEnd:hover{
     transform: scale(1.05);
-    background-color:red;
-
+    background-color:rgb(0, 0, 0);
+    color: red;
 }
 
-.bodyFrete{
-    background-color: #fff;
-    padding: 3rem;
-    overflow: hidden; 
-}
-
-.loby {
+.metod{
     display: flex;
-    flex-direction: column;
-    justify-items: center;
-    justify-content: space-between;
-    padding: 1rem 0;
+    justify-content: center;
     align-items: center;
 }
 
-#volt {
-    text-decoration: none;
-    color: black;
+.metod .btnPag{
+    background-color: transparent;
+    border: none;
+    color: red;
+    display: flex;
+}
+
+#cartao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cartao .inputs input{
+    margin: 0.6rem 0;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgb(90, 87, 87) ;
+    font-size: 0.8rem;
+    cursor: text;
+}
+#cartao .inputs input:hover {
+    background-color: #eeeeee75;
+    outline: 1px solid red;
+}
+
+.btnFinalizar{
+    width: 300px;
+    padding: 10px 0px;
+    margin: 20px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    align-items: center;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color:#fff;
+    background-color: red;
+    cursor: pointer;
+    box-shadow: 0 10px 40px -12px red;
+}
+.btnFinalizar:hover{
+    transform: scale(1.05);
+    background-color:rgb(0, 0, 0);
+    color: red;
 }

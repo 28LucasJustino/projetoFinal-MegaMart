@@ -7,18 +7,23 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.DAO.CarrinhoDAO;
 import model.DAO.CategoriasDAO;
 import model.DAO.EnderecoDAO;
 import model.DAO.ProdutoDAO;
 import model.DAO.UsuarioDAO;
 import model.bean.CategoriasDTO;
 import model.bean.EnderecoDTO;
+import model.bean.ProdutoDTO;
+import model.bean.UsuarioDTO;
 
 /**
  *
@@ -28,6 +33,8 @@ public class CheckoutController extends HttpServlet {
         UsuarioDAO userDao = new UsuarioDAO();
         ProdutoDAO produtosDAO = new ProdutoDAO();
         CategoriasDAO categoriasDAO = new CategoriasDAO();
+        UsuarioDTO u = new UsuarioDTO();
+        CarrinhoDAO cDAO = new CarrinhoDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -42,18 +49,33 @@ public class CheckoutController extends HttpServlet {
         List<CategoriasDTO> categorias = categoriasDAO.listarCategorias();
         request.setAttribute("categorias", categorias);
         String url = request.getServletPath();
-        if(url.equals("/Entrega")) {
-            String nextPage = "/WEB-INF/jsp/entrega.jsp";
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
-        } else if(url.equals("/Pagamento")) {
-            String nextPage = "/WEB-INF/jsp/formaPagamento.jsp";
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
-        } else if(url.equals("/Checkout")) {
-            String nextPage = "/WEB-INF/jsp/checkoutFinal.jsp";
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("login")) {
+                    u = userDao.selecionarUsuarioPorId(Integer.parseInt(cookie.getValue()));
+                }
+            }
+        }
+        List<ProdutoDTO> produtos = new ArrayList();
+        if (u.getIdUsuario() > 0) {
+            produtos = cDAO.listarProdutos(u);
+        }
+        System.out.println("p" + produtos.size());
+
+        if (produtos.size() < 1) {
+            response.sendRedirect("./Carrinho");
+        } else {
+            if (url.equals("/Entrega")) {
+                String nextPage = "/WEB-INF/jsp/entrega.jsp";
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+                dispatcher.forward(request, response);
+            } else {
+                String nextPage = "/WEB-INF/jsp/checkoutFinal.jsp";
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+                dispatcher.forward(request, response);
+            }
         }
     }
 

@@ -13,13 +13,13 @@ public class EnderecoDAO {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
 
-            stmt = conexao.prepareStatement("INSERT INTO endereco (nome,rua,numero,complemento,bairro,cidade,estado,cep) VALUES (?,?,?,?,?,?,?,?)");
-            stmt.setString(2, createEnder.getRua());
-            stmt.setInt(3, createEnder.getNumero());
-            stmt.setString(5, createEnder.getBairro());
-            stmt.setString(6, createEnder.getCidade());
-            stmt.setString(7, createEnder.getEstado());
-            stmt.setInt(8, createEnder.getCep());
+            stmt = conexao.prepareStatement("INSERT INTO endereco (rua,numero,bairro,cidade,estado,cep) VALUES (?,?,?,?,?,?)");
+            stmt.setString(1, createEnder.getRua());
+            stmt.setInt(2, createEnder.getNumero());
+            stmt.setString(3, createEnder.getBairro());
+            stmt.setString(4, createEnder.getCidade());
+            stmt.setString(5, createEnder.getEstado());
+            stmt.setInt(6, createEnder.getCep());
             stmt.executeUpdate();
 
             stmt.close();
@@ -28,25 +28,4 @@ public class EnderecoDAO {
             e.printStackTrace();
         }
     } 
-      public void edit(EnderecoDTO createEnder) {
-
-        try {
-            Connection conexao = Conexao.conectar();
-            PreparedStatement stmt = null;
-
-            stmt = conexao.prepareStatement("UPADTE endereco SET nome = ?,rua = ?,numero = ?,complemento = ?,bairro = ?,cidade =?,estado = ?,cep = ?  VALUES (?,?,?,?,?,?,?,?)");
-            stmt.setString(2, createEnder.getRua());
-            stmt.setInt(3, createEnder.getNumero());
-            stmt.setString(5, createEnder.getBairro());
-            stmt.setString(6, createEnder.getCidade());
-            stmt.setString(7, createEnder.getEstado());
-            stmt.setInt(8, createEnder.getCep());
-            stmt.executeUpdate();
-
-            stmt.close();
-            conexao.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }  
 }

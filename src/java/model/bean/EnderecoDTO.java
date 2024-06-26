@@ -2,7 +2,6 @@ package model.bean;
 
 public class EnderecoDTO {
     private int idEndereco;
-    private int usuario_end;
     private String rua;
     private int numero;
     private String bairro;
@@ -13,9 +12,8 @@ public class EnderecoDTO {
     public EnderecoDTO() {
     }
 
-    public EnderecoDTO(int idEndereco, int usuario_end, String rua, int numero, String bairro, String cidade, String estado, int cep) {
+    public EnderecoDTO(int idEndereco, String rua, int numero, String bairro, String cidade, String estado, int cep) {
         this.idEndereco = idEndereco;
-        this.usuario_end = usuario_end;
         this.rua = rua;
         this.numero = numero;
         this.bairro = bairro;
@@ -30,14 +28,6 @@ public class EnderecoDTO {
 
     public void setIdEndereco(int idEndereco) {
         this.idEndereco = idEndereco;
-    }
-
-    public int getUsuario_end() {
-        return usuario_end;
-    }
-
-    public void setUsuario_end(int usuario_end) {
-        this.usuario_end = usuario_end;
     }
 
     public String getRua() {
@@ -86,5 +76,5 @@ public class EnderecoDTO {
 
     public void setCep(int cep) {
         this.cep = cep;
-    }
+    }   
 }

@@ -26,7 +26,8 @@
                           <div class="cards"> 
                           <div id="card">
                             <form action="dropProduto" method="post">
-                          <button type="submit"><i class="fa-solid fa-xmark"></i></button> 
+                        <input type="hidden" value="${produto.idProduto}">
+                          <button type="submit" value="${produto.idProduto}" class=""><i class="fa-solid fa-xmark"></i></button> 
                             </form>
                            <a href="./Editar-produtos?solo=${produto.idProduto}"><i class="fa-solid fa-pen-to-square"></i></a>
                      <img id="imgP" src="${produto.img}" alt="${produto.nome}">

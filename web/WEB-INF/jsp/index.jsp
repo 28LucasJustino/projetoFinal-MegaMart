@@ -49,7 +49,8 @@
         <div class="card">    
            <div class="card-body">
             <div class="cards"> 
-            <div id="card">
+            <div id="card"><input type="hidden" value="${produto.idProduto}">
+              
         <a href="./Produtos?solo=${produto.idProduto}"><img id="imgP" src="${produto.img}" alt="${produto.nome}"></a>
             <h5 >${produto.nome}</h5>
             <p >${produto.marca}</p>

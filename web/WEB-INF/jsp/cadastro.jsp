@@ -21,7 +21,7 @@
         <main>
             <div class="container">
                 <div class="form">
-                    <form action="cad" method="post">
+                    <form action="cad" id="formCad" method="post">
                         <div class="form-header">
                             <img src="assets/Design_sem_nome-removebg-preview.png" id="imageC" alt=""/>
                             <div class="title">
@@ -55,13 +55,13 @@
                             </div>
                             <div class="inputs">
                                 <label for="cpf"><i class="fa-solid fa-address-card" id="icon"></i> CPF</label>
-                                <input  id="cpf" type="text" name="cpf" oninput="maskCPF(event)"  placeholder="   Digite seu CPF" minlength="14" maxlength="14" required >
+                                <input  id="cpf" type="text" name="cpf"  placeholder="   Digite seu CPF" minlength="14" maxlength="14" required >
 
                             </div>
                             <div class="inputs">
                                 <label for="telefone"><i class="fa-solid fa-phone" id="icon"></i>
                                     Telefone</label>
-                                <input id="telefone" type="text" name="telefone" oninput="maskTelefone(event)" placeholder="   Digite seu Telefone"  minlength="15" maxlength="15" required>
+                                <input id="telefone" type="text" name="telefone" placeholder="   Digite seu Telefone"  minlength="14" maxlength="14" required>
                             </div>
                         </div>
 
@@ -95,7 +95,7 @@
                         </div>
 
                         <div class="continue-button">
-                            <button class="btnLogin">Confirmar</button>
+                            <button type="submit" class="btnLogin">Confirmar</button>
                              <div class="register">
                         <p>Já tem conta?<a id="aL" href="./Login">Login</a></p>
                         </div>
@@ -106,16 +106,12 @@
         </main>
         <jsp:include page="footer.jsp"></jsp:include>
     </body>
-    <% if (request.getAttribute("Erro ao realizar Cadastro") != null) { %>
-        <script>
-            alert("Erro ao realizar Cadastro");
-        </script>
-    <% } %>
-    <% if (request.getAttribute("Cadastro Realizado com Sucesso") != null) { %>
-        <script>
-            alert("Cadastro Realizado com Sucesso!");
-        </script>
-    <% } %>
-    <script src="js/inputs.js" type="text/javascript"></script>
+    <script src="js/vald.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
     <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
+    <script>
+          $('#telefone').mask('(00) 0000-0000');
+          $('#cpf').mask('000.000.000-00');
+    </script>
     </html>

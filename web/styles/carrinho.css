@@ -138,8 +138,19 @@ header {
     top: 6vw;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
-
+#tit{
+    align-items: center;
+    position: relative;
+    left: 40%;
+    bottom: 5px;
+    font-size: 25px;
+    font-weight: 600;
+}
+#tit #iconCart{
+    color: red;
+}
 .shop {
     display: flex;
 }
@@ -208,9 +219,8 @@ header {
     background-color: red;
     border: none;
     border-radius: 5px;
-    width: 8vw;
+    width: 10vw;
     height: 5vh;
-
 }
 
 .pags button:hover {

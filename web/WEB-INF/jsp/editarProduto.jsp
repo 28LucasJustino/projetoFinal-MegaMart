@@ -94,7 +94,13 @@
         <br><br> 
         
         <jsp:include page="footer.jsp"></jsp:include>
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+        <script>
+             $('#preco').mask('000000000000000.00', {reverse: true});
+             $('#desconto').mask('000000000000000.00', {reverse: true});
+             $('#estoque').mask('000');
+        </script>
+        <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
     </body>
-    <script src="js/inputs.js" type="text/javascript"></script>
-    <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
 </html>

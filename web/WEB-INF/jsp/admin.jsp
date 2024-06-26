@@ -49,12 +49,12 @@
                             <br>
                             <label for="Preco" id="lab"><i class="fa-solid fa-money-bill"></i>Preço do Produto</label>
                             <div class="inputs">
-                                <input  class="inpt" id="preco" type="text" name="preco"  placeholder="  Preço do Produto" onkeypress="float(event)" required>
+                                <input  class="inpt" id="preco" type="text" name="preco"  placeholder="  Preço do Produto" required>
                             </div>
                             <br>
                             <label for="estoque" id="lab"><i class="fa-solid fa-box"></i>Estoque</label>
                             <div class="inputs">
-                                <input id="estoque" class="inpt" type="number" name="estoque"  placeholder="Quantidade em Estoque" required>
+                                <input id="estoque" class="inpt" type="text" name="estoque"  placeholder="Quantidade em Estoque" required>
                             </div>
                             <br>
                             <label for="descricao" id="lab"><i class="fa-solid fa-message"></i>Descrição</label>
@@ -70,10 +70,13 @@
                     </form>
                 </div>
         </main>
-      
-        
         <jsp:include page="footer.jsp"></jsp:include>
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+        <script>
+        $('#preco').mask('000000000000000.00', {reverse: true});
+        $('#estoque').mask('000');
+        </script>
+        <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
     </body>
-    <script src="js/inputs.js" type="text/javascript"></script>
-    <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
     </html>

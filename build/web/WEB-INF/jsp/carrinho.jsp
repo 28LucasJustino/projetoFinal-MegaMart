@@ -23,7 +23,7 @@
                         <jsp:include page="header.jsp"></jsp:include>
                         <main>
                             <div class="carrinho-body">
-                                <h1 id="tit">Carrinho de Compras</h1>
+                                <p id="tit"><i class="fa-solid fa-cart-shopping" id="iconCart"></i>Carrinho de Compras</p>
                                 <div class="shop m-4">
                                     <div class="carts w-100">
                                         <div class="d-flex flex-column gap-2 w-100">
@@ -32,7 +32,6 @@
                                                     <img src="${produto.img}" alt="${produto.nome}">
                                                     <div class="labels">
                                                         <h2>${produto.nome}</h2>
-                                                        
                                                         <fmt:formatNumber value="${produto.valorFinal}" type="currency"/>
                                                     </div>
                                                     <form class="formExcluir" action="dropProd" method="post">
@@ -46,13 +45,13 @@
                                     </div>
                                 </div>
                                 <div class="pags">
-                                    <button class="btnPagamento">Finalizar Compra</button>
+                                    <a href="./Entrega" class="btnPagamento"><button>Finalizar Compra</button></a>
                                     <span class="fs-3">
                                         <span class="fs-3">Total: <fmt:formatNumber value="${valorTotal}"
                                                 type="currency"/></span>
                                     </span>
-                                    <form action="" method="post">
-                                        <button><i class="fa-solid fa-trash fa-xl"></i>Limpar Tudo</button>
+                                    <form action="limparTudo" method="post">
+                                        <button type="submit" class=""><i class="fa-solid fa-trash fa-xl"></i>Limpar Tudo</button>
                                     </form>
                                 </div>
                             </div>
