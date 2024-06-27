@@ -17,37 +17,30 @@
     </head>
     <body>
         <jsp:include page="header.jsp"></jsp:include>
+       
         <main>
-        <div class="carrinho-body">
-            <h1 id="tit">Carrinho de Compras</h1>
-            <div class="divisao-compras m-4">
-                <div class="compras w-100">
-                    <div class="d-flex flex-column gap-2 w-100">
-                        <c:forEach items="${carrinho}" var="produto">
-                            <div class="produtos">
-                                <img src="${produto.img}" alt="${produto.nome}">
-                                <div class="labels">
-                                    <h2>${produto.nome}</h2>
-                                    <h2>${produto.preco}</h2>
-                                    <fmt:formatNumber value="${produto.valorFinal}" type="currency">
-                                </div>
-                                <form class="formExcluir" action="dropProd" method="post">
-                                    <button type="submit" name="prod" value="${produto.idProduto}"><i class="fa-solid fa-trash fa-xl"></i></button>
-                                </form>
-                            </div>
-                        </c:forEach>
-                    </div>
-                </div>
+            <div class="container-agradecimento">
+                <center >
+                    <span class="fs-1">Compra Realizada com Sucesso!<i class="fa-solid fa-circle-check" id="iconF"></i></span>
+                </center>
+                <img class="imgFinal" src="assets/undraw_Successful_purchase_re_mpig.png" alt="logoFim">
+                <center >
+                    <span class="fs-3">
+                        Agradecemos imensamente por sua compra.
+                        <br>
+                        Convidamos você a acompanhar nossas novidades e lançamentos em nosso site.
+                        <br>
+                        Para visualizar seu pedido, acesse o perfil na seção "Meus Pedidos".
+                        <br>
+                        Atenciosamente,
+                        <br>
+                        MegaMart
+                    </span>
+                </center>
             </div>
-            <div class="carrinho">
-               <button class="btnPagamento">Finalizar Compra</button>
-               <span class="fs-3">
-                <span class="fs-3">Total: <fmt:formatNumber value="${valorTotal}" type="currency"></span>
-            </span>
-               <button><i class="fa-solid fa-trash fa-xl"></i>Limpar Tudo</button>
-            </div>
-        </div>
-    </main>
-    <jsp:include page="footer.jsp"></jsp:include>
+        </main>
+        
+        <jsp:include page="footer.jsp"></jsp:include>
+
     </body>
 </html>

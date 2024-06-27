@@ -215,19 +215,35 @@ header {
     margin-top: 5px
 }
 
-.pags button {
-    background-color: red;
+.pags .btnPagamento {
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    width: 300px;
+    padding: 10px 0px;
+    margin: 20px;
     border: none;
-    border-radius: 5px;
-    width: 10vw;
-    height: 5vh;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    align-items: center;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color:#fff;
+    background-color: red;
+    cursor: pointer;
 }
 
-.pags button:hover {
+.pags .btnPagamento:hover {
     transform: scale(1.1);
-
+    background-color: black;
+    color: red;
 }
-
+.juk{
+    background-color: transparent;
+    color: transparent;
+    border: none;
+}
 .footer{
     position: relative;
     top: 17.9vw;

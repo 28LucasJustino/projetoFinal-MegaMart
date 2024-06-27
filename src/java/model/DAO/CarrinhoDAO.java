@@ -48,6 +48,23 @@ public class CarrinhoDAO {
             e.printStackTrace();
         }
     }
+      public void esvaziarCarrinho(UsuarioDTO u) {
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+
+            stmt = conexao.prepareStatement("DELETE FROM carrinhoProduto WHERE carrinho = ?");
+            stmt.setInt(1, u.getIdUsuario());
+
+            stmt.executeUpdate();
+
+            stmt.close();
+            conexao.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public List<ProdutoDTO> listarProdutos(UsuarioDTO u) {
         List<ProdutoDTO> produtos = new ArrayList();

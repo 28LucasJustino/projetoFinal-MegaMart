@@ -19,6 +19,7 @@ import model.DAO.CategoriasDAO;
 import model.DAO.UsuarioDAO;
 import model.bean.CategoriasDTO;
 import model.bean.UsuarioDTO;
+import java.sql.Date;
 
 /**
  *
@@ -117,6 +118,19 @@ CategoriasDAO categoriasDAO = new CategoriasDAO();
         } else {
             processRequest(request, response);
         }
+        
+          if(url.equals("/editDados")) {
+         UsuarioDTO editUser = new UsuarioDTO();
+        editUser.setNome(request.getParameter("nome"));
+        editUser.setEmail(request.getParameter("email"));
+        editUser.setTelefone(request.getParameter("telefone"));
+        editUser.setCpf(request.getParameter("cpf"));     
+        editUser.setSenha(request.getParameter("senha"));
+        editUser.setNascimento(Date.valueOf(request.getParameter("nascimento")));
+       
+            uDao.edit(editUser);
+    response.sendRedirect("./Perfil");
+            }
     }
 
     /**

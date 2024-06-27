@@ -49,6 +49,20 @@ public class CheckoutController extends HttpServlet {
         List<CategoriasDTO> categorias = categoriasDAO.listarCategorias();
         request.setAttribute("categorias", categorias);
         String url = request.getServletPath();
+        if(url.equals("/Entrega")){
+            String nextPage = "/WEB-INF/jsp/entrega.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+            } else if(url.equals("/Pagamento")){
+            String nextPage = "/WEB-INF/jsp/formaPagamento.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+            } else if(url.equals("/Checkout")){
+            String nextPage = "/WEB-INF/jsp/checkoutFinal.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        }
+        
         response.setContentType("text/html;charset=UTF-8");
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
@@ -71,6 +85,10 @@ public class CheckoutController extends HttpServlet {
                 String nextPage = "/WEB-INF/jsp/entrega.jsp";
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                 dispatcher.forward(request, response);
+            } else if(url.equals("/Pagamento")){
+            String nextPage = "/WEB-INF/jsp/formaPagamento.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
             } else {
                 String nextPage = "/WEB-INF/jsp/checkoutFinal.jsp";
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
@@ -117,7 +135,7 @@ public class CheckoutController extends HttpServlet {
         
         EnderecoDAO endD = new EnderecoDAO();
         endD.create(newEndereco);
-        response.sendRedirect("./Entrega");
+        response.sendRedirect("./Pagamento");
             }
     }
 

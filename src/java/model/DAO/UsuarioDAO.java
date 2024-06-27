@@ -99,4 +99,27 @@ public class UsuarioDAO {
 
         return u;
     }
+    public void edit(UsuarioDTO editUser){
+        try {
+          Connection conexao = Conexao.conectar();
+          PreparedStatement stmt = null;
+          stmt = conexao.prepareStatement("UPDATE usuario SET nome =?,senha =?,email =?,cpf =?,telefone = ?,nascimento = ?,stats = ? WHERE idUsuario = ?");
+          stmt.setString(1, editUser.getNome());
+          stmt.setString(2, editUser.getSenha());
+          stmt.setString(3, editUser.getEmail());
+          stmt.setString(4, editUser.getCpf());
+          stmt.setString(5, editUser.getTelefone());
+          stmt.setDate(6, editUser.getNascimento());
+          stmt.setInt(7, editUser.getStats());
+          stmt.setInt(8, editUser.getIdUsuario());
+          
+          stmt.executeUpdate();
+          
+          stmt.close();
+          conexao.close();
+           
+       } catch (SQLException e){
+            e.printStackTrace();
+    }
+    }
 }

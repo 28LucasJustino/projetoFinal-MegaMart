@@ -51,50 +51,11 @@
                     <button type="submit" class="btnEnd">Cadastrar Endereço</button>
                 </div>
             </form>
-            <p id="net" class="tit"></i>Método de Pagamento</p>
-                <br>
-                    <div class="metod">
-                        <button class="btnPag" id="p" type="submit" onclick="pix()"><i class="fa-brands fa-pix"></i></button>
-                        <button class="btnPag" id="c" type="submit" onclick="cartao()"><i class="fa-solid fa-credit-card"></i></button>
-                    </div>
-                <div class="cartao d-none" id="cartao">
-                    
-                    <p><i class="fa-solid fa-credit-card" id="iconH"></i>Insira seu Cartão</p>
-                    
-                    <form action="pagamentoCartao" method="post" id="Pagamento">
-                        <div class="inputsPag">
-                            <label for="">Numero Cartão</label>
-                            <input type="text" id="numeroCartao" placeholder="0000 0000 0000 0000" required>
-                            <label for="">CVC</label>
-                            <input type="text" id="cvc" required>
-                            <label for="">Val</label>
-                            <input type="text" id="valid" placeholder="MM/AA" required>
-                            <label for="">Nome Completo do titular</label>
-                            <input type="text" id="nomeCompleto" required>
-                            <button type="submit" value="cartao" name="Pagamento" class="btnFinalizar">finalizar Compra</button>
-                        </div>
-                    </form>
-                </div>
-                <div id="chavepix" class="d-none">
-                    <div id="pix">
-                        <p id="net" class="tit"><i class="fa-brands fa-pix" id="iconH"></i>Pix para pagamento</p>             
-                        <form action="finalizar" method="post">
-                            <button type="submit" value="pix" name="Pagamento" class="btnEnd">finalizar Compra</button>
-                        </form>
-                    </div>
             </div>
-        </div>
         </main>
         <jsp:include page="footer.jsp"></jsp:include>
 
-        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-        <script>
-        $('#numero').mask('0000');
-        $('#cvc').mask('0000');
-        $('#numeroCartao').mask('0000 0000 0000 0000');
-        </script>
-        <script src="js/endereçoAPI.js"></script>
-        <script src="js/pagamento.js"></script>
-    </body>
+       
+    </body> 
+    <script src="js/endereçoAPI.js"></script>
 </html>

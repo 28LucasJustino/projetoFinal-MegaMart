@@ -29,21 +29,15 @@
                       <h5 id="tit">${produto.nome}</h5>
                       <p id="marc">${produto.marca}</p>
                       <p id="pre">Preço : ${produto.preco}</p>
-                      <a href="./Carrinho?solo=${produto.idProduto}" id="btnCompra" class="btn btn-primary">Comprar</a>
+                      <form action="mandarParaCarrinho" method="post">
+                        <button class="btnS" type="submit" value="${produto.idProduto}" name="addProduto">Adicionar ao <i class="fa-solid fa-shopping-cart me-1"></i></button>
+                      </form>
                 </div>
                 </div>
                 <div class="descri">
                     <p id="descri">Descrição do Produto</p>
                     <p>${produto.descricao}</p> 
                   </div>
-                  
-               <!-- <div class="ava">
-
-                  </div>
-                  <div class="rela">
-
-                  </div>-->   
-                  
           <br>
        </main>
        <br><br>

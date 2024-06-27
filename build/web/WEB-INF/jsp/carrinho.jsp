@@ -45,13 +45,13 @@
                                     </div>
                                 </div>
                                 <div class="pags">
-                                    <a href="./Entrega" class="btnPagamento"><button>Finalizar Compra</button></a>
+                                    <a href="./Entrega" class="btnPagamento">Finalizar Compra</a>
                                     <span class="fs-3">
                                         <span class="fs-3">Total: <fmt:formatNumber value="${valorTotal}"
                                                 type="currency"/></span>
                                     </span>
                                     <form action="limparTudo" method="post">
-                                        <button type="submit" class=""><i class="fa-solid fa-trash fa-xl"></i>Limpar Tudo</button>
+                                        <button type="submit" class="btnPagamento"><i class="fa-solid fa-trash fa-xl"></i>Limpar Tudo</button>
                                     </form>
                                 </div>
                             </div>

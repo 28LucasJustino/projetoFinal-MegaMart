@@ -160,6 +160,7 @@ public class ProdutoDAO {
                 prod.setDescricao(rs.getString("descricao"));
                 prod.setPreco(rs.getFloat("preco"));
                 prod.setEstoque(rs.getInt("estoque"));
+                prod.setValorTotal(rs.getFloat("valorTotal"));
                 prod.setImg(rs.getString("img"));
                 produtos.add(prod);
             }           
@@ -191,6 +192,7 @@ public class ProdutoDAO {
                 prod.setMarca(rs.getString("marca"));
                 prod.setDescricao(rs.getString("descricao"));
                 prod.setPreco(rs.getFloat("preco"));
+                prod.setValorTotal(rs.getFloat("valorTotal"));
                 prod.setEstoque(rs.getInt("estoque"));
                 prod.setImg(rs.getString("img"));
        

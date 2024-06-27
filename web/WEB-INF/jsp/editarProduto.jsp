@@ -17,24 +17,6 @@
     <body>
         <jsp:include page="headerAdmin.jsp"></jsp:include>
         <main>  
-            <!-- 
-            <div class="prod">
-                <div class="imgP">
-                    <img id="imgP" src="${produto.img}" alt="${produto.nome}"> 
-                    <input type="file" id="image" name="img" placeholder="  Nome do Produto">
-                </div>
-                <div class="text">
-                      <h5 id="tit">${produto.nome}</h5> 
-                      <input type="text" id="nome" name="nome" placeholder="  Nome do Produto" required>
-                      <p id="marc">${produto.marca}</p>
-                      <p id="pre">Preço : ${produto.preco}</p>
-                </div>
-                </div>
-                <div class="descri">
-                    <p id="descri">Descrição do Produto</p>
-                    <p>${produto.descricao}</p> 
-                  </div>
-            <br><br>-->
             <div class="form">
                 <form action="editarProduto" method="post" enctype="multipart/form-data">
                     <div class="cards">
@@ -83,9 +65,6 @@
                             <textarea  id="descricao" name="descricao" class="tab" rows="6"></textarea>
                         </div>
                         <br>
-                        <div class="inputs">
-                            <input type="file" class="btnImg" id="image" name="img" placeholder="  Nome do Produto">
-                        </div>
                         <button type="submit" class="btnLogin">Confirmar</button>
                     </div>
                 </form>

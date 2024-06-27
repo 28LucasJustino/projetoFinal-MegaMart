@@ -133,7 +133,6 @@ header {
     justify-content: space-between;
 }
 
-
 .prod{
     margin-top: 20px;
     display: grid;
@@ -161,16 +160,50 @@ header {
 #imgP{
     width: 13vw;
 }
-#pre{
+.pre, .pre-antigo{
     font-weight: 500;
     color: red;
 }
+
+.pre-antigo {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.preco {
+    height: 5rem;
+}
+
+.buttonsEdit{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 .btnS{
+    border: none;
     background-color: red;
     color: #000000;
     width: 100%;
 }
+.btnEx{
+    border: none;
+    background-color: transparent;
+    color: #000000;
+}
+.btnEdit{
+    border: none;
+    background-color:transparent;
+    color: #000000;
+}
+.btnEdit:hover{
+    transform: scale(1.05);
+    color: red;
+}
+.btnEx:hover{
+    transform: scale(1.05);
+    color: red;
+}
 .btnS:hover{
+    transform: scale(1.05);
     background-color: black;
     color: red;
 }

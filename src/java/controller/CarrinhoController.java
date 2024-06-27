@@ -33,7 +33,8 @@ public class CarrinhoController extends HttpServlet {
         CarrinhoDAO carrinhoDao = new CarrinhoDAO();
         UsuarioDAO userDao = new UsuarioDAO();
         ProdutoDAO prodDao = new ProdutoDAO();
-        
+        UsuarioDTO u = new UsuarioDTO();
+        CategoriasDAO categoriasDAO = new CategoriasDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -45,14 +46,11 @@ public class CarrinhoController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        CategoriasDAO categoriasDAO = new CategoriasDAO();
         List<CategoriasDTO> categorias = categoriasDAO.listarCategorias();
         request.setAttribute("categorias", categorias);
-        UsuarioDTO u = new UsuarioDTO();
         
-        String nextPage = "/WEB-INF/jsp/carrinho.jsp";
-
-        Cookie[] cookies = request.getCookies();
+            String nextPage = "/WEB-INF/jsp/carrinho.jsp";
+            Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("login") && !cookie.getValue().equals("")) {
@@ -75,7 +73,6 @@ public class CarrinhoController extends HttpServlet {
         } else {
             response.sendRedirect("./Login");
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -106,7 +103,7 @@ public class CarrinhoController extends HttpServlet {
             throws ServletException, IOException {
         String url = request.getServletPath();
         Cookie[] cookies = request.getCookies();
-        UsuarioDTO u = new UsuarioDTO();
+        
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("login") && !cookie.getValue().equals("")) {
                 u = userDao.selecionarUsuarioPorId(Integer.parseInt(cookie.getValue()));
@@ -114,6 +111,9 @@ public class CarrinhoController extends HttpServlet {
         }
         if (url.equals("/dropProd")) {
             carrinhoDao.removerProduto(prodDao.produtoSolo(Integer.parseInt(request.getParameter("prod"))), carrinhoDao.idUserCarrinho(u));
+            response.sendRedirect("./Carrinho");
+        }else if (url.equals("/limparTudo")){
+            carrinhoDao.esvaziarCarrinho(u);
             response.sendRedirect("./Carrinho");
         }
     }

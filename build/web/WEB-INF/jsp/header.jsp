@@ -11,7 +11,7 @@
             <a href="./Home"><img src="assets/Design_sem_nome-removebg-preview.png" id="imageL" alt=""></a> 
             <div class="cate">
                 <form action="buscarProdutos" method="get">
-                    <input type="text" name="busca" placeholder="Digite o que procura..." class="inB"><button class="btnB" ><i class="fa-solid fa-magnifying-glass"id="iconB"></i></button>
+                    <input type="text" name="busca" class="inB"><button class="btnB" ><i class="fa-solid fa-magnifying-glass"id="iconB"></i></button>
                     </form>
             </div>
             <div class="user">
@@ -19,17 +19,12 @@
                 <li class="item"><a href="./Carrinho" class="link"><i class="fa-solid fa-cart-shopping" id="iconC"></i></a></li>
                 <li class="item"><a href="./Perfil" class="link"><i class="fa-solid fa-user" id="iconC"></i></a></li> 
                 </ul> 
-                 </div>  
-                 <div class="userM">
-                    <ul>
-                    <li class="item"><a href="#" class="link"><i class="fa-solid fa-list-ul" id="iconC"></i></a></li>    
-                    </ul>
-                </div>                  
+                 </div>              
           </nav>
           <div class="bcCate">
             <ul>
                 <c:forEach items="${categorias}" var="categoria" > 
-                <li class="item"><a href="./buscarProdutos?cat=${categoria.idCategoria}&busca=" class="link">${categoria.nome}</a></li>  
+                <li class="item"><a href="./buscarCate?cat=${categoria.idCategoria}&busca=" class="link">${categoria.nome}</a></li>  
                 </c:forEach> 
                 </ul>
          </div>

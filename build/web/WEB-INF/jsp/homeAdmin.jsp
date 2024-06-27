@@ -6,6 +6,7 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@page pageEncoding="UTF-8"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,21 +20,29 @@
         <jsp:include page="headerAdmin.jsp"></jsp:include>
 
         <main>
+            <br><br>
             <div class="prod"> 
                 <c:forEach var="produto" items="${produtos}">           
                       <div class="card">    
                          <div class="card-body">
                           <div class="cards"> 
                           <div id="card">
+                            <div class="buttonsEdit">
+                            <a href="./Editar-produtos?solo=${produto.idProduto}" class="btnEdit"><i class="fa-solid fa-pen-to-square"></i></a>
                             <form action="dropProduto" method="post">
-                        <input type="hidden" value="${produto.idProduto}">
-                          <button type="submit" value="${produto.idProduto}" class=""><i class="fa-solid fa-xmark"></i></button> 
+                            <input type="hidden" value="${produto.idProduto}">
+                          <button type="submit" name="drop" value="${produto.idProduto}" class="btnEx"><i class="fa-solid fa-xmark"></i></button> 
                             </form>
-                           <a href="./Editar-produtos?solo=${produto.idProduto}"><i class="fa-solid fa-pen-to-square"></i></a>
-                     <img id="imgP" src="${produto.img}" alt="${produto.nome}">
+                            </div>
+                        <img id="imgP" src="${produto.img}" alt="${produto.nome}">
                           <h5 >${produto.nome}</h5>
                           <p >${produto.marca}</p>
-                          <p id="pre">Preço : ${produto.preco}</p>
+                          <div class="preco">
+                            <c:if test="${produto.valorTotal < produto.preco}">
+                              <p class="pre-antigo">De : <fmt:formatNumber value="${produto.valorTotal}" type="currency"/></p>
+                              </c:if>
+                         <p class="pre">Por : <fmt:formatNumber value="${produto.preco}" type="currency"/></p>
+                          </div>
                         </div>
                         </div>
                       </div>

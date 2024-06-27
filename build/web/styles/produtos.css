@@ -172,7 +172,7 @@ header {
 #marc{
     font-size: 30px;
 }
-.btn.btn-primary{
+.btnS{
     background-color: red;
     color: #000000;
     width: 26vw; 
@@ -181,7 +181,7 @@ header {
     position: relative;
     left: 5vh;
 }
-.btn.btn-primary:hover{
+.btnS:hover{
     background-color: black;
     color: red;
 }

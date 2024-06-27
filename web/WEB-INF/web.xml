@@ -50,6 +50,14 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
+        <url-pattern>/buscarCate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/buscarAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
         <url-pattern>/Cadastrar-produto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -106,11 +114,23 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CarrinhoController</servlet-name>
+        <url-pattern>/limparTudo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CarrinhoController</servlet-name>
         <url-pattern>/dropProd</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>CarrinhoController</servlet-name>
+        <url-pattern>/CarrinhoAdmin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PerfilController</servlet-name>
         <url-pattern>/Perfil</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>PerfilController</servlet-name>
+        <url-pattern>/editDados</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PerfilController</servlet-name>
@@ -135,10 +155,6 @@
     <servlet-mapping>
         <servlet-name>CheckoutController</servlet-name>
         <url-pattern>/Pagamento</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CheckoutController</servlet-name>
-        <url-pattern>/Checkout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

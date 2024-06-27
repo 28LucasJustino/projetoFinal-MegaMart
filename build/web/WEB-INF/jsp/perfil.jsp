@@ -87,14 +87,13 @@
                             <div class="card mb-3 content d-none" id="edit">
                                 <h1 class="m-3 pt-3">Editar Dados do Usuario</h1>
                                 <div class="card-body">
+                                    <form action="editDados" method="post">
                                     <div class="row">
                                         <div class="col-md-3">
                                             <h5>Nome</h5>
                                         </div>
                                         <div class="col-md-9 text-secondary">
-                                            <form action="editNome" method="post">
-                                           <input type="text" class="inputs" id="nome" placeholder=" ${user.nome}" required><button type="submit" class="btnEdit"><i class="fa-solid fa-pen-to-square"></i></button>
-                                        </form>
+                                           <input type="text" class="inputs" id="nome" name="nome" placeholder=" ${user.nome}" required><button type="submit" class="btnEdit" name="atualizar"><i class="fa-solid fa-pen-to-square"></i></button>
                                         </div>
                                     </div>
                                     <hr>
@@ -103,9 +102,7 @@
                                             <h5>E-mail</h5>
                                         </div>
                                         <div class="col-md-9 text-secondary">
-                                            <form action="editEmail" method="post">
-                                            <input type="email" class="inputs" id="email" placeholder=" ${user.email}" required><button type="submit" class="btnEdit"><i class="fa-solid fa-pen-to-square"></i></button>
-                                            </form>
+                                            <input type="email" class="inputs" id="email" name="email" placeholder=" ${user.email}" required><button type="submit" class="btnEdit" name="atualizar"><i class="fa-solid fa-pen-to-square"></i></button>
                                         </div>
                                     </div>
                                     <hr>
@@ -114,9 +111,7 @@
                                             <h5>Senha</h5>
                                         </div>
                                         <div class="col-md-9 text-secondary">
-                                            <form action="editSenha" method="post">
-                                            <input type="password" class="inputs" id="senha" placeholder=" *****" required><button type="submit" class="btnEdit"><i class="fa-solid fa-pen-to-square"></i></button>
-                                            </form>
+                                            <input type="password" class="inputs" id="senha" name="senha" placeholder=" *****" required><button type="submit" class="btnEdit" name="atualizar"><i class="fa-solid fa-pen-to-square"></i></button>
                                         </div>
                                     </div>
                                     <hr>
@@ -125,9 +120,7 @@
                                             <h5>CPF</h5>
                                         </div>
                                         <div class="col-md-9 text-secondary">
-                                            <form action="editCpf" method="post">
-                                            <input type="text" class="inputs" placeholder=" ${user.cpf}" id="cpf" minlength="14" maxlength="14" required><button type="submit" class="btnEdit"><i class="fa-solid fa-pen-to-square"></i></button>
-                                            </form>   
+                                            <input type="text" class="inputs" name="cpf" placeholder=" ${user.cpf}" id="cpf" minlength="14" maxlength="14" required><button type="submit" class="btnEdit" name="atualizar"><i class="fa-solid fa-pen-to-square"></i></button>
                                         </div>
                                     </div>
                                     <hr>
@@ -136,9 +129,7 @@
                                             <h5>Data de Nacimento</h5>
                                         </div>
                                         <div class="col-md-9 text-secondary">
-                                            <form action="editDate" method="post">
-                                            <input type="date" class="inputs" id="nascimento" placeholder=" ${user.nascimento}" min="1945-01-01" max="2006-12-31" pattern="\d{4}-\d{2}-\d{2}" required><button type="submit" class="btnEdit"><i class="fa-solid fa-pen-to-square"></i></button>
-                                            </form>   
+                                            <input type="date" class="inputs" id="nascimento" name="nascimento" placeholder=" ${user.nascimento}" min="1945-01-01" max="2006-12-31" pattern="\d{4}-\d{2}-\d{2}" required><button type="submit" class="btnEdit" name="atualizar"><i class="fa-solid fa-pen-to-square"></i></button>
                                         </div>
                                     </div>
                                     <hr>
@@ -147,12 +138,10 @@
                                             <h5>Telefone</h5>
                                         </div>
                                         <div class="col-md-9 text-secondary">
-                                            <form action="editTel" method="post">
-                                            <input type="text" class="inputs" id="telefone" placeholder=" ${user.telefone}" minlength="14" maxlength="14" required><button type="submit" class="btnEdit"><i class="fa-solid fa-pen-to-square"></i></button>
-                                            </form>
+                                            <input type="text" class="inputs" id="telefone" name="telefone" placeholder=" ${user.telefone}" minlength="14" maxlength="14" required><button type="submit" class="btnEdit" name="atualizar"><i class="fa-solid fa-pen-to-square"></i></button>
                                         </div>
                                     </div>
-                                    <hr>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -160,51 +149,7 @@
                             <div class="card mb-3 content d-none" id="ped">
                                 <h1 class="m-3 pt-3">Meus Pedidos</h1>
                                 <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <h5>Nome</h5>
-                                        </div>
-                                        <div class="col-md-9 text-secondary">
-                                            ${user.nome}
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <h5>E-mail</h5>
-                                        </div>
-                                        <div class="col-md-9 text-secondary">
-                                            ${user.email}
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <h5>Telefone</h5>
-                                        </div>
-                                        <div class="col-md-9 text-secondary">
-                                            ${user.telefone}
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <h5>CPF</h5>
-                                        </div>
-                                        <div class="col-md-9 text-secondary">
-                                            ${user.cpf}
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <h5>Data de Nacimento</h5>
-                                        </div>
-                                        <div class="col-md-9 text-secondary">
-                                            ${user.nascimento}
-                                        </div>
-                                    </div>
-                                    <hr>
+                                    
                                 </div>
                             </div>
                         </div>

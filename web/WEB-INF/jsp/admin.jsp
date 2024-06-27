@@ -59,7 +59,7 @@
                             <br>
                             <label for="descricao" id="lab"><i class="fa-solid fa-message"></i>Descrição</label>
                             <div class="inputs">
-                                <textarea  id="descricao" name="descricao" class="tab" rows="6"></textarea>
+                                <textarea  id="descricao" name="descricao" class="tab" rows="10"></textarea>
                             </div>
                             <br>
                             <div class="inputs">

@@ -166,14 +166,15 @@ header {
     cursor: text;
 }
 .tab{
-    width: 16vw;
+    width: 20vw;
+    height: 25vh;
 }
 .inputs input:hover {
     background-color: #eeeeee75;
     outline: 1px solid red;
 }
 .btnLogin{
-    width: 90%;
+    width: 40%;
     padding: 16px 0px;
     margin: 25px;
     border: none;
