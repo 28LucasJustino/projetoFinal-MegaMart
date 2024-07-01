@@ -236,8 +236,6 @@ header {
 
 .pags .btnPagamento:hover {
     transform: scale(1.1);
-    background-color: black;
-    color: red;
 }
 .juk{
     background-color: transparent;

@@ -8,7 +8,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" %>
         <header>
         <nav class="Header-site">
-            <a href="./Home"><img src="assets/Design_sem_nome-removebg-preview.png" id="imageL" alt=""></a> 
+            <a href="./Home"><img src="assets/teste-removebg-preview.png" id="imageL" alt=""></a> 
             <div class="cate">
                 <form action="buscarProdutos" method="get">
                     <input type="text" name="busca" class="inB"><button class="btnB" ><i class="fa-solid fa-magnifying-glass"id="iconB"></i></button>

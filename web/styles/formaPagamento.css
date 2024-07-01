@@ -136,6 +136,13 @@ header {
 .MetodoPag{
     align-items: center;
     overflow: hidden;
+    position: relative;
+    top: 10vh;
+}
+.tit{
+    font-weight: 900;
+    position: relative;
+    left: 92vh;
 }
 .metod{
     display: flex;
@@ -185,10 +192,8 @@ header {
     color: red;
 }
 
-.btnFinalizar{
-    text-align: center;
-    text-decoration: none;
-    width: 521px;
+.btnCartao{
+    width: 15vw;
     padding: 10px 20px;
     margin: 40px;
     border: none;
@@ -201,17 +206,53 @@ header {
     color: #fff;
     background-color: red;
     cursor: pointer;
-    box-shadow: 0 10px 40px -12px red;
+}
+.btnCartao:hover{
+    transform: scale(1.05);
+}
+#pix{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
     position: relative;
-    right: 2vh;
+    left: 73vh;
+}
+.imgQR{
+    width: 20vh;
+ 
+}
+.net{
+    font-weight: 900;
+    position: relative;
     top: 3vh;
 }
-.btnFinalizar:hover{
-    transform: scale(1.05);
-    background-color:rgb(0, 0, 0);
-    color: red;
+.bit{
+    font-weight: 900;
+    position: relative;
+    bottom: 2vh;  
 }
-
+.btnPix{
+    width: 15vw;
+    padding: 10px 20px;
+    margin: 40px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    align-items: center;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #fff;
+    background-color: red;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+.btnPix:hover{
+    transform: scale(1.05);
+}
 footer{
-    margin-top: 12vh;
+    margin-top: 28vh;
 }

@@ -147,8 +147,7 @@ header {
 .card{
     margin-bottom: 2vw;
     display: flex;
-    width: 17vw;
-    height: 13vh;
+    max-height: auto;
     text-decoration: none;
 }
 
@@ -176,12 +175,11 @@ header {
 }
 .btnS{
     background-color: red;
-    color: #000000;
+    color: #ffffff;
     width: 100%;
 }
 .btnS:hover{
-    background-color: black;
-    color: red;
+    transform: scale(1.05);
 }
 #zz{
     position: relative;

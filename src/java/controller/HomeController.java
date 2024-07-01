@@ -109,7 +109,7 @@ public class HomeController extends HttpServlet {
                 List<ProdutoDTO> produtos = produtosDAO.buscarProd(busca);
                 request.setAttribute("produtos", produtos);
             }
-            String nextPage = "/WEB-INF/jsp/index.jsp";
+            String nextPage = "/WEB-INF/jsp/busca.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
            } else if (url.equals("/buscarCate")) {
@@ -119,7 +119,7 @@ public class HomeController extends HttpServlet {
                 List<ProdutoDTO> produtos = produtosDAO.buscarCate(Integer.parseInt(categoria));
                 request.setAttribute("produtos", produtos);
             }
-            String nextPage = "/WEB-INF/jsp/index.jsp";
+            String nextPage = "/WEB-INF/jsp/busca.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
             

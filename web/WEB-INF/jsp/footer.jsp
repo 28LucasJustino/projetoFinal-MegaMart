@@ -17,7 +17,7 @@
   	 <div class="footer-body">
   	 	<div class="sci">
   	 		<div class="info">
-  	 			<h4>Nossa Empressa</h4>
+  	 			<h4>Nossa Empresa</h4>
   	 			<ul>
             <li><a href="#">Sobre Nós</a></li>
             <li><a href="#">Nossos Serviços</a></li>

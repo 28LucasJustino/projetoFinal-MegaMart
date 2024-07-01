@@ -26,7 +26,7 @@
                             <button class="btnPag" id="c" type="submit" onclick="cartao()"><i class="fa-solid fa-credit-card"></i></button>
                         </div>
                     <div class="cartao d-none" id="cartao">
-                        <p><i class="fa-solid fa-credit-card" id="iconH"></i>Insira seu Cartão</p>
+                        <p class="bit"><i class="fa-solid fa-credit-card" id="iconH"></i>Insira seu Cartão</p>
                             <div class="inputsPag">
                                 <label for="">Numero Cartão</label>
                                 <input type="text" id="numeroCartao" placeholder="0000 0000 0000 0000" required>
@@ -36,12 +36,15 @@
                                 <input type="text" id="valid" placeholder="MM/AA" required>
                                 <label for="">Nome Completo do titular</label>
                                 <input type="text" id="nomeCompleto" required>
-                                <a href="./Checkout" class="btnFinalizar">Finalizar Compra<i class="fa-solid fa-shopping-cart me-1"></i></a>
+                            </div>
+                            <button class="btnCartao">Finalizar Compra<i class="fa-solid fa-shopping-cart me-1"></i></button>
                     </div>
                     <div id="chavepix" class="d-none">
                         <div id="pix">
-                            <p id="net" class="tit"><i class="fa-brands fa-pix"></i>Pix para pagamento</p>             
-                            <a href="./Checkout" class="btnFinalizar">Finalizar Compra<i class="fa-solid fa-shopping-cart me-1"></i></a>
+                            <p class="bit"><i class="fa-brands fa-pix" id="iconH"></i>Pix para pagamento</p>
+                            <img src="assets/QR_Code_Afinz.png" alt="qrCode" class="imgQR">
+                            <p class="net">b96c0c93-3639-45b6-8ae8-bca55f94d2ec</p>     
+                            <a href="./Checkout"><button class="btnPix">Finalizar Compra<i class="fa-solid fa-shopping-cart me-1"></i></button></a>   
                         </div>
                     </div>
                   </div>

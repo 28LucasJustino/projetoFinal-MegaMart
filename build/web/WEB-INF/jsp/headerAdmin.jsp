@@ -10,7 +10,7 @@
     <body>
         <header>
         <nav class="Header-site">
-            <a href="./HomeAdmin"><img src="assets/Design_sem_nome-removebg-preview.png" id="imageL" alt=""></a> 
+            <a href="./HomeAdmin"><img src="assets/teste-removebg-preview.png" id="imageL" alt=""></a> 
             <div class="cate">
                 <form action="buscarAdmin" method="get">
                     <input type="text" name="buscaA" class="inB"><button class="btnB" ><i class="fa-solid fa-magnifying-glass"id="iconB"></i></button>

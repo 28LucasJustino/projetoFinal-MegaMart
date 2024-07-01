@@ -23,16 +23,15 @@
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
-  <br>
   <div class="carousel-inner">
     <div class="carousel-item active">
-    <img src="assets/1600w-p-rSilT3qyg.jpg" class="d-block w-100" alt="...">
+    <img src="assets/1600w-p-rSilT3qyg1414.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="assets/1600w-kRHhuudoZKA12.jpg" class="d-block w-100" alt="...">
+      <img src="assets/zxczxc.png" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="assets/1600w-URLSN-T6mbI.jpg" class="d-block w-100" alt="...">
+      <img src="assets/rtgswfefgerg.png" class="d-block w-100" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

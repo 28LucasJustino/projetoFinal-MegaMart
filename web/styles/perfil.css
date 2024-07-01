@@ -129,7 +129,7 @@ header {
 }
 .bcCate ul{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     justify-content: space-between;
 }
 
@@ -186,7 +186,7 @@ header {
 
 #edit{
     position: relative;
-    left: 40vh; 
+    left: 55vh; 
     top: -20vh;
 }
 .inputs{

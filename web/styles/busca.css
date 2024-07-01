@@ -147,7 +147,8 @@ header {
 .card{
     margin-bottom: 2vw;
     display: flex;
-    max-height: auto;
+    max-width: 17vw;
+    height: 13vh;
     text-decoration: none;
 }
 
@@ -180,8 +181,4 @@ header {
 }
 .btnS:hover{
     transform: scale(1.05);
-}
-#zz{
-    position: relative;
-    top: 0.5vw;
 }
