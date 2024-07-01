@@ -193,7 +193,7 @@ header {
 }
 
 .btnCartao{
-    width: 15vw;
+    width: 20vw;
     padding: 10px 20px;
     margin: 40px;
     border: none;
@@ -217,7 +217,7 @@ header {
     justify-content: center;
     padding: 60px;
     position: relative;
-    left: 73vh;
+    left: 67vh;
 }
 .imgQR{
     width: 20vh;
@@ -234,7 +234,7 @@ header {
     bottom: 2vh;  
 }
 .btnPix{
-    width: 15vw;
+    width: 20vw;
     padding: 10px 20px;
     margin: 40px;
     border: none;

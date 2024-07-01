@@ -161,4 +161,8 @@ header {
         bottom: 3.5vw;
         right: 12vh;
     }
+
+    footer{
+        margin-top: 10vh;
+    }
 }

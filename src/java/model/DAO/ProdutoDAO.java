@@ -107,39 +107,6 @@ public class ProdutoDAO {
 
         return resultBuscaC;
     }
-      public List<ProdutoDTO> listarProdutos() {
-        List<ProdutoDTO> produtos = new ArrayList<>();
-        Connection conexao = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-
-        try {
-            conexao = Conexao.conectar();
-            stmt = conexao.prepareStatement("SELECT * FROM produto LIMIT 20");
-            rs = stmt.executeQuery();
-
-            while (rs.next()) {
-                ProdutoDTO prod = new ProdutoDTO();
-                prod.setIdProduto(rs.getInt("idProduto"));
-                prod.setNome(rs.getString("nome"));
-                prod.setCategoria(rs.getInt("categoria"));
-                prod.setMarca(rs.getString("marca"));
-                prod.setDescricao(rs.getString("descricao"));
-                prod.setDesconto(rs.getFloat("desconto"));
-                prod.setPreco(rs.getFloat("preco"));
-                prod.setEstoque(rs.getInt("estoque"));
-                prod.setValorTotal(rs.getFloat("valorTotal"));
-                prod.setImg(rs.getString("img"));
-                produtos.add(prod);
-            }           
-            rs.close();
-            stmt.close();
-            conexao.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return produtos;
-    }
       public List<ProdutoDTO> listarTudo() {
         List<ProdutoDTO> produtos = new ArrayList<>();
         Connection conexao = null;
