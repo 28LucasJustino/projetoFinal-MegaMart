@@ -6,6 +6,7 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@page pageEncoding="UTF-8"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" %>
+    <html>
         <header>
         <nav class="Header-site">
             <a href="./Home"><img src="assets/teste-removebg-preview.png" id="imageL" alt=""></a> 
@@ -30,3 +31,4 @@
          </div>
         </header>
     <script src="https://kit.fontawesome.com/c5d333bbd9.js" crossorigin="anonymous"></script>
+    </html>    

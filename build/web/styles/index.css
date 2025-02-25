@@ -6,7 +6,7 @@
     font-family: "Roboto Condensed", sans-serif;
 }
 header {
-    background-color: rgb(66, 66, 66);
+    background-color: rgb(20, 20, 20);
     box-shadow: 0px 3px 10px #000000;
     width: auto;
     height: 12vh;
@@ -95,7 +95,7 @@ header {
     bottom: 2vw;
 }
 .item {
-    margin: 0 15px;
+    margin: 5px 15px;
 }
 #iconC{
     font-size: 22px;

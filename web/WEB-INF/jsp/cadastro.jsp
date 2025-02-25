@@ -23,12 +23,8 @@
                 <div class="form">
                     <form action="cad" id="formCad" method="post">
                         <div class="form-header">
-                            <img src="assets/Design_sem_nome-removebg-preview.png" id="imageC" alt=""/>
                             <div class="title">
                                 <h1>Cadastre-se</h1>
-                            </div>
-                            <div class="login-button">
-                                <button><a href="./Home">Home</a></button>
                             </div>
                         </div>
 

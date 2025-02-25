@@ -72,33 +72,7 @@ main .container {
 .form-header {
     margin-bottom: 3rem;
     display: flex;
-    justify-content: space-between;
-}
-
-.login-button {
-    display: flex;
-    align-items: center;
-}
-#imageC{
-    width: 15vw;
-}
-.login-button button {
-    border: none;
-    background-color: red;
-    padding: 0.4rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.login-button button:hover {
-    transform: scale(1.0);
-    background-color:red;
-}
-
-.login-button button a {
-    text-decoration: none;
-    font-weight: 500;
-    color:#fff;
+    justify-content: center;
 }
 
 .form-header h1 {
